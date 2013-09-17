@@ -1,0 +1,130 @@
+save.pkg.list <- installed.packages()[is.na(installed.packages()[ , "Priority"]), 1]
+save(save.pkg.list, file="pkglist.Rdata")
+load("pkglist.Rdata")#
+install.packages(save.pkg.list)
+save.pkg.list
+typeof(save.pkg.list)
+x<-x[-which(x==4)]
+save.pkg.list<-save.pkg.list[-which(save.pkg.list=="financial")]
+load("pkglist.Rdata")#
+install.packages(save.pkg.list)
+save.pkg.list<-save.pkg.list[-which(save.pkg.list=="zoo")]
+save.pkg.list
+save.pkg.list<-save.pkg.list[-which(save.pkg.list=="financial")]
+save.pkg.list
+load("pkglist.Rdata")#
+install.packages(save.pkg.list)
+save.pkg.list<-save.pkg.list[-which(save.pkg.list=="financial")]
+install.packages(save.pkg.list)
+Sys.getenv("PATH")
+load("pkglist.Rdata")
+save.pkg.list<-save.pkg.list[-which(save.pkg.list=="financial")]
+install.packages(save.pkg.list)
+library(party)#
+library(rpart)#
+library(ggplot2)#
+library(randomForest)
+head(kyphosis)
+summary(kyphosis)
+length(kyphosis)
+require(devtools)
+install_github("slidify", "ramnathv")
+For data manipulation and visualization#
+library(AppliedPredictiveModeling)#
+library(C50)#
+library(caret)#
+library(doMC)#
+library(pROC)#
+library(rpart.plot)	# Fancy tree plot#
+library(rattle) # Nice tree plot from rattle - fancyRpartPlot#
+library(RColorBrewer)#
+#
+# Replace this with the number of CPU cores on your machine (cores not CPUs!)#
+registerDoMC(2)#
+#
+# Replace the path here with the appropriate one for your machine#
+myprojectpath = "/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/"#
+#
+# Set the working directory to the current location for the project files#
+setwd(myprojectpath)#
+#
+# Replace the path here with the appropriate one for your machine#
+scriptpath = paste(myprojectpath, "scripts/", sep="")#
+datapath = paste(myprojectpath, "data/", sep="")#
+graphpath = paste(myprojectpath, "graphs/", sep="")#
+# Load Image Segmentation data#
+data(segmentationData)#
+#
+# Remove the Cell identification data#
+segmentationData$Cell <- NULL#
+#
+# The dataset already has defined training and test subsets, no need to subset#
+training <- subset(segmentationData, Case == "Train")#
+testing <- subset(segmentationData, Case == "Test")#
+# Remove the Case identification data#
+training$Case <- NULL#
+testing$Case <- NULL#
+str(training[,1:6])#
+#
+# Use three repeats of 10–fold cross–validation to train the tree#
+# 10-fold CV can be noisy/over-fitted for small to moderate sample sizes but we'll risk it for higher performances#
+# The CART algorithm uses overall accuracy and the one standard–error rule to prune the tree, however we can also choose the tree complexity based on the largest absolute area under the ROC curve.#
+cvCtrl <- trainControl(method = "repeatedcv", repeats = 3, summaryFunction = twoClassSummary, classProbs = TRUE)#
+rpartTune <- train(Class ~ ., data = training, method = "rpart", tuneLength = 30, metric = "ROC", trControl = cvCtrl)#
+#
+# Plot the#
+plot(rpartTune, scales = list(x = list(log = 10)))#
+#
+# Look at the results of the tuned tree based on the testing dataset for predicting new samples#
+rpartPred <- predict(rpartTune, testing)#
+confusionMatrix(rpartPred, testing$Class)
+rpartProbs <- predict(rpartTune, testing, type = "prob")
+rpartROC <- roc(testing$Class, rpartProbs[, "PS"], levels = rev(testing$Class))
+plot(rpartROC, type = "S", print.thres = .5)
+prp(rpartTune$finalModel)				# Will plot the tree
+confusionMatrix(rpartPred, testing$Class)
+For data manipulation and visualization#
+library(AppliedPredictiveModeling)#
+library(C50)#
+library(caret)#
+library(doMC)#
+library(pROC)#
+library(rpart.plot)	# Fancy tree plot#
+library(rattle) # Nice tree plot from rattle - fancyRpartPlot#
+library(RColorBrewer)#
+#
+# Replace this with the number of CPU cores on your machine (cores not CPUs!)#
+registerDoMC(2)#
+#
+# Replace the path here with the appropriate one for your machine#
+myprojectpath = "/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/"#
+#
+# Set the working directory to the current location for the project files#
+setwd(myprojectpath)#
+#
+# Replace the path here with the appropriate one for your machine#
+scriptpath = paste(myprojectpath, "scripts/", sep="")#
+datapath = paste(myprojectpath, "data/", sep="")#
+graphpath = paste(myprojectpath, "graphs/", sep="")#
+#
+# Load wine dataset into a dataframe for processing#
+wine.df = read.csv(paste(datapath, "goodwine.csv", sep=""))#
+#
+# Explore the first ten records of the dataset to take a peek#
+head(wine.df)#
+#
+# Look to get a summary of the dataset for each variable in the dataframe#
+summary(wine.df)
+head(wine.df)
+library(corrplot)
+library(corrplot)
+head(wine.df[13-15,])
+head(wine.df[13,])
+head(wine.df[,13-15])
+head(wine.df[,13])
+head(wine.df[,15])
+head(wine.df[, -c(13, 15)])
+library(corrplot)
+corrplot(cor(wine.df[, -c(13, 15)]), method = "number", tl.cex = 0.5)
+corrplot(cor(wine.df[, -c(13, 15)]), method = "number", tl.cex = 0.5)
+library(caret)

@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DublinR - Machine Learning</title>
+  <meta charset="utf-8">
+  <meta name="description" content="DublinR - Machine Learning">
+  <meta name="author" content="Eoin Brazil (https://github.com/braz/DublinR-ML-treesandforests)">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+    <link rel="stylesheet" href = "assets/css/ribbons.css">
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+    <!-- END LOGO SLIDE -->
+    
+
+    <!-- TITLE SLIDE -->
+    <!-- Should I move this to a Local Layout File? -->
+    <slide class="title-slide segue nobackground">
+      <hgroup class="auto-fadein">
+        <h1>DublinR - Machine Learning</h1>
+        <h2>Introduction to Trees and Forests</h2>
+        <p>Eoin Brazil (https://github.com/braz/DublinR-ML-treesandforests)<br/></p>
+      </hgroup>
+          </slide>
+
+    <!-- SLIDES -->
+      <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Introduction</h2>
+  </hgroup>
+  <article>
+    <p>Statistics versus Machine Learning (ML) when presented with a new dataset / problem</p>
+
+<h2>Context of Assumptions</h2>
+
+<ul>
+<li>Statisticians begin by making assumptions and modeling these to determine how the data was generated.</li>
+<li>ML people use algorithmic models where the data generation is treated as an unknown.</li>
+</ul>
+
+<h2>Which is best ?</h2>
+
+<ul>
+<li>Downsides to both and key question is making good predictions:
+
+<ul>
+<li>ML is data doesn&#39;t fit the model .... next please!</li>
+<li>Complexity of the data creates more complex models (in terms of interpretability &amp; of computation) hence in Stats trend to Bayesian MCMC.</li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Taking a 50,000 feet view of Machine Learning</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>Machine Learning seeks to provide classifiers that can approximate targets or desired parameter/s when given a sufficient large training set.</li>
+<li>Typically, you will provide a data set and split it into a <em>training</em> and a <em>test</em> sub-sets to develop the classifiers.</li>
+<li>The resulting classifier/s can then be used on new data to predict the desired parameter/s based on the earlier data.</li>
+</ul>
+
+<h2>Downsides to Machine Learning</h2>
+
+<ul>
+<li>ML approaches can be opaque to non-experts (Black-boxes)
+
+<ul>
+<li>It is impossible to explain the behavior of such a system.</li>
+</ul></li>
+<li>Academic quantitative measures not well matched to reality (e.g. <em>precision</em>, <em>recall</em>, <em>RMS error</em>, <em>etc</em>.)</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Into the Forest - CART (classification and regression trees)</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>Why should you use them?</li>
+<li>How can you interprest their results?</li>
+<li>What are they good at?</li>
+<li>A brief tour of the packages in R</li>
+</ul>
+
+<h2>Why should you use them ?</h2>
+
+<ol>
+<li>Classification and Regression can be difficult to visualize and convey the meaning of to non-experts</li>
+<li>They work well with categorical (Classification) or continuous (Regression) variables</li>
+<li>You can use ensemble learning methods to improve results (e.g. Random Forest)</li>
+<li>They can be used on longitudinal studies / data</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>How can you interpret their results?</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>Confusion Matrices or contingency tables are used present the positive / negative classification results and are the basis for a ROC curve
+
+<ul>
+<li>true positive (TP - a hit), true negative (TN - a correct rejection), false positive (FP - negative but classified as positive, a false alarm, Type I error) and false negative (FN - positive but classified as negative, a miss, Type II error)</li>
+<li>Positive/Negative refers to Prediction</li>
+<li>True/False refers to Correctness</li>
+</ul></li>
+<li>ROC curves are a technique from signal detection theory that presents the balance between the hit rate and the false alarm rate of a classifier
+
+<ul>
+<li>What is the best threshold to distinguish between the absence of presence of a given signal</li>
+<li>Dependant on the i) the signal&#39;s strength, ii) noise variance, and iii) the false alarm rate or the desired hit rate</li>
+</ul></li>
+<li>AUC or area under the curve, maps a ROC to a single scalar value. A classifier&#39;s AUC is equvivlent to the probability that it will rank a random positive instance higher than a random negative instance</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-5">
+  <hgroup>
+    <h2>Interpreting A Confusion Matrix</h2>
+  </hgroup>
+  <article>
+    <hr noshade size=4 color='red'>  
+      
+    <div class='left' style='float:left;width:48%'>
+     <p><img src="figure/unnamed-chunk-1.png" alt="plot of chunk unnamed-chunk-1"> </p>
+
+
+    </div>    
+    <div class='right' style='float:right;width:48%'>
+     <ul>
+<li>TPR or True Positive Rate = TP / Pos = TP/TP+FN</li>
+<li>FPR or False Positive Rate = FP / Neg = FP/FP+TN</li>
+<li>ACC or Accuracy = Pos * TPR + Neg * (1-FPR), This is the weighted average of true positive and true negative rates</li>
+</ul>
+
+    </div>
+  </article>
+</slide>
+      <slide class="" id="slide-6">
+  <hgroup>
+    <h2>Interpreting A ROC Plot</h2>
+  </hgroup>
+  <article>
+    <hr noshade size=4 color='red'>  
+      
+    <div class='left' style='float:left;width:48%'>
+     <p><img src="figure/unnamed-chunk-2.png" alt="plot of chunk unnamed-chunk-2"> </p>
+
+
+    </div>    
+    <div class='right' style='float:right;width:48%'>
+     <ul>
+<li>A point in this plot is better than another if it is to the northwest (TPR higher / FPR lower / or both)</li>
+<li>``Conservatives&#39;&#39; - on LHS and near the X-axis - only make positive classification with strong evidence and making few FP errors but low TP rates</li>
+<li>``Liberals&#39;&#39; - on upper RHS - make positive classifications with weak evidence so nearly all postivies identified however high FP rates</li>
+</ul>
+
+    </div>
+  </article>
+</slide>
+      <slide class="" id="slide-7">
+  <hgroup>
+    <h2>Addressing Prediction Error</h2>
+  </hgroup>
+  <article>
+    <hr noshade size=4 color='red'>  
+      
+    <div class='left' style='float:left;width:48%'>
+     <p><img src="figure/unnamed-chunk-3.png" alt="plot of chunk unnamed-chunk-3"> </p>
+
+
+    </div>    
+    <div class='right' style='float:right;width:48%'>
+     <ul>
+<li>K-fold Cross-Validation (e.g. 10-fold) 
+
+<ul>
+<li>Allows for averaging the error across the models</li>
+</ul></li>
+<li>Bootstrapping, draw B random samples with replacement from data set to create B bootstrapped data sets with same size as original. These are used as training sets with the original used as the test set.</li>
+<li>Other variations on above:
+
+<ul>
+<li>Repeated cross validation</li>
+<li>The &#39;.632&#39; bootstrap</li>
+</ul></li>
+</ul>
+
+    </div>
+  </article>
+</slide>
+      <slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Model Selection</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>Validation process using optimization procedure or a simple grid search over set of values for models to examine different tuning parameters</li>
+<li>Criteria for selection can be overall accuracy or to simplest within one standard error of accuracy of the best / within X% of the best model or to most important features where there are many predicator variables.</li>
+</ul>
+
+<h2>Model Assessment</h2>
+
+<ul>
+<li>Given the tuning parameters/features the performance should be examined on the test set. In classification problems, it is useful to look beyond the accuracy measure for performance, particularly if the classes are unbalanced. Different models can be combined to create a better classifier using an ensemble of models.</li>
+</ul>
+
+<h2>caret Package</h2>
+
+<ul>
+<li>Really useful as steamlines model building and evaluation as well as feature selection plus a number of other tasks in classifier creation.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-9">
+  <hgroup>
+    <h2>What are they good for ?</h2>
+  </hgroup>
+  <article>
+    <hr noshade size=4 color='red'>  
+    <h3>A - Car Insurance Policy Explosure Management - Part 1</h3>
+
+  
+    <div class='left' style='float:left;width:48%'>
+     <p><img src="figure/unnamed-chunk-4.png" alt="plot of chunk unnamed-chunk-4"> </p>
+
+
+    </div>    
+    <div class='right' style='float:right;width:48%'>
+     <ul>
+<li>Analysing insurance claim details of 67856 policies taken out in 2004 and 2005 (using ctree, &quot;1-Car-ctree-singletree.R&quot;)</li>
+<li>The model maps each record into one of X mutually exclusive terminal nodes or groups</li>
+<li>These groups are represented by their average response, where the node number is treated as the data group</li>
+<li>The binary claim indicator uses 6 variables to determine a probability estimate for each terminal node determine if a insurance policyholder will claim on their policy</li>
+</ul>
+
+    </div>
+  </article>
+</slide>
+      <slide class="" id="slide-10">
+  <hgroup>
+    <h3>A - Car Insurance Policy Explosure Management - Part 2</h3>
+  </hgroup>
+  <article>
+    <hr noshade size=4 color='red'>  
+      
+    <div class='left' style='float:left;width:48%'>
+     <p><img src="figure/unnamed-chunk-5.png" alt="plot of chunk unnamed-chunk-5"> </p>
+
+
+    </div>    
+    <div class='right' style='float:right;width:48%'>
+     <ul>
+<li>Root node, splits the dataset on &#39;agecat&#39;</li>
+<li>Younger drivers to the left (1-8) and older drivers (9-11) to right</li>
+<li>N9 splits on basis of vehicle value</li>
+<li>N10 &lt;= $28.9k giving 15k records and 5.4% of claims</li>
+<li>N11 &gt; $28.9k+ giving 1.9k records and 8.5% of claims</li>
+<li>Left Split from Root, N2 splits on vehicle body type, on age (N4), then on vehicle value (N6)</li>
+<li>The n value = num of overall population and the y value = probability of claim from a driver in that group</li>
+</ul>
+
+    </div>
+  </article>
+</slide>
+      <slide class="" id="slide-11">
+  <hgroup>
+    <h2>What are they good for ?</h2>
+  </hgroup>
+  <article>
+    <hr noshade size=4 color='red'>  
+    <h3>B - Cancer Research Screening - Part 1</h3>
+
+  
+    <div class='left' style='float:left;width:48%'>
+     <p><img src="figure/unnamed-chunk-6.png" alt="plot of chunk unnamed-chunk-6"> </p>
+
+
+    </div>    
+    <div class='right' style='float:right;width:48%'>
+     <ul>
+<li>Hill et al (2007), models how well cells within an image are segmented, 61 vars with 2019 obs (Training = 1009 &amp; Test = 1010)
+
+<ul>
+<li>&quot;Impact of image segmentation on high-content screening data quality for SK-BR-3 cells, Andrew A Hill, Peter LaPan, Yizheng Li and Steve Haney, BMC Bioinformatics 2007, 8:340&quot;</li>
+<li>b, Well-Segmented (WS)</li>
+<li>c, WS (e.g. complete nucleus and cytoplasmic region)</li>
+<li>d, Poorly-Segmented (PS)</li>
+<li>e, PS (e.g. partial match/es)</li>
+</ul></li>
+</ul>
+
+    </div>
+  </article>
+</slide>
+      <slide class="" id="slide-12">
+  <hgroup>
+    <h3>B - Cancer Research Screening - Part 2</h3>
+  </hgroup>
+  <article>
+    <hr noshade size=4 color='red'>  
+      
+    <div class='left' style='float:left;width:48%'>
+     <h4>&quot;prp(rpartTune$finalModel)&quot;</h4>
+
+<p><img src="figure/unnamed-chunk-7.png" alt="plot of chunk unnamed-chunk-7"> </p>
+
+
+    </div>    
+    <div class='right' style='float:right;width:48%'>
+     <h4>&quot;fancyRpartPlot(rpartTune$finalModel)&quot;</h4>
+
+<p><img src="figure/unnamed-chunk-8.png" alt="plot of chunk unnamed-chunk-8"> </p>
+
+    </div>
+  </article>
+</slide>
+      <slide class="" id="slide-13">
+  <hgroup>
+    <h3>B - Cancer Research Screening - Part 3</h3>
+  </hgroup>
+  <article>
+    <hr noshade size=4 color='red'>  
+      
+    <div class='left' style='float:left;width:48%'>
+     <p><img src="figure/unnamed-chunk-9.png" alt="plot of chunk unnamed-chunk-9"> </p>
+
+
+    </div>    
+    <div class='right' style='float:right;width:48%'>
+     <p><img src="figure/unnamed-chunk-10.png" alt="plot of chunk unnamed-chunk-10"> </p>
+
+    </div>
+  </article>
+</slide>
+      <slide class="" id="slide-14">
+  <hgroup>
+    <h2>What are they good for ?</h2>
+  </hgroup>
+  <article>
+    <hr noshade size=4 color='red'>  
+    <h3>C - Predicting the Quality of Wine - Part 1</h3>
+
+  
+    <div class='left' style='float:left;width:48%'>
+     <p><img src="figure/unnamed-chunk-12.png" alt="plot of chunk unnamed-chunk-12"> </p>
+
+
+    </div>    
+    <div class='right' style='float:right;width:48%'>
+     <ul>
+<li>Cortez et al (2009), models the quality of wines (Vinho Verde), 14 vars with 4898 obs (Training = 5199 &amp; Test = 1298)</li>
+<li>&quot;Modeling wine preferences by data mining from physicochemical properties, P. Cortez, A. Cerdeira, F. Almeida, T. Matos and J. Reis, Decision Support Systems 2009, 47(4):547-553&quot;
+
+<ul>
+<li>Good (quality score is &gt;= 6)</li>
+<li>Bad (quality score is &lt; 6)</li>
+</ul></li>
+</ul>
+
+<p>--- &amp;twocol</p>
+
+<h3>C - Predicting the Quality of Wine - Part 2</h3>
+
+
+    </div>
+  </article>
+</slide>
+      <slide class="" id="slide-15">
+  <hgroup>
+    <h3>C - Predicting the Quality of Wine - Part 3</h3>
+  </hgroup>
+  <article>
+    <hr noshade size=4 color='red'>  
+      
+    <div class='left' style='float:left;width:48%'>
+     <p><img src="figure/unnamed-chunk-14.png" alt="plot of chunk unnamed-chunk-14"> </p>
+
+
+    </div>    
+    <div class='right' style='float:right;width:48%'>
+     <p><img src="figure/unnamed-chunk-15.png" alt="plot of chunk unnamed-chunk-15"> </p>
+
+    </div>
+  </article>
+</slide>
+      <slide class="" id="slide-16">
+  <hgroup>
+    <h2>A (incomplete) tour of the packages in R</h2>
+  </hgroup>
+  <article>
+    <hr noshade size=4 color='red'>  
+      
+    <div class='left' style='float:left;width:48%'>
+     <ul>
+<li>caret</li>
+<li>party</li>
+<li>rpart</li>
+<li>rpart.plot</li>
+<li>AppliedPredictiveModeling</li>
+<li>randomForest</li>
+</ul>
+
+
+    </div>    
+    <div class='right' style='float:right;width:48%'>
+     <ul>
+<li>C50</li>
+<li>pROC</li>
+<li>corrplot</li>
+<li>kernlab</li>
+<li>rattle</li>
+<li>RColorBrewer</li>
+</ul>
+
+    </div>
+  </article>
+</slide>
+    <slide class="backdrop"></slide>
+  </slides>
+
+  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+<!-- Grab CDN jQuery, fall back to local if offline -->
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+<script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery-1.7.min.js"><\/script>')</script>
+<!-- Load Javascripts for Widgets -->
+<!-- LOAD HIGHLIGHTER JS FILES -->
+<script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-- DONE LOADING HIGHLIGHTER JS FILES -->
+</html>
