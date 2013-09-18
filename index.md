@@ -1,6 +1,6 @@
 ---
-title       : DublinR - Machine Learning
-subtitle    : Introduction to Trees and Forests
+title       : DublinR - Machine Learning 101
+subtitle    : Introduction with Examples - Trees, Forests, etc.
 author      : Eoin Brazil (https://github.com/braz/DublinR-ML-treesandforests)
 job         : 
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
@@ -205,21 +205,24 @@ Statistics versus Machine Learning (ML) when presented with a new dataset / prob
 ![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10.png) 
 
 
+
 --- &twocol
 ## What are they good for ?
 ### C - Predicting the Quality of Wine - Part 1
 
 *** left
-![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11.png) 
 
-
-*** right
 * Cortez et al (2009), models the quality of wines (Vinho Verde), 14 vars with 4898 obs (Training = 5199 & Test = 1298)
 * "Modeling wine preferences by data mining from physicochemical properties, P. Cortez, A. Cerdeira, F. Almeida, T. Matos and J. Reis, Decision Support Systems 2009, 47(4):547-553"
   * Good (quality score is >= 6)
   * Bad (quality score is < 6)
-    
-    
+
+*** right
+
+![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11.png) 
+
+
+
 --- &twocol
 ### C - Predicting the Quality of Wine - Part 2
 
@@ -241,9 +244,78 @@ Statistics versus Machine Learning (ML) when presented with a new dataset / prob
 ![plot of chunk unnamed-chunk-14](figure/unnamed-chunk-14.png) 
 
 
+
 *** right
 
 ![plot of chunk unnamed-chunk-15](figure/unnamed-chunk-15.png) 
+
+
+--- &twocol
+### C - Predicting the Quality of Wine - Part 4 - Other ML methods
+
+*** left
+* Unsupervised learning / non-target based learning
+* Distance matrix / cluster analaysis using Euclidean distances.
+* K-nearest neighbors approaches uses these distances for predictation
+
+*** right
+* x
+
+
+--- &twocol
+### C - Predicting the Quality of Wine - Part 5 - kNN
+
+*** left
+
+![plot of chunk unnamed-chunk-16](figure/unnamed-chunk-16.png) 
+
+
+
+*** right
+
+![plot of chunk unnamed-chunk-17](figure/unnamed-chunk-17.png) 
+
+
+--- &twocol
+### C - Predicting the Quality of Wine - Part 6 - NNET
+
+*** left
+
+![plot of chunk unnamed-chunk-18](figure/unnamed-chunk-18.png) 
+
+
+
+*** right
+
+![plot of chunk unnamed-chunk-19](figure/unnamed-chunk-19.png) 
+
+
+--- &twocol
+### C - Predicting the Quality of Wine - Part 7 - SVN
+
+*** left
+
+![plot of chunk unnamed-chunk-20](figure/unnamed-chunk-20.png) 
+
+
+
+*** right
+
+![plot of chunk unnamed-chunk-21](figure/unnamed-chunk-21.png) 
+
+
+--- &twocol
+### C - Predicting the Quality of Wine - Part 8 - All Results
+
+*** left
+
+![plot of chunk unnamed-chunk-22](figure/unnamed-chunk-22.png) 
+
+
+
+*** right
+
+![plot of chunk unnamed-chunk-23](figure/unnamed-chunk-23.png) 
 
 
 --- &twocol

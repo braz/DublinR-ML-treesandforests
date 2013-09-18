@@ -1,6 +1,6 @@
 ---
-title       : DublinR - Machine Learning
-subtitle    : Introduction to Trees and Forests
+title       : DublinR - Machine Learning 101
+subtitle    : Introduction with Examples - Trees, Forests, etc.
 author      : Eoin Brazil (https://github.com/braz/DublinR-ML-treesandforests)
 job         : 
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
@@ -246,25 +246,28 @@ img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-tre
  grid.raster(img)
 ```
 
+
 --- &twocol
 ## What are they good for ?
 ### C - Predicting the Quality of Wine - Part 1
 
 *** left
-```{r fig.width=7, fig.height=7, echo=FALSE}
-library(png)
-library(grid)
-img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/figure/originalImageSegmentation.png")
- grid.raster(img)
-```
 
-*** right
 * Cortez et al (2009), models the quality of wines (Vinho Verde), 14 vars with 4898 obs (Training = 5199 & Test = 1298)
 * "Modeling wine preferences by data mining from physicochemical properties, P. Cortez, A. Cerdeira, F. Almeida, T. Matos and J. Reis, Decision Support Systems 2009, 47(4):547-553"
   * Good (quality score is >= 6)
   * Bad (quality score is < 6)
-    
-    
+
+*** right
+
+```{r fig.width=6, fig.height=6, echo=FALSE}
+library(png)
+library(grid)
+img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/figure/wineBottles.png")
+ grid.raster(img)
+```
+
+
 --- &twocol
 ### C - Predicting the Quality of Wine - Part 2
 
@@ -287,7 +290,16 @@ img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-tre
 ```
 
 --- &twocol
-### C - Predicting the Quality of Wine - Part 3
+### C - Predicting the Quality of Wine - Part 3 - Beyond Trees
+
+*** left
+* y
+
+*** right
+* x
+
+--- &twocol
+### C - Predicting the Quality of Wine - Part 4 - Random Forest
 
 *** left
 
@@ -298,12 +310,113 @@ img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-tre
  grid.raster(img)
 ```
 
+
 *** right
 
 ```{r fig.width=7, fig.height=7, echo=FALSE}
 library(png)
 library(grid)
 img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/figure/randomForestROC.png")
+ grid.raster(img)
+```
+
+--- &twocol
+### C - Predicting the Quality of Wine - Part 5 - Other ML methods
+
+*** left
+* Unsupervised learning / non-target based learning
+* Distance matrix / cluster analaysis using Euclidean distances.
+* K-nearest neighbors approaches uses these distances for predictation
+
+*** right
+* x
+
+
+--- &twocol
+### C - Predicting the Quality of Wine - Part 6 - kNN
+
+*** left
+
+```{r fig.width=7, fig.height=7, echo=FALSE}
+library(png)
+library(grid)
+img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/figure/knnConfusionMatrixGoodWine.png")
+ grid.raster(img)
+```
+
+
+*** right
+
+```{r fig.width=7, fig.height=7, echo=FALSE}
+library(png)
+library(grid)
+img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/figure/knnROCGoodWine.png")
+ grid.raster(img)
+```
+
+--- &twocol
+### C - Predicting the Quality of Wine - Part 7 - NNET
+
+*** left
+
+```{r fig.width=7, fig.height=7, echo=FALSE}
+library(png)
+library(grid)
+img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/figure/nnetConfusionMatrixGoodWine.png")
+ grid.raster(img)
+```
+
+
+*** right
+
+```{r fig.width=7, fig.height=7, echo=FALSE}
+library(png)
+library(grid)
+img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/figure/nnetROCGoodWine.png")
+ grid.raster(img)
+```
+
+--- &twocol
+### C - Predicting the Quality of Wine - Part 8 - SVN
+
+*** left
+
+```{r fig.width=7, fig.height=7, echo=FALSE}
+library(png)
+library(grid)
+img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/figure/svmConfusionMatrixGoodWine.png")
+ grid.raster(img)
+```
+
+
+*** right
+
+```{r fig.width=7, fig.height=7, echo=FALSE}
+library(png)
+library(grid)
+img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/figure/svnROCGoodWine.png")
+ grid.raster(img)
+```
+
+--- &twocol
+### C - Predicting the Quality of Wine - Part 9 - All Results
+
+*** left
+
+```{r fig.width=7, fig.height=7, echo=FALSE}
+library(png)
+library(grid)
+img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/figure/allClassifiersAccuracyDotPlot.png")
+ grid.raster(img)
+```
+
+
+*** right
+
+```{r fig.width=7, fig.height=7, echo=FALSE}
+library(png)
+library(grid)
+img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/figure/allClassifiersROC.png")
  grid.raster(img)
 ```
 
