@@ -324,12 +324,29 @@ img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-tre
 ### C - Predicting the Quality of Wine - Part 5 - Other ML methods
 
 *** left
-* Unsupervised learning / non-target based learning
-* Distance matrix / cluster analaysis using Euclidean distances.
-* K-nearest neighbors approaches uses these distances for predictation
+*  K-nearest neighbors
+  * Unsupervised learning / non-target based learning
+  * Distance matrix / cluster analaysis using Euclidean distances.
+* Neural Nets
+  * Unsupervised learning / non-target based learning
+  * Distance matrix / cluster analaysis using Euclidean distances.
 
 *** right
-* x
+* Support Vector Machines
+  * Supervised learning
+  * Distance matrix / cluster analaysis using Euclidean distances.
+
+
+
+--- .class #id
+
+## Aside - How does k Nearest Neighbours Work ?
+```{r fig.width=15, fig.height=7, echo=FALSE}
+library(png)
+library(grid)
+img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/figure/kNN101Explanation.png")
+ grid.raster(img)
+```
 
 
 --- &twocol
@@ -353,6 +370,17 @@ library(grid)
 img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/figure/knnROCGoodWine.png")
  grid.raster(img)
 ```
+
+--- .class #id
+
+## Aside - How does neural networks work ?
+```{r fig.width=15, fig.height=7, echo=FALSE}
+library(png)
+library(grid)
+img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/figure/NNET101Explanation.png")
+ grid.raster(img)
+```
+
 
 --- &twocol
 ### C - Predicting the Quality of Wine - Part 7 - NNET
@@ -420,6 +448,31 @@ img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-tre
  grid.raster(img)
 ```
 
+
+--- &twocol
+## Other related tools: OpenRefine (formerly Google Refine) / Rattle
+
+
+*** left
+
+```{r fig.width=7, fig.height=7, echo=FALSE}
+library(png)
+library(grid)
+img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/figure/openrefine.png")
+ grid.raster(img)
+```
+
+
+*** right
+
+```{r fig.width=7, fig.height=7, echo=FALSE}
+library(png)
+library(grid)
+img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/figure/rattle-startup.png")
+ grid.raster(img)
+```
+
+
 --- &twocol
 ## A (incomplete) tour of the packages in R
 
@@ -430,6 +483,7 @@ img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-tre
 * rpart.plot
 * AppliedPredictiveModeling
 * randomForest
+* corrplot
 
 *** right
 * C50
@@ -438,3 +492,19 @@ img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-tre
 * kernlab
 * rattle
 * RColorBrewer
+* corrgram
+
+
+--- .class #id
+
+## In Summary
+
+### An idea of some of the types of classifiers available in ML.
+
+### What a confusion matrix and ROC means for a classifier and how to interpret them
+
+### An idea of how to test a set of techniques and parameters to help you find the best model for your data
+
+### Slides, Data, Scripts are all on GH at https://github.com/braz/DublinR-ML-treesandforests
+
+

@@ -186,3 +186,12 @@ plot(nnetROC, type = "S", print.thres = .5, col="green")
 par(new=TRUE)
 plot(svmROC, type = "S", print.thres = .5, col="purple")
 legend("bottomright", inset=.05, title="Classifiers", c("Random Forest","kNN","Neural Net","SVM"), fill=c("red","blue","green","purple"), horiz=TRUE)
+
+# 
+# 
+# Save the randomForst (best in this case) model to use for deployment
+# 
+#
+save(results.rf, file=(paste(datapath, "goodwine_randomforest.RData", sep="")))
+save(wine.df.train, file=(paste(datapath, "goodwine_training.RData", sep="")))
+save(wine.df.test, file=(paste(datapath, "goodwine_testing.RData", sep="")))

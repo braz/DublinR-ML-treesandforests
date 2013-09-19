@@ -237,7 +237,16 @@ Statistics versus Machine Learning (ML) when presented with a new dataset / prob
 
 
 --- &twocol
-### C - Predicting the Quality of Wine - Part 3
+### C - Predicting the Quality of Wine - Part 3 - Beyond Trees
+
+*** left
+* y
+
+*** right
+* x
+
+--- &twocol
+### C - Predicting the Quality of Wine - Part 4 - Random Forest
 
 *** left
 
@@ -251,47 +260,53 @@ Statistics versus Machine Learning (ML) when presented with a new dataset / prob
 
 
 --- &twocol
-### C - Predicting the Quality of Wine - Part 4 - Other ML methods
+### C - Predicting the Quality of Wine - Part 5 - Other ML methods
 
 *** left
-* Unsupervised learning / non-target based learning
-* Distance matrix / cluster analaysis using Euclidean distances.
-* K-nearest neighbors approaches uses these distances for predictation
+*  K-nearest neighbors
+  * Unsupervised learning / non-target based learning
+  * Distance matrix / cluster analaysis using Euclidean distances.
+* Neural Nets
+  * Unsupervised learning / non-target based learning
+  * Distance matrix / cluster analaysis using Euclidean distances.
 
 *** right
-* x
+* Support Vector Machines
+  * Supervised learning
+  * Distance matrix / cluster analaysis using Euclidean distances.
 
 
---- &twocol
-### C - Predicting the Quality of Wine - Part 5 - kNN
 
-*** left
+--- .class #id
 
+## Aside - How does k Nearest Neighbours Work ?
 ![plot of chunk unnamed-chunk-16](figure/unnamed-chunk-16.png) 
 
 
 
-*** right
+--- &twocol
+### C - Predicting the Quality of Wine - Part 6 - kNN
+
+*** left
 
 ![plot of chunk unnamed-chunk-17](figure/unnamed-chunk-17.png) 
 
 
---- &twocol
-### C - Predicting the Quality of Wine - Part 6 - NNET
 
-*** left
+*** right
 
 ![plot of chunk unnamed-chunk-18](figure/unnamed-chunk-18.png) 
 
 
+--- .class #id
 
-*** right
-
+## Aside - How does neural networks work ?
 ![plot of chunk unnamed-chunk-19](figure/unnamed-chunk-19.png) 
 
 
+
 --- &twocol
-### C - Predicting the Quality of Wine - Part 7 - SVN
+### C - Predicting the Quality of Wine - Part 7 - NNET
 
 *** left
 
@@ -305,7 +320,7 @@ Statistics versus Machine Learning (ML) when presented with a new dataset / prob
 
 
 --- &twocol
-### C - Predicting the Quality of Wine - Part 8 - All Results
+### C - Predicting the Quality of Wine - Part 8 - SVN
 
 *** left
 
@@ -319,6 +334,37 @@ Statistics versus Machine Learning (ML) when presented with a new dataset / prob
 
 
 --- &twocol
+### C - Predicting the Quality of Wine - Part 9 - All Results
+
+*** left
+
+![plot of chunk unnamed-chunk-24](figure/unnamed-chunk-24.png) 
+
+
+
+*** right
+
+![plot of chunk unnamed-chunk-25](figure/unnamed-chunk-25.png) 
+
+
+
+--- &twocol
+## Other related tools: OpenRefine (formerly Google Refine) / Rattle
+
+
+*** left
+
+![plot of chunk unnamed-chunk-26](figure/unnamed-chunk-26.png) 
+
+
+
+*** right
+
+![plot of chunk unnamed-chunk-27](figure/unnamed-chunk-27.png) 
+
+
+
+--- &twocol
 ## A (incomplete) tour of the packages in R
 
 *** left
@@ -328,6 +374,7 @@ Statistics versus Machine Learning (ML) when presented with a new dataset / prob
 * rpart.plot
 * AppliedPredictiveModeling
 * randomForest
+* corrplot
 
 *** right
 * C50
@@ -336,3 +383,19 @@ Statistics versus Machine Learning (ML) when presented with a new dataset / prob
 * kernlab
 * rattle
 * RColorBrewer
+* corrgram
+
+
+--- .class #id
+
+## In Summary
+
+### An idea of some of the types of classifiers available in ML.
+
+### What a confusion matrix and ROC means for a classifier and how to interpret them
+
+### An idea of how to test a set of techniques and parameters to help you find the best model for your data
+
+### Slides, Data, Scripts are all on GH at https://github.com/braz/DublinR-ML-treesandforests
+
+
