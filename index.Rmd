@@ -416,6 +416,18 @@ img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-tre
  grid.raster(img)
 ```
 
+
+--- .class #id
+
+## Aside - How do support vector machines work ?
+```{r fig.width=15, fig.height=7, echo=FALSE}
+library(png)
+library(grid)
+img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/figure/SVN101Explanation.png")
+ grid.raster(img)
+```
+
+
 --- &twocol
 ### C - Predicting the Quality of Wine - Part 8 - SVN
 
@@ -483,6 +495,32 @@ library(grid)
 img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/figure/rattle-startup.png")
  grid.raster(img)
 ```
+
+
+--- &twocol
+## Other related tools: Command Line Utilities
+
+*** left
+* [http://www.gregreda.com/2013/07/15/unix-commands-for-data-science/](http://www.gregreda.com/2013/07/15/unix-commands-for-data-science/)
+  * sed / awk
+  * head / tail
+  * wc (word count)
+  * grep
+  * sort / uniq
+* [http://blog.comsysto.com/2013/04/25/data-analysis-with-the-unix-shell/](http://blog.comsysto.com/2013/04/25/data-analysis-with-the-unix-shell/)
+  * join
+  * Gnuplot
+
+*** right
+* [http://jeroenjanssens.com/2013/09/19/seven-command-line-tools-for-data-science.html](http://jeroenjanssens.com/2013/09/19/seven-command-line-tools-for-data-science.html)
+  * [http://csvkit.readthedocs.org/en/latest/](csvkit)
+  * [https://github.com/jehiah/json2csv](json2csv)
+  * [http://stedolan.github.io/jq/](jq - sed for json)
+  * [https://github.com/jeroenjanssens/data-science-toolbox/blob/master/sample](sample)
+  * [https://github.com/bitly/data_hacks](bitly command line tools)
+  * [https://github.com/jeroenjanssens/data-science-toolbox/blob/master/Rio](Rio - csv to r to graphic output)
+  * [https://github.com/parmentf/xml2json](xml2json)
+
 
 
 --- &twocol

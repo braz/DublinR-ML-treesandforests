@@ -237,7 +237,7 @@ Statistics versus Machine Learning (ML) when presented with a new dataset / prob
 
 
 --- &twocol
-### C - Predicting the Quality of Wine - Part 3 - Beyond Trees
+### C - Predicting the Quality of Wine - Part 3 - Beyond trees
 
 *** left
 * y
@@ -248,7 +248,7 @@ Statistics versus Machine Learning (ML) when presented with a new dataset / prob
 
 --- .class #id
 
-## Aside - How do random forests work ?
+## Aside - How does a random forest work ?
 ![plot of chunk unnamed-chunk-14](figure/unnamed-chunk-14.png) 
 
 
@@ -287,7 +287,7 @@ Statistics versus Machine Learning (ML) when presented with a new dataset / prob
 
 --- .class #id
 
-## Aside - How does k Nearest Neighbours Work ?
+## Aside - How does k nearest neighbours work ?
 ![plot of chunk unnamed-chunk-17](figure/unnamed-chunk-17.png) 
 
 
@@ -327,18 +327,26 @@ Statistics versus Machine Learning (ML) when presented with a new dataset / prob
 ![plot of chunk unnamed-chunk-22](figure/unnamed-chunk-22.png) 
 
 
+
+--- .class #id
+
+## Aside - How do support vector machines work ?
+![plot of chunk unnamed-chunk-23](figure/unnamed-chunk-23.png) 
+
+
+
 --- &twocol
 ### C - Predicting the Quality of Wine - Part 8 - SVN
 
 *** left
 
-![plot of chunk unnamed-chunk-23](figure/unnamed-chunk-23.png) 
+![plot of chunk unnamed-chunk-24](figure/unnamed-chunk-24.png) 
 
 
 
 *** right
 
-![plot of chunk unnamed-chunk-24](figure/unnamed-chunk-24.png) 
+![plot of chunk unnamed-chunk-25](figure/unnamed-chunk-25.png) 
 
 
 --- &twocol
@@ -346,13 +354,13 @@ Statistics versus Machine Learning (ML) when presented with a new dataset / prob
 
 *** left
 
-![plot of chunk unnamed-chunk-25](figure/unnamed-chunk-25.png) 
+![plot of chunk unnamed-chunk-26](figure/unnamed-chunk-26.png) 
 
 
 
 *** right
 
-![plot of chunk unnamed-chunk-26](figure/unnamed-chunk-26.png) 
+![plot of chunk unnamed-chunk-27](figure/unnamed-chunk-27.png) 
 
 
 
@@ -362,13 +370,39 @@ Statistics versus Machine Learning (ML) when presented with a new dataset / prob
 
 *** left
 
-![plot of chunk unnamed-chunk-27](figure/unnamed-chunk-27.png) 
+![plot of chunk unnamed-chunk-28](figure/unnamed-chunk-28.png) 
 
 
 
 *** right
 
-![plot of chunk unnamed-chunk-28](figure/unnamed-chunk-28.png) 
+![plot of chunk unnamed-chunk-29](figure/unnamed-chunk-29.png) 
+
+
+
+--- &twocol
+## Other related tools: Command Line Utilities
+
+*** left
+* [http://www.gregreda.com/2013/07/15/unix-commands-for-data-science/](http://www.gregreda.com/2013/07/15/unix-commands-for-data-science/)
+  * sed / awk
+  * head / tail
+  * wc (word count)
+  * grep
+  * sort / uniq
+* [http://blog.comsysto.com/2013/04/25/data-analysis-with-the-unix-shell/](http://blog.comsysto.com/2013/04/25/data-analysis-with-the-unix-shell/)
+  * join
+  * Gnuplot
+
+*** right
+* [http://jeroenjanssens.com/2013/09/19/seven-command-line-tools-for-data-science.html](http://jeroenjanssens.com/2013/09/19/seven-command-line-tools-for-data-science.html)
+  * [http://csvkit.readthedocs.org/en/latest/](csvkit)
+  * [https://github.com/jehiah/json2csv](json2csv)
+  * [http://stedolan.github.io/jq/](jq - sed for json)
+  * [https://github.com/jeroenjanssens/data-science-toolbox/blob/master/sample](sample)
+  * [https://github.com/bitly/data_hacks](bitly command line tools)
+  * [https://github.com/jeroenjanssens/data-science-toolbox/blob/master/Rio](Rio - csv to r to graphic output)
+  * [https://github.com/parmentf/xml2json](xml2json)
 
 
 
