@@ -290,13 +290,25 @@ img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-tre
 ```
 
 --- &twocol
-### C - Predicting the Quality of Wine - Part 3 - Beyond Trees
+### C - Predicting the Quality of Wine - Part 3 - Beyond trees
 
 *** left
 * y
 
 *** right
 * x
+
+
+--- .class #id
+
+## Aside - How does a random forest work ?
+```{r fig.width=15, fig.height=7, echo=FALSE}
+library(png)
+library(grid)
+img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/figure/RandomForest101Explanation.png")
+ grid.raster(img)
+```
+
 
 --- &twocol
 ### C - Predicting the Quality of Wine - Part 4 - Random Forest
@@ -340,7 +352,7 @@ img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-tre
 
 --- .class #id
 
-## Aside - How does k Nearest Neighbours Work ?
+## Aside - How does k nearest neighbours work ?
 ```{r fig.width=15, fig.height=7, echo=FALSE}
 library(png)
 library(grid)
@@ -373,7 +385,7 @@ img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-tre
 
 --- .class #id
 
-## Aside - How does neural networks work ?
+## Aside - How do neural networks work ?
 ```{r fig.width=15, fig.height=7, echo=FALSE}
 library(png)
 library(grid)
