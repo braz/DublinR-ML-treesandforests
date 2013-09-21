@@ -205,6 +205,12 @@ img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-tre
  grid.raster(img)
 ```
 
+
+--- .class #id
+
+## Associative rule learning
+* Discovery of interesting relations between variables in large databases. It is intended to identify strong rules discovered in databases using different measures of interestingness
+
 *** right
 
 * Hill et al (2007), models how well cells within an image are segmented, 61 vars with 2019 obs (Training = 1009 & Test = 1010)
@@ -305,10 +311,17 @@ img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-tre
 ### C - Predicting the Quality of Wine - Part 3 - Beyond trees
 
 *** left
-* y
+* Deal with irrelvant inputs
+* No data preprocessing required
+* Scalable computation (fast to build)
+* Tolerant with missing values (little loss of accuracy)
+* Only a few tunable parameters (easy to learn)
+* Allows for human understandable graphic representation
 
 *** right
-* x
+* Data fragmentation for high-dimensional sparse dataset (overfitting)
+* Difficult to fit to a trened / piecewise constant model
+* Highly infleuenced by changes to the dataset and local optima (deep trees might be questionable as the errors propagte down)
 
 
 --- .class #id
@@ -352,13 +365,14 @@ img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-tre
   * Unsupervised learning / non-target based learning
   * Distance matrix / cluster analaysis using Euclidean distances.
 * Neural Nets
-  * Unsupervised learning / non-target based learning
-  * Distance matrix / cluster analaysis using Euclidean distances.
-
+  * Looking at basic feedforward simple 3-layer network (input, 'processing', output)
+  * Each node / neuron is a set of numerical parameters / weights tuned by the learning algorithm used
+  
 *** right
 * Support Vector Machines
   * Supervised learning
-  * Distance matrix / cluster analaysis using Euclidean distances.
+  * non-probabilistic binary linear classifier / nonlinear classifiers by applying the kernel trick
+  * constructs a hyperplane/s in a high-dimensional space
 
 
 
@@ -567,6 +581,7 @@ img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-tre
 
 ### An idea of how to test a set of techniques and parameters to help you find the best model for your data
 
-### Slides, Data, Scripts are all on GH at https://github.com/braz/DublinR-ML-treesandforests
+### Slides, Data, Scripts are all on GH:
+#### https://github.com/braz/DublinR-ML-treesandforests
 
 

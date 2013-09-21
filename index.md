@@ -248,10 +248,17 @@ Statistics versus Machine Learning (ML) when presented with a new dataset / prob
 ### C - Predicting the Quality of Wine - Part 3 - Beyond trees
 
 *** left
-* y
+* Deal with irrelvant inputs
+* No data preprocessing required
+* Scalable computation (fast to build)
+* Tolerant with missing values (little loss of accuracy)
+* Only a few tunable parameters (easy to learn)
+* Allows for human understandable graphic representation
 
 *** right
-* x
+* Data fragmentation for high-dimensional sparse dataset (overfitting)
+* Difficult to fit to a trened / piecewise constant model
+* Highly infleuenced by changes to the dataset and local optima (deep trees might be questionable as the errors propagte down)
 
 
 --- .class #id
