@@ -140,6 +140,18 @@ img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-tre
 ## caret Package
 * Really useful as steamlines model building and evaluation as well as feature selection plus a number of other tasks in classifier creation.
 
+
+--- .class #id
+
+## Aside - How do decision trees work ?
+```{r fig.width=15, fig.height=7, echo=FALSE}
+library(png)
+library(grid)
+img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/figure/DecisionTree101Explanation.png")
+ grid.raster(img)
+```
+
+
 --- &twocol
 ## What are they good for ?
 ### A - Car Insurance Policy Explosure Management - Part 1

@@ -127,13 +127,21 @@ Statistics versus Machine Learning (ML) when presented with a new dataset / prob
 ## caret Package
 * Really useful as steamlines model building and evaluation as well as feature selection plus a number of other tasks in classifier creation.
 
+
+--- .class #id
+
+## Aside - How do decision trees work ?
+![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4.png) 
+
+
+
 --- &twocol
 ## What are they good for ?
 ### A - Car Insurance Policy Explosure Management - Part 1
 
 *** left
 
-![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4.png) 
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5.png) 
 
 
 *** right
@@ -147,7 +155,7 @@ Statistics versus Machine Learning (ML) when presented with a new dataset / prob
 
 *** left
 
-![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5.png) 
+![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6.png) 
 
 
 *** right
@@ -165,7 +173,7 @@ Statistics versus Machine Learning (ML) when presented with a new dataset / prob
 
 *** left
 
-![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6.png) 
+![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7.png) 
 
 
 *** right
@@ -183,12 +191,12 @@ Statistics versus Machine Learning (ML) when presented with a new dataset / prob
 
 *** left
 #### "prp(rpartTune$finalModel)"
-![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7.png) 
+![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8.png) 
 
 
 *** right
 #### "fancyRpartPlot(rpartTune$finalModel)"
-![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8.png) 
+![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9.png) 
 
 
 
@@ -197,12 +205,12 @@ Statistics versus Machine Learning (ML) when presented with a new dataset / prob
 
 *** left
 
-![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9.png) 
+![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10.png) 
 
 
 *** right
 
-![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10.png) 
+![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11.png) 
 
 
 
@@ -219,7 +227,7 @@ Statistics versus Machine Learning (ML) when presented with a new dataset / prob
 
 *** right
 
-![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11.png) 
+![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12.png) 
 
 
 
@@ -228,12 +236,12 @@ Statistics versus Machine Learning (ML) when presented with a new dataset / prob
 
 *** left
 
-![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12.png) 
+![plot of chunk unnamed-chunk-13](figure/unnamed-chunk-13.png) 
 
 
 *** right
 
-![plot of chunk unnamed-chunk-13](figure/unnamed-chunk-13.png) 
+![plot of chunk unnamed-chunk-14](figure/unnamed-chunk-14.png) 
 
 
 --- &twocol
@@ -249,7 +257,7 @@ Statistics versus Machine Learning (ML) when presented with a new dataset / prob
 --- .class #id
 
 ## Aside - How does a random forest work ?
-![plot of chunk unnamed-chunk-14](figure/unnamed-chunk-14.png) 
+![plot of chunk unnamed-chunk-15](figure/unnamed-chunk-15.png) 
 
 
 
@@ -258,13 +266,13 @@ Statistics versus Machine Learning (ML) when presented with a new dataset / prob
 
 *** left
 
-![plot of chunk unnamed-chunk-15](figure/unnamed-chunk-15.png) 
+![plot of chunk unnamed-chunk-16](figure/unnamed-chunk-16.png) 
 
 
 
 *** right
 
-![plot of chunk unnamed-chunk-16](figure/unnamed-chunk-16.png) 
+![plot of chunk unnamed-chunk-17](figure/unnamed-chunk-17.png) 
 
 
 --- &twocol
@@ -288,7 +296,7 @@ Statistics versus Machine Learning (ML) when presented with a new dataset / prob
 --- .class #id
 
 ## Aside - How does k nearest neighbours work ?
-![plot of chunk unnamed-chunk-17](figure/unnamed-chunk-17.png) 
+![plot of chunk unnamed-chunk-18](figure/unnamed-chunk-18.png) 
 
 
 
@@ -297,19 +305,19 @@ Statistics versus Machine Learning (ML) when presented with a new dataset / prob
 
 *** left
 
-![plot of chunk unnamed-chunk-18](figure/unnamed-chunk-18.png) 
+![plot of chunk unnamed-chunk-19](figure/unnamed-chunk-19.png) 
 
 
 
 *** right
 
-![plot of chunk unnamed-chunk-19](figure/unnamed-chunk-19.png) 
+![plot of chunk unnamed-chunk-20](figure/unnamed-chunk-20.png) 
 
 
 --- .class #id
 
 ## Aside - How do neural networks work ?
-![plot of chunk unnamed-chunk-20](figure/unnamed-chunk-20.png) 
+![plot of chunk unnamed-chunk-21](figure/unnamed-chunk-21.png) 
 
 
 
@@ -318,20 +326,20 @@ Statistics versus Machine Learning (ML) when presented with a new dataset / prob
 
 *** left
 
-![plot of chunk unnamed-chunk-21](figure/unnamed-chunk-21.png) 
+![plot of chunk unnamed-chunk-22](figure/unnamed-chunk-22.png) 
 
 
 
 *** right
 
-![plot of chunk unnamed-chunk-22](figure/unnamed-chunk-22.png) 
+![plot of chunk unnamed-chunk-23](figure/unnamed-chunk-23.png) 
 
 
 
 --- .class #id
 
 ## Aside - How do support vector machines work ?
-![plot of chunk unnamed-chunk-23](figure/unnamed-chunk-23.png) 
+![plot of chunk unnamed-chunk-24](figure/unnamed-chunk-24.png) 
 
 
 
@@ -340,13 +348,13 @@ Statistics versus Machine Learning (ML) when presented with a new dataset / prob
 
 *** left
 
-![plot of chunk unnamed-chunk-24](figure/unnamed-chunk-24.png) 
+![plot of chunk unnamed-chunk-25](figure/unnamed-chunk-25.png) 
 
 
 
 *** right
 
-![plot of chunk unnamed-chunk-25](figure/unnamed-chunk-25.png) 
+![plot of chunk unnamed-chunk-26](figure/unnamed-chunk-26.png) 
 
 
 --- &twocol
@@ -354,13 +362,13 @@ Statistics versus Machine Learning (ML) when presented with a new dataset / prob
 
 *** left
 
-![plot of chunk unnamed-chunk-26](figure/unnamed-chunk-26.png) 
+![plot of chunk unnamed-chunk-27](figure/unnamed-chunk-27.png) 
 
 
 
 *** right
 
-![plot of chunk unnamed-chunk-27](figure/unnamed-chunk-27.png) 
+![plot of chunk unnamed-chunk-28](figure/unnamed-chunk-28.png) 
 
 
 
@@ -370,13 +378,13 @@ Statistics versus Machine Learning (ML) when presented with a new dataset / prob
 
 *** left
 
-![plot of chunk unnamed-chunk-28](figure/unnamed-chunk-28.png) 
+![plot of chunk unnamed-chunk-29](figure/unnamed-chunk-29.png) 
 
 
 
 *** right
 
-![plot of chunk unnamed-chunk-29](figure/unnamed-chunk-29.png) 
+![plot of chunk unnamed-chunk-30](figure/unnamed-chunk-30.png) 
 
 
 
