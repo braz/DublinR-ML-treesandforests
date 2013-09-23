@@ -1,58 +1,27 @@
 ---
 title       : DublinR - Machine Learning 101
-subtitle    : Introduction with Examples - Trees, Forests, etc.
-author      : Eoin Brazil (https://github.com/braz/DublinR-ML-treesandforests)
+subtitle    : Introduction with Examples
+author      : Eoin Brazil - https://github.com/braz/DublinR-ML-treesandforests
 job         : 
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : tomorrow      # 
 widgets     : []            # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
----
+--- 
 
 
 
 
-## Introduction
+## Machine Learning Techniques in R  
 
-Statistics versus Machine Learning (ML) when presented with a new dataset / problem
+### Why should you use them?  
 
-## Context of Assumptions
-* Statisticians begin by making assumptions and modeling these to determine how the data was generated.
-* ML people use algorithmic models where the data generation is treated as an unknown.
+### How can you interprest their results?  
 
-## Which is best ?
-* Downsides to both and key question is making good predictions:
-  * ML is data doesn't fit the model .... next please!
-  * Complexity of the data creates more complex models (in terms of interpretability & of computation) hence in Stats trend to Bayesian MCMC.
+### What are they good at?  
 
---- .class #id
-
-## Taking a 50,000 feet view of Machine Learning
-
-* Machine Learning seeks to provide classifiers that can approximate targets or desired parameter/s when given a sufficient large training set.
-* Typically, you will provide a data set and split it into a _training_ and a _test_ sub-sets to develop the classifiers.
-* The resulting classifier/s can then be used on new data to predict the desired parameter/s based on the earlier data.
-
-
-##  Downsides to Machine Learning
-* ML approaches can be opaque to non-experts (Black-boxes)
-  * It is impossible to explain the behavior of such a system.
-* Academic quantitative measures not well matched to reality (e.g. _precision_, _recall_, _RMS error_, _etc_.)
-
---- .class #id
-
-## Into the Forest - CART (classification and regression trees)
-* Why should you use them?
-* How can you interprest their results?
-* What are they good at?
-* A brief tour of the packages in R
-
-## Why should you use them ?
-1. Classification and Regression can be difficult to visualize and convey the meaning of to non-experts
-2. They work well with categorical (Classification) or continuous (Regression) variables
-3. You can use ensemble learning methods to improve results (e.g. Random Forest)
-4. They can be used on longitudinal studies / data
+### A brief tour of the packages in R  
 
 --- .class #id
 
@@ -116,46 +85,86 @@ Statistics versus Machine Learning (ML) when presented with a new dataset / prob
 
 ## Model Selection
 
-* Validation process using optimization procedure or a simple grid search over set of values for models to examine different tuning parameters
-* Criteria for selection can be overall accuracy or to simplest within one standard error of accuracy of the best / within X% of the best model or to most important features where there are many predicator variables.
+* Validation process using optimization procedure or a simple grid search over set of values for models to examine different tuning parameters.  
+* Criteria for selection can be overall accuracy or to simplest within one standard error of accuracy of the best / within X% of the best model or to most important features where there are many predicator variables.  
 
 
 ## Model Assessment
 
-* Given the tuning parameters/features the performance should be examined on the test set. In classification problems, it is useful to look beyond the accuracy measure for performance, particularly if the classes are unbalanced. Different models can be combined to create a better classifier using an ensemble of models.
+* Given the tuning parameters/features the performance should be examined on the test set. In classification problems, it is useful to look beyond the accuracy measure for performance, particularly if the classes are unbalanced. Different models can be combined to create a better classifier using an ensemble of models.  
 
-## caret Package
-* Really useful as steamlines model building and evaluation as well as feature selection plus a number of other tasks in classifier creation.
+
+--- .class #id
+
+## Nuts & Bolts - Datasets and Techniques
+![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4.png) 
+
+
+
+--- .class #id
+
+## Associative rule learning
+* Discovery of interesting relations between variables in large databases. It is intended to identify strong rules discovered in databases using different measures of interestingness
+
+* Apriori algorithm, which supports pruning of candidate rules to systematically control the exponential growth that occurs with this approach
+
+* The algorithm finds subsets which are common with at least a minimum number of X of the itemsets and checks the frequent subsets and extends them one item at a time to find candidate rules which are then tested against the data
+
+* Uses of association analysis
+  * Sales patterns (Promotions vs. Sales, Direct Marketing / Geographical, Seasonal Differences)
+  * Cross-selling
+  * Extend it with time aspects to do longitudinal / sequential pattern analysis
+
+--- .class #id
+
+## Aside - How does associative analysis work ?
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5.png) 
+
+
+
+--- .class #id
+## What are they good for ?
+### Marketing Survey Data - Part 1
+
+![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6.png) 
+
+
+
+--- .class #id
+### Marketing Survey Data - Part 2
+
+![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7.png) 
 
 
 --- .class #id
 
 ## Aside - How do decision trees work ?
-![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4.png) 
+![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8.png) 
 
 
 
 --- &twocol
 ## What are they good for ?
-### A - Car Insurance Policy Explosure Management - Part 1
+### Car Insurance Policy Explosure Management - Part 1
 
 *** left
 
-![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5.png) 
+![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9.png) 
 
 
 *** right
-* Analysing insurance claim details of 67856 policies taken out in 2004 and 2005 (using ctree, "1-Car-ctree-singletree.R")
-* The model maps each record into one of X mutually exclusive terminal nodes or groups
-* These groups are represented by their average response, where the node number is treated as the data group
-* The binary claim indicator uses 6 variables to determine a probability estimate for each terminal node determine if a insurance policyholder will claim on their policy
+* Analysing insurance claim details of 67856 policies taken out in 2004 and 2005.
+* The model maps each record into one of X mutually exclusive terminal nodes or groups.
+* These groups are represented by their average response, where the node number is treated as the data group.
+* The binary claim indicator uses 6 variables to determine a probability estimate for each terminal node determine if a insurance policyholder will claim on their policy.
+
 
 --- &twocol
-### A - Car Insurance Policy Explosure Management - Part 2
+### Car Insurance Policy Explosure Management - Part 2
 
 *** left
 
-![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6.png) 
+![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10.png) 
 
 
 *** right
@@ -169,17 +178,17 @@ Statistics versus Machine Learning (ML) when presented with a new dataset / prob
 
 --- &twocol
 ## What are they good for ?
-### B - Cancer Research Screening - Part 1
+### Cancer Research Screening - Part 1
 
 *** left
 
-![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7.png) 
+![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11.png) 
 
 
 *** right
 
-* Hill et al (2007), models how well cells within an image are segmented, 61 vars with 2019 obs (Training = 1009 & Test = 1010)
-  * "Impact of image segmentation on high-content screening data quality for SK-BR-3 cells, Andrew A Hill, Peter LaPan, Yizheng Li and Steve Haney, BMC Bioinformatics 2007, 8:340"
+* Hill et al (2007), models how well cells within an image are segmented, 61 vars with 2019 obs (Training = 1009 & Test = 1010).
+  * "Impact of image segmentation on high-content screening data quality for SK-BR-3 cells, Andrew A Hill, Peter LaPan, Yizheng Li and Steve Haney, BMC Bioinformatics 2007, 8:340".
     * b, Well-Segmented (WS)
     * c, WS (e.g. complete nucleus and cytoplasmic region)
     * d, Poorly-Segmented (PS)
@@ -187,65 +196,65 @@ Statistics versus Machine Learning (ML) when presented with a new dataset / prob
 
 
 --- &twocol
-### B - Cancer Research Screening - Part 2
+### Cancer Research Screening - Part 2
 
 *** left
 #### "prp(rpartTune$finalModel)"
-![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8.png) 
+![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12.png) 
 
 
 *** right
 #### "fancyRpartPlot(rpartTune$finalModel)"
-![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9.png) 
+![plot of chunk unnamed-chunk-13](figure/unnamed-chunk-13.png) 
 
 
 
 --- &twocol
-### B - Cancer Research Screening - Part 3
+### Cancer Research Screening - Part 3
 
 *** left
 
-![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10.png) 
+![plot of chunk unnamed-chunk-14](figure/unnamed-chunk-14.png) 
 
 
 *** right
 
-![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11.png) 
+![plot of chunk unnamed-chunk-15](figure/unnamed-chunk-15.png) 
 
 
 
 --- &twocol
 ## What are they good for ?
-### C - Predicting the Quality of Wine - Part 1
+### Predicting the Quality of Wine - Part 1
 
 *** left
 
-* Cortez et al (2009), models the quality of wines (Vinho Verde), 14 vars with 4898 obs (Training = 5199 & Test = 1298)
-* "Modeling wine preferences by data mining from physicochemical properties, P. Cortez, A. Cerdeira, F. Almeida, T. Matos and J. Reis, Decision Support Systems 2009, 47(4):547-553"
+* Cortez et al (2009), models the quality of wines (Vinho Verde), 14 vars with 4898 obs (Training = 5199 & Test = 1298).
+* "Modeling wine preferences by data mining from physicochemical properties, P. Cortez, A. Cerdeira, F. Almeida, T. Matos and J. Reis, Decision Support Systems 2009, 47(4):547-553".
   * Good (quality score is >= 6)
   * Bad (quality score is < 6)
 
 *** right
 
-![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12.png) 
+![plot of chunk unnamed-chunk-16](figure/unnamed-chunk-16.png) 
 
 
 
 --- &twocol
-### C - Predicting the Quality of Wine - Part 2
+### Predicting the Quality of Wine - Part 2
 
 *** left
 
-![plot of chunk unnamed-chunk-13](figure/unnamed-chunk-13.png) 
+![plot of chunk unnamed-chunk-17](figure/unnamed-chunk-17.png) 
 
 
 *** right
 
-![plot of chunk unnamed-chunk-14](figure/unnamed-chunk-14.png) 
+![plot of chunk unnamed-chunk-18](figure/unnamed-chunk-18.png) 
 
 
 --- &twocol
-### C - Predicting the Quality of Wine - Part 3 - Beyond trees
+### Predicting the Quality of Wine - Part 3 - Problems with Trees
 
 *** left
 * Deal with irrelvant inputs
@@ -264,124 +273,95 @@ Statistics versus Machine Learning (ML) when presented with a new dataset / prob
 --- .class #id
 
 ## Aside - How does a random forest work ?
-![plot of chunk unnamed-chunk-15](figure/unnamed-chunk-15.png) 
+![plot of chunk unnamed-chunk-19](figure/unnamed-chunk-19.png) 
 
 
 
 --- &twocol
-### C - Predicting the Quality of Wine - Part 4 - Random Forest
+### Predicting the Quality of Wine - Part 4 - Random Forest
 
 *** left
 
-![plot of chunk unnamed-chunk-16](figure/unnamed-chunk-16.png) 
+![plot of chunk unnamed-chunk-20](figure/unnamed-chunk-20.png) 
 
 
 
 *** right
 
-![plot of chunk unnamed-chunk-17](figure/unnamed-chunk-17.png) 
+![plot of chunk unnamed-chunk-21](figure/unnamed-chunk-21.png) 
 
 
 --- &twocol
-### C - Predicting the Quality of Wine - Part 5 - Other ML methods
+### Predicting the Quality of Wine - Part 5 - Other ML methods
 
 *** left
 *  K-nearest neighbors
   * Unsupervised learning / non-target based learning
   * Distance matrix / cluster analaysis using Euclidean distances.
 * Neural Nets
-  * Unsupervised learning / non-target based learning
-  * Distance matrix / cluster analaysis using Euclidean distances.
-
+  * Looking at basic feedforward simple 3-layer network (input, 'processing', output)
+  * Each node / neuron is a set of numerical parameters / weights tuned by the learning algorithm used
+  
 *** right
 * Support Vector Machines
   * Supervised learning
-  * Distance matrix / cluster analaysis using Euclidean distances.
+  * non-probabilistic binary linear classifier / nonlinear classifiers by applying the kernel trick
+  * constructs a hyperplane/s in a high-dimensional space
 
 
 
 --- .class #id
 
 ## Aside - How does k nearest neighbours work ?
-![plot of chunk unnamed-chunk-18](figure/unnamed-chunk-18.png) 
+![plot of chunk unnamed-chunk-22](figure/unnamed-chunk-22.png) 
 
 
 
 --- &twocol
-### C - Predicting the Quality of Wine - Part 6 - kNN
+### Predicting the Quality of Wine - Part 6 - kNN
 
 *** left
 
-![plot of chunk unnamed-chunk-19](figure/unnamed-chunk-19.png) 
+![plot of chunk unnamed-chunk-23](figure/unnamed-chunk-23.png) 
 
 
 
 *** right
 
-![plot of chunk unnamed-chunk-20](figure/unnamed-chunk-20.png) 
+![plot of chunk unnamed-chunk-24](figure/unnamed-chunk-24.png) 
 
 
 --- .class #id
 
 ## Aside - How do neural networks work ?
-![plot of chunk unnamed-chunk-21](figure/unnamed-chunk-21.png) 
+![plot of chunk unnamed-chunk-25](figure/unnamed-chunk-25.png) 
 
 
 
 --- &twocol
-### C - Predicting the Quality of Wine - Part 7 - NNET
+### Predicting the Quality of Wine - Part 7 - NNET
 
 *** left
 
-![plot of chunk unnamed-chunk-22](figure/unnamed-chunk-22.png) 
+![plot of chunk unnamed-chunk-26](figure/unnamed-chunk-26.png) 
 
 
 
 *** right
 
-![plot of chunk unnamed-chunk-23](figure/unnamed-chunk-23.png) 
+![plot of chunk unnamed-chunk-27](figure/unnamed-chunk-27.png) 
 
 
 
 --- .class #id
 
 ## Aside - How do support vector machines work ?
-![plot of chunk unnamed-chunk-24](figure/unnamed-chunk-24.png) 
-
-
-
---- &twocol
-### C - Predicting the Quality of Wine - Part 8 - SVN
-
-*** left
-
-![plot of chunk unnamed-chunk-25](figure/unnamed-chunk-25.png) 
-
-
-
-*** right
-
-![plot of chunk unnamed-chunk-26](figure/unnamed-chunk-26.png) 
-
-
---- &twocol
-### C - Predicting the Quality of Wine - Part 9 - All Results
-
-*** left
-
-![plot of chunk unnamed-chunk-27](figure/unnamed-chunk-27.png) 
-
-
-
-*** right
-
 ![plot of chunk unnamed-chunk-28](figure/unnamed-chunk-28.png) 
 
 
 
 --- &twocol
-## Other related tools: OpenRefine (formerly Google Refine) / Rattle
-
+### Predicting the Quality of Wine - Part 8 - SVN
 
 *** left
 
@@ -392,6 +372,36 @@ Statistics versus Machine Learning (ML) when presented with a new dataset / prob
 *** right
 
 ![plot of chunk unnamed-chunk-30](figure/unnamed-chunk-30.png) 
+
+
+--- &twocol
+### Predicting the Quality of Wine - Part 9 - All Results
+
+*** left
+
+![plot of chunk unnamed-chunk-31](figure/unnamed-chunk-31.png) 
+
+
+
+*** right
+
+![plot of chunk unnamed-chunk-32](figure/unnamed-chunk-32.png) 
+
+
+
+--- &twocol
+## Other related tools: OpenRefine (formerly Google Refine) / Rattle
+
+
+*** left
+
+![plot of chunk unnamed-chunk-33](figure/unnamed-chunk-33.png) 
+
+
+
+*** right
+
+![plot of chunk unnamed-chunk-34](figure/unnamed-chunk-34.png) 
 
 
 
@@ -432,6 +442,9 @@ Statistics versus Machine Learning (ML) when presented with a new dataset / prob
 * AppliedPredictiveModeling
 * randomForest
 * corrplot
+* arules
+* arulesViz
+
 
 *** right
 * C50
@@ -441,7 +454,8 @@ Statistics versus Machine Learning (ML) when presented with a new dataset / prob
 * rattle
 * RColorBrewer
 * corrgram
-
+* ElemStatLearn
+* car
 
 --- .class #id
 
@@ -453,6 +467,7 @@ Statistics versus Machine Learning (ML) when presented with a new dataset / prob
 
 ### An idea of how to test a set of techniques and parameters to help you find the best model for your data
 
-### Slides, Data, Scripts are all on GH at https://github.com/braz/DublinR-ML-treesandforests
+### Slides, Data, Scripts are all on GH:
+#### https://github.com/braz/DublinR-ML-treesandforests
 
 

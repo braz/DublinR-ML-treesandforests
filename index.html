@@ -4,7 +4,7 @@
   <title>DublinR - Machine Learning 101</title>
   <meta charset="utf-8">
   <meta name="description" content="DublinR - Machine Learning 101">
-  <meta name="author" content="Eoin Brazil (https://github.com/braz/DublinR-ML-treesandforests)">
+  <meta name="author" content="Eoin Brazil - https://github.com/braz/DublinR-ML-treesandforests">
   <meta name="generator" content="slidify" />
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -33,87 +33,24 @@
     <slide class="title-slide segue nobackground">
       <hgroup class="auto-fadein">
         <h1>DublinR - Machine Learning 101</h1>
-        <h2>Introduction with Examples - Trees, Forests, etc.</h2>
-        <p>Eoin Brazil (https://github.com/braz/DublinR-ML-treesandforests)<br/></p>
+        <h2>Introduction with Examples</h2>
+        <p>Eoin Brazil - https://github.com/braz/DublinR-ML-treesandforests<br/></p>
       </hgroup>
           </slide>
 
     <!-- SLIDES -->
       <slide class="" id="slide-1" style="background:;">
   <hgroup>
-    <h2>Introduction</h2>
+    <h2>Machine Learning Techniques in R</h2>
   </hgroup>
   <article>
-    <p>Statistics versus Machine Learning (ML) when presented with a new dataset / problem</p>
+    <h3>Why should you use them?</h3>
 
-<h2>Context of Assumptions</h2>
+<h3>How can you interprest their results?</h3>
 
-<ul>
-<li>Statisticians begin by making assumptions and modeling these to determine how the data was generated.</li>
-<li>ML people use algorithmic models where the data generation is treated as an unknown.</li>
-</ul>
+<h3>What are they good at?</h3>
 
-<h2>Which is best ?</h2>
-
-<ul>
-<li>Downsides to both and key question is making good predictions:
-
-<ul>
-<li>ML is data doesn&#39;t fit the model .... next please!</li>
-<li>Complexity of the data creates more complex models (in terms of interpretability &amp; of computation) hence in Stats trend to Bayesian MCMC.</li>
-</ul></li>
-</ul>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-      <slide class="class" id="id" style="background:;">
-  <hgroup>
-    <h2>Taking a 50,000 feet view of Machine Learning</h2>
-  </hgroup>
-  <article>
-    <ul>
-<li>Machine Learning seeks to provide classifiers that can approximate targets or desired parameter/s when given a sufficient large training set.</li>
-<li>Typically, you will provide a data set and split it into a <em>training</em> and a <em>test</em> sub-sets to develop the classifiers.</li>
-<li>The resulting classifier/s can then be used on new data to predict the desired parameter/s based on the earlier data.</li>
-</ul>
-
-<h2>Downsides to Machine Learning</h2>
-
-<ul>
-<li>ML approaches can be opaque to non-experts (Black-boxes)
-
-<ul>
-<li>It is impossible to explain the behavior of such a system.</li>
-</ul></li>
-<li>Academic quantitative measures not well matched to reality (e.g. <em>precision</em>, <em>recall</em>, <em>RMS error</em>, <em>etc</em>.)</li>
-</ul>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-      <slide class="class" id="id" style="background:;">
-  <hgroup>
-    <h2>Into the Forest - CART (classification and regression trees)</h2>
-  </hgroup>
-  <article>
-    <ul>
-<li>Why should you use them?</li>
-<li>How can you interprest their results?</li>
-<li>What are they good at?</li>
-<li>A brief tour of the packages in R</li>
-</ul>
-
-<h2>Why should you use them ?</h2>
-
-<ol>
-<li>Classification and Regression can be difficult to visualize and convey the meaning of to non-experts</li>
-<li>They work well with categorical (Classification) or continuous (Regression) variables</li>
-<li>You can use ensemble learning methods to improve results (e.g. Random Forest)</li>
-<li>They can be used on longitudinal studies / data</li>
-</ol>
+<h3>A brief tour of the packages in R</h3>
 
   </article>
   <!-- Presenter Notes -->
@@ -145,7 +82,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-5">
+      <slide class="" id="slide-3">
   <hgroup>
     <h2>Interpreting A Confusion Matrix</h2>
   </hgroup>
@@ -167,7 +104,7 @@
     </div>
   </article>
 </slide>
-      <slide class="" id="slide-6">
+      <slide class="" id="slide-4">
   <hgroup>
     <h2>Interpreting A ROC Plot</h2>
   </hgroup>
@@ -189,7 +126,7 @@
     </div>
   </article>
 </slide>
-      <slide class="" id="slide-7">
+      <slide class="" id="slide-5">
   <hgroup>
     <h2>Addressing Prediction Error</h2>
   </hgroup>
@@ -226,21 +163,83 @@
   </hgroup>
   <article>
     <ul>
-<li>Validation process using optimization procedure or a simple grid search over set of values for models to examine different tuning parameters</li>
-<li>Criteria for selection can be overall accuracy or to simplest within one standard error of accuracy of the best / within X% of the best model or to most important features where there are many predicator variables.</li>
+<li>Validation process using optimization procedure or a simple grid search over set of values for models to examine different tuning parameters.<br></li>
+<li>Criteria for selection can be overall accuracy or to simplest within one standard error of accuracy of the best / within X% of the best model or to most important features where there are many predicator variables.<br></li>
 </ul>
 
 <h2>Model Assessment</h2>
 
 <ul>
-<li>Given the tuning parameters/features the performance should be examined on the test set. In classification problems, it is useful to look beyond the accuracy measure for performance, particularly if the classes are unbalanced. Different models can be combined to create a better classifier using an ensemble of models.</li>
+<li>Given the tuning parameters/features the performance should be examined on the test set. In classification problems, it is useful to look beyond the accuracy measure for performance, particularly if the classes are unbalanced. Different models can be combined to create a better classifier using an ensemble of models.<br></li>
 </ul>
 
-<h2>caret Package</h2>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Nuts &amp; Bolts - Datasets and Techniques</h2>
+  </hgroup>
+  <article>
+    <p><img src="figure/unnamed-chunk-4.png" alt="plot of chunk unnamed-chunk-4"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Associative rule learning</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li><p>Discovery of interesting relations between variables in large databases. It is intended to identify strong rules discovered in databases using different measures of interestingness</p></li>
+<li><p>Apriori algorithm, which supports pruning of candidate rules to systematically control the exponential growth that occurs with this approach</p></li>
+<li><p>The algorithm finds subsets which are common with at least a minimum number of X of the itemsets and checks the frequent subsets and extends them one item at a time to find candidate rules which are then tested against the data</p></li>
+<li><p>Uses of association analysis</p>
 
 <ul>
-<li>Really useful as steamlines model building and evaluation as well as feature selection plus a number of other tasks in classifier creation.</li>
+<li>Sales patterns (Promotions vs. Sales, Direct Marketing / Geographical, Seasonal Differences)</li>
+<li>Cross-selling</li>
+<li>Extend it with time aspects to do longitudinal / sequential pattern analysis</li>
+</ul></li>
 </ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Aside - How does associative analysis work ?</h2>
+  </hgroup>
+  <article>
+    <p><img src="figure/unnamed-chunk-5.png" alt="plot of chunk unnamed-chunk-5"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>What are they good for ?</h2>
+  </hgroup>
+  <article>
+    <h3>Marketing Survey Data - Part 1</h3>
+
+<p><img src="figure/unnamed-chunk-6.png" alt="plot of chunk unnamed-chunk-6"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h3>Marketing Survey Data - Part 2</h3>
+  </hgroup>
+  <article>
+    <p><img src="figure/unnamed-chunk-7.png" alt="plot of chunk unnamed-chunk-7"> </p>
 
   </article>
   <!-- Presenter Notes -->
@@ -251,46 +250,46 @@
     <h2>Aside - How do decision trees work ?</h2>
   </hgroup>
   <article>
-    <p><img src="figure/unnamed-chunk-4.png" alt="plot of chunk unnamed-chunk-4"> </p>
+    <p><img src="figure/unnamed-chunk-8.png" alt="plot of chunk unnamed-chunk-8"> </p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-10">
+      <slide class="" id="slide-13">
   <hgroup>
     <h2>What are they good for ?</h2>
   </hgroup>
   <article>
     <hr noshade size=4 color='red'>  
-    <h3>A - Car Insurance Policy Explosure Management - Part 1</h3>
+    <h3>Car Insurance Policy Explosure Management - Part 1</h3>
 
   
     <div class='left' style='float:left;width:48%'>
-     <p><img src="figure/unnamed-chunk-5.png" alt="plot of chunk unnamed-chunk-5"> </p>
+     <p><img src="figure/unnamed-chunk-9.png" alt="plot of chunk unnamed-chunk-9"> </p>
 
 
     </div>    
     <div class='right' style='float:right;width:48%'>
      <ul>
-<li>Analysing insurance claim details of 67856 policies taken out in 2004 and 2005 (using ctree, &quot;1-Car-ctree-singletree.R&quot;)</li>
-<li>The model maps each record into one of X mutually exclusive terminal nodes or groups</li>
-<li>These groups are represented by their average response, where the node number is treated as the data group</li>
-<li>The binary claim indicator uses 6 variables to determine a probability estimate for each terminal node determine if a insurance policyholder will claim on their policy</li>
+<li>Analysing insurance claim details of 67856 policies taken out in 2004 and 2005.</li>
+<li>The model maps each record into one of X mutually exclusive terminal nodes or groups.</li>
+<li>These groups are represented by their average response, where the node number is treated as the data group.</li>
+<li>The binary claim indicator uses 6 variables to determine a probability estimate for each terminal node determine if a insurance policyholder will claim on their policy.</li>
 </ul>
 
     </div>
   </article>
 </slide>
-      <slide class="" id="slide-11">
+      <slide class="" id="slide-14">
   <hgroup>
-    <h3>A - Car Insurance Policy Explosure Management - Part 2</h3>
+    <h3>Car Insurance Policy Explosure Management - Part 2</h3>
   </hgroup>
   <article>
     <hr noshade size=4 color='red'>  
       
     <div class='left' style='float:left;width:48%'>
-     <p><img src="figure/unnamed-chunk-6.png" alt="plot of chunk unnamed-chunk-6"> </p>
+     <p><img src="figure/unnamed-chunk-10.png" alt="plot of chunk unnamed-chunk-10"> </p>
 
 
     </div>    
@@ -308,26 +307,26 @@
     </div>
   </article>
 </slide>
-      <slide class="" id="slide-12">
+      <slide class="" id="slide-15">
   <hgroup>
     <h2>What are they good for ?</h2>
   </hgroup>
   <article>
     <hr noshade size=4 color='red'>  
-    <h3>B - Cancer Research Screening - Part 1</h3>
+    <h3>Cancer Research Screening - Part 1</h3>
 
   
     <div class='left' style='float:left;width:48%'>
-     <p><img src="figure/unnamed-chunk-7.png" alt="plot of chunk unnamed-chunk-7"> </p>
+     <p><img src="figure/unnamed-chunk-11.png" alt="plot of chunk unnamed-chunk-11"> </p>
 
 
     </div>    
     <div class='right' style='float:right;width:48%'>
      <ul>
-<li>Hill et al (2007), models how well cells within an image are segmented, 61 vars with 2019 obs (Training = 1009 &amp; Test = 1010)
+<li>Hill et al (2007), models how well cells within an image are segmented, 61 vars with 2019 obs (Training = 1009 &amp; Test = 1010).
 
 <ul>
-<li>&quot;Impact of image segmentation on high-content screening data quality for SK-BR-3 cells, Andrew A Hill, Peter LaPan, Yizheng Li and Steve Haney, BMC Bioinformatics 2007, 8:340&quot;</li>
+<li>&quot;Impact of image segmentation on high-content screening data quality for SK-BR-3 cells, Andrew A Hill, Peter LaPan, Yizheng Li and Steve Haney, BMC Bioinformatics 2007, 8:340&quot;.</li>
 <li>b, Well-Segmented (WS)</li>
 <li>c, WS (e.g. complete nucleus and cytoplasmic region)</li>
 <li>d, Poorly-Segmented (PS)</li>
@@ -338,9 +337,9 @@
     </div>
   </article>
 </slide>
-      <slide class="" id="slide-13">
+      <slide class="" id="slide-16">
   <hgroup>
-    <h3>B - Cancer Research Screening - Part 2</h3>
+    <h3>Cancer Research Screening - Part 2</h3>
   </hgroup>
   <article>
     <hr noshade size=4 color='red'>  
@@ -348,49 +347,49 @@
     <div class='left' style='float:left;width:48%'>
      <h4>&quot;prp(rpartTune$finalModel)&quot;</h4>
 
-<p><img src="figure/unnamed-chunk-8.png" alt="plot of chunk unnamed-chunk-8"> </p>
+<p><img src="figure/unnamed-chunk-12.png" alt="plot of chunk unnamed-chunk-12"> </p>
 
 
     </div>    
     <div class='right' style='float:right;width:48%'>
      <h4>&quot;fancyRpartPlot(rpartTune$finalModel)&quot;</h4>
 
-<p><img src="figure/unnamed-chunk-9.png" alt="plot of chunk unnamed-chunk-9"> </p>
+<p><img src="figure/unnamed-chunk-13.png" alt="plot of chunk unnamed-chunk-13"> </p>
 
     </div>
   </article>
 </slide>
-      <slide class="" id="slide-14">
+      <slide class="" id="slide-17">
   <hgroup>
-    <h3>B - Cancer Research Screening - Part 3</h3>
+    <h3>Cancer Research Screening - Part 3</h3>
   </hgroup>
   <article>
     <hr noshade size=4 color='red'>  
       
     <div class='left' style='float:left;width:48%'>
-     <p><img src="figure/unnamed-chunk-10.png" alt="plot of chunk unnamed-chunk-10"> </p>
+     <p><img src="figure/unnamed-chunk-14.png" alt="plot of chunk unnamed-chunk-14"> </p>
 
 
     </div>    
     <div class='right' style='float:right;width:48%'>
-     <p><img src="figure/unnamed-chunk-11.png" alt="plot of chunk unnamed-chunk-11"> </p>
+     <p><img src="figure/unnamed-chunk-15.png" alt="plot of chunk unnamed-chunk-15"> </p>
 
     </div>
   </article>
 </slide>
-      <slide class="" id="slide-15">
+      <slide class="" id="slide-18">
   <hgroup>
     <h2>What are they good for ?</h2>
   </hgroup>
   <article>
     <hr noshade size=4 color='red'>  
-    <h3>C - Predicting the Quality of Wine - Part 1</h3>
+    <h3>Predicting the Quality of Wine - Part 1</h3>
 
   
     <div class='left' style='float:left;width:48%'>
      <ul>
-<li>Cortez et al (2009), models the quality of wines (Vinho Verde), 14 vars with 4898 obs (Training = 5199 &amp; Test = 1298)</li>
-<li>&quot;Modeling wine preferences by data mining from physicochemical properties, P. Cortez, A. Cerdeira, F. Almeida, T. Matos and J. Reis, Decision Support Systems 2009, 47(4):547-553&quot;
+<li>Cortez et al (2009), models the quality of wines (Vinho Verde), 14 vars with 4898 obs (Training = 5199 &amp; Test = 1298).</li>
+<li>&quot;Modeling wine preferences by data mining from physicochemical properties, P. Cortez, A. Cerdeira, F. Almeida, T. Matos and J. Reis, Decision Support Systems 2009, 47(4):547-553&quot;.
 
 <ul>
 <li>Good (quality score is &gt;= 6)</li>
@@ -401,32 +400,32 @@
 
     </div>    
     <div class='right' style='float:right;width:48%'>
-     <p><img src="figure/unnamed-chunk-12.png" alt="plot of chunk unnamed-chunk-12"> </p>
+     <p><img src="figure/unnamed-chunk-16.png" alt="plot of chunk unnamed-chunk-16"> </p>
 
     </div>
   </article>
 </slide>
-      <slide class="" id="slide-16">
+      <slide class="" id="slide-19">
   <hgroup>
-    <h3>C - Predicting the Quality of Wine - Part 2</h3>
+    <h3>Predicting the Quality of Wine - Part 2</h3>
   </hgroup>
   <article>
     <hr noshade size=4 color='red'>  
       
     <div class='left' style='float:left;width:48%'>
-     <p><img src="figure/unnamed-chunk-13.png" alt="plot of chunk unnamed-chunk-13"> </p>
+     <p><img src="figure/unnamed-chunk-17.png" alt="plot of chunk unnamed-chunk-17"> </p>
 
 
     </div>    
     <div class='right' style='float:right;width:48%'>
-     <p><img src="figure/unnamed-chunk-14.png" alt="plot of chunk unnamed-chunk-14"> </p>
+     <p><img src="figure/unnamed-chunk-18.png" alt="plot of chunk unnamed-chunk-18"> </p>
 
     </div>
   </article>
 </slide>
-      <slide class="" id="slide-17">
+      <slide class="" id="slide-20">
   <hgroup>
-    <h3>C - Predicting the Quality of Wine - Part 3 - Beyond trees</h3>
+    <h3>Predicting the Quality of Wine - Part 3 - Problems with Trees</h3>
   </hgroup>
   <article>
     <hr noshade size=4 color='red'>  
@@ -458,33 +457,33 @@
     <h2>Aside - How does a random forest work ?</h2>
   </hgroup>
   <article>
-    <p><img src="figure/unnamed-chunk-15.png" alt="plot of chunk unnamed-chunk-15"> </p>
+    <p><img src="figure/unnamed-chunk-19.png" alt="plot of chunk unnamed-chunk-19"> </p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-19">
+      <slide class="" id="slide-22">
   <hgroup>
-    <h3>C - Predicting the Quality of Wine - Part 4 - Random Forest</h3>
+    <h3>Predicting the Quality of Wine - Part 4 - Random Forest</h3>
   </hgroup>
   <article>
     <hr noshade size=4 color='red'>  
       
     <div class='left' style='float:left;width:48%'>
-     <p><img src="figure/unnamed-chunk-16.png" alt="plot of chunk unnamed-chunk-16"> </p>
+     <p><img src="figure/unnamed-chunk-20.png" alt="plot of chunk unnamed-chunk-20"> </p>
 
 
     </div>    
     <div class='right' style='float:right;width:48%'>
-     <p><img src="figure/unnamed-chunk-17.png" alt="plot of chunk unnamed-chunk-17"> </p>
+     <p><img src="figure/unnamed-chunk-21.png" alt="plot of chunk unnamed-chunk-21"> </p>
 
     </div>
   </article>
 </slide>
-      <slide class="" id="slide-20">
+      <slide class="" id="slide-23">
   <hgroup>
-    <h3>C - Predicting the Quality of Wine - Part 5 - Other ML methods</h3>
+    <h3>Predicting the Quality of Wine - Part 5 - Other ML methods</h3>
   </hgroup>
   <article>
     <hr noshade size=4 color='red'>  
@@ -500,8 +499,8 @@
 <li>Neural Nets
 
 <ul>
-<li>Unsupervised learning / non-target based learning</li>
-<li>Distance matrix / cluster analaysis using Euclidean distances.</li>
+<li>Looking at basic feedforward simple 3-layer network (input, &#39;processing&#39;, output)</li>
+<li>Each node / neuron is a set of numerical parameters / weights tuned by the learning algorithm used</li>
 </ul></li>
 </ul>
 
@@ -513,7 +512,8 @@
 
 <ul>
 <li>Supervised learning</li>
-<li>Distance matrix / cluster analaysis using Euclidean distances.</li>
+<li>non-probabilistic binary linear classifier / nonlinear classifiers by applying the kernel trick</li>
+<li>constructs a hyperplane/s in a high-dimensional space</li>
 </ul></li>
 </ul>
 
@@ -525,26 +525,26 @@
     <h2>Aside - How does k nearest neighbours work ?</h2>
   </hgroup>
   <article>
-    <p><img src="figure/unnamed-chunk-18.png" alt="plot of chunk unnamed-chunk-18"> </p>
+    <p><img src="figure/unnamed-chunk-22.png" alt="plot of chunk unnamed-chunk-22"> </p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-22">
+      <slide class="" id="slide-25">
   <hgroup>
-    <h3>C - Predicting the Quality of Wine - Part 6 - kNN</h3>
+    <h3>Predicting the Quality of Wine - Part 6 - kNN</h3>
   </hgroup>
   <article>
     <hr noshade size=4 color='red'>  
       
     <div class='left' style='float:left;width:48%'>
-     <p><img src="figure/unnamed-chunk-19.png" alt="plot of chunk unnamed-chunk-19"> </p>
+     <p><img src="figure/unnamed-chunk-23.png" alt="plot of chunk unnamed-chunk-23"> </p>
 
 
     </div>    
     <div class='right' style='float:right;width:48%'>
-     <p><img src="figure/unnamed-chunk-20.png" alt="plot of chunk unnamed-chunk-20"> </p>
+     <p><img src="figure/unnamed-chunk-24.png" alt="plot of chunk unnamed-chunk-24"> </p>
 
     </div>
   </article>
@@ -554,26 +554,26 @@
     <h2>Aside - How do neural networks work ?</h2>
   </hgroup>
   <article>
-    <p><img src="figure/unnamed-chunk-21.png" alt="plot of chunk unnamed-chunk-21"> </p>
+    <p><img src="figure/unnamed-chunk-25.png" alt="plot of chunk unnamed-chunk-25"> </p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-24">
+      <slide class="" id="slide-27">
   <hgroup>
-    <h3>C - Predicting the Quality of Wine - Part 7 - NNET</h3>
+    <h3>Predicting the Quality of Wine - Part 7 - NNET</h3>
   </hgroup>
   <article>
     <hr noshade size=4 color='red'>  
       
     <div class='left' style='float:left;width:48%'>
-     <p><img src="figure/unnamed-chunk-22.png" alt="plot of chunk unnamed-chunk-22"> </p>
+     <p><img src="figure/unnamed-chunk-26.png" alt="plot of chunk unnamed-chunk-26"> </p>
 
 
     </div>    
     <div class='right' style='float:right;width:48%'>
-     <p><img src="figure/unnamed-chunk-23.png" alt="plot of chunk unnamed-chunk-23"> </p>
+     <p><img src="figure/unnamed-chunk-27.png" alt="plot of chunk unnamed-chunk-27"> </p>
 
     </div>
   </article>
@@ -583,51 +583,15 @@
     <h2>Aside - How do support vector machines work ?</h2>
   </hgroup>
   <article>
-    <p><img src="figure/unnamed-chunk-24.png" alt="plot of chunk unnamed-chunk-24"> </p>
+    <p><img src="figure/unnamed-chunk-28.png" alt="plot of chunk unnamed-chunk-28"> </p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-      <slide class="" id="slide-26">
+      <slide class="" id="slide-29">
   <hgroup>
-    <h3>C - Predicting the Quality of Wine - Part 8 - SVN</h3>
-  </hgroup>
-  <article>
-    <hr noshade size=4 color='red'>  
-      
-    <div class='left' style='float:left;width:48%'>
-     <p><img src="figure/unnamed-chunk-25.png" alt="plot of chunk unnamed-chunk-25"> </p>
-
-
-    </div>    
-    <div class='right' style='float:right;width:48%'>
-     <p><img src="figure/unnamed-chunk-26.png" alt="plot of chunk unnamed-chunk-26"> </p>
-
-    </div>
-  </article>
-</slide>
-      <slide class="" id="slide-27">
-  <hgroup>
-    <h3>C - Predicting the Quality of Wine - Part 9 - All Results</h3>
-  </hgroup>
-  <article>
-    <hr noshade size=4 color='red'>  
-      
-    <div class='left' style='float:left;width:48%'>
-     <p><img src="figure/unnamed-chunk-27.png" alt="plot of chunk unnamed-chunk-27"> </p>
-
-
-    </div>    
-    <div class='right' style='float:right;width:48%'>
-     <p><img src="figure/unnamed-chunk-28.png" alt="plot of chunk unnamed-chunk-28"> </p>
-
-    </div>
-  </article>
-</slide>
-      <slide class="" id="slide-28">
-  <hgroup>
-    <h2>Other related tools: OpenRefine (formerly Google Refine) / Rattle</h2>
+    <h3>Predicting the Quality of Wine - Part 8 - SVN</h3>
   </hgroup>
   <article>
     <hr noshade size=4 color='red'>  
@@ -643,7 +607,43 @@
     </div>
   </article>
 </slide>
-      <slide class="" id="slide-29">
+      <slide class="" id="slide-30">
+  <hgroup>
+    <h3>Predicting the Quality of Wine - Part 9 - All Results</h3>
+  </hgroup>
+  <article>
+    <hr noshade size=4 color='red'>  
+      
+    <div class='left' style='float:left;width:48%'>
+     <p><img src="figure/unnamed-chunk-31.png" alt="plot of chunk unnamed-chunk-31"> </p>
+
+
+    </div>    
+    <div class='right' style='float:right;width:48%'>
+     <p><img src="figure/unnamed-chunk-32.png" alt="plot of chunk unnamed-chunk-32"> </p>
+
+    </div>
+  </article>
+</slide>
+      <slide class="" id="slide-31">
+  <hgroup>
+    <h2>Other related tools: OpenRefine (formerly Google Refine) / Rattle</h2>
+  </hgroup>
+  <article>
+    <hr noshade size=4 color='red'>  
+      
+    <div class='left' style='float:left;width:48%'>
+     <p><img src="figure/unnamed-chunk-33.png" alt="plot of chunk unnamed-chunk-33"> </p>
+
+
+    </div>    
+    <div class='right' style='float:right;width:48%'>
+     <p><img src="figure/unnamed-chunk-34.png" alt="plot of chunk unnamed-chunk-34"> </p>
+
+    </div>
+  </article>
+</slide>
+      <slide class="" id="slide-32">
   <hgroup>
     <h2>Other related tools: Command Line Utilities</h2>
   </hgroup>
@@ -689,7 +689,7 @@
     </div>
   </article>
 </slide>
-      <slide class="" id="slide-30">
+      <slide class="" id="slide-33">
   <hgroup>
     <h2>A (incomplete) tour of the packages in R</h2>
   </hgroup>
@@ -705,6 +705,8 @@
 <li>AppliedPredictiveModeling</li>
 <li>randomForest</li>
 <li>corrplot</li>
+<li>arules</li>
+<li>arulesViz</li>
 </ul>
 
 
@@ -718,6 +720,8 @@
 <li>rattle</li>
 <li>RColorBrewer</li>
 <li>corrgram</li>
+<li>ElemStatLearn</li>
+<li>car</li>
 </ul>
 
     </div>
@@ -734,7 +738,9 @@
 
 <h3>An idea of how to test a set of techniques and parameters to help you find the best model for your data</h3>
 
-<h3>Slides, Data, Scripts are all on GH at <a href="https://github.com/braz/DublinR-ML-treesandforests">https://github.com/braz/DublinR-ML-treesandforests</a></h3>
+<h3>Slides, Data, Scripts are all on GH:</h3>
+
+<h4><a href="https://github.com/braz/DublinR-ML-treesandforests">https://github.com/braz/DublinR-ML-treesandforests</a></h4>
 
   </article>
   <!-- Presenter Notes -->

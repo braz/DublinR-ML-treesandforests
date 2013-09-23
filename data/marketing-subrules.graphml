@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns
+         http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+<!-- Created by igraph -->
+  <key id="v_name" for="node" attr.name="name" attr.type="string"/>
+  <key id="v_label" for="node" attr.name="label" attr.type="string"/>
+  <key id="e_support" for="edge" attr.name="support" attr.type="double"/>
+  <key id="e_confidence" for="edge" attr.name="confidence" attr.type="double"/>
+  <key id="e_lift" for="edge" attr.name="lift" attr.type="double"/>
+  <graph id="G" edgedefault="directed">
+    <node id="n0">
+      <data key="v_name">1</data>
+      <data key="v_label">{marketing.age=14-17,marketing.edu=Grades 9 to 11,marketing.occupation=Student, HS or College,marketing.dualincome=Not married,marketing.status=Live with Parents/Family}</data>
+    </node>
+    <node id="n1">
+      <data key="v_name">2</data>
+      <data key="v_label">{marketing.age=14-17,marketing.occupation=Student, HS or College,marketing.dualincome=Not married,marketing.hometype=House}</data>
+    </node>
+    <node id="n2">
+      <data key="v_name">3</data>
+      <data key="v_label">{marketing.age=14-17,marketing.occupation=Student, HS or College,marketing.dualincome=Not married,marketing.status=Live with Parents/Family,marketing.hometype=House}</data>
+    </node>
+    <node id="n3">
+      <data key="v_name">4</data>
+      <data key="v_label">{marketing.age=14-17,marketing.occupation=Student, HS or College,marketing.dualincome=Not married,marketing.status=Live with Parents/Family,marketing.language=English}</data>
+    </node>
+    <node id="n4">
+      <data key="v_name">5</data>
+      <data key="v_label">{marketing.age=14-17,marketing.occupation=Student, HS or College,marketing.dualincome=Not married,marketing.status=Live with Parents/Family}</data>
+    </node>
+    <node id="n5">
+      <data key="v_name">6</data>
+      <data key="v_label">{marketing.age=14-17}</data>
+    </node>
+    <node id="n6">
+      <data key="v_name">7</data>
+      <data key="v_label">{marketing.income=&lt;$10,000,marketing.edu=Grades 9 to 11,marketing.occupation=Student, HS or College,marketing.dualincome=Not married,marketing.status=Live with Parents/Family}</data>
+    </node>
+    <node id="n7">
+      <data key="v_name">8</data>
+      <data key="v_label">{marketing.income=&lt;$10,000,marketing.edu=Grades 9 to 11,marketing.occupation=Student, HS or College,marketing.status=Live with Parents/Family}</data>
+    </node>
+    <node id="n8">
+      <data key="v_name">9</data>
+      <data key="v_label">{marketing.income=&lt;$10,000,marketing.martial=Unknown,marketing.edu=Grades 9 to 11,marketing.occupation=Student, HS or College,marketing.dualincome=Not married,marketing.status=Live with Parents/Family}</data>
+    </node>
+    <node id="n9">
+      <data key="v_name">10</data>
+      <data key="v_label">{marketing.income=&lt;$10,000,marketing.martial=Unknown,marketing.edu=Grades 9 to 11,marketing.occupation=Student, HS or College,marketing.status=Live with Parents/Family}</data>
+    </node>
+    <node id="n10">
+      <data key="v_name">11</data>
+      <data key="v_label">{marketing.income=&lt;$10,000}</data>
+    </node>
+    <node id="n11">
+      <data key="v_name">12</data>
+      <data key="v_label">{marketing.martial=Unknown,marketing.age=14-17,marketing.occupation=Student, HS or College,marketing.dualincome=Not married,marketing.status=Live with Parents/Family}</data>
+    </node>
+    <edge source="n6" target="n5">
+      <data key="e_support">0.0530413</data>
+      <data key="e_confidence">0.952096</data>
+      <data key="e_lift">9.75193</data>
+    </edge>
+    <edge source="n8" target="n5">
+      <data key="e_support">0.0530413</data>
+      <data key="e_confidence">0.952096</data>
+      <data key="e_lift">9.75193</data>
+    </edge>
+    <edge source="n7" target="n5">
+      <data key="e_support">0.053486</data>
+      <data key="e_confidence">0.950593</data>
+      <data key="e_lift">9.73654</data>
+    </edge>
+    <edge source="n9" target="n5">
+      <data key="e_support">0.053486</data>
+      <data key="e_confidence">0.950593</data>
+      <data key="e_lift">9.73654</data>
+    </edge>
+    <edge source="n4" target="n10">
+      <data key="e_support">0.0716113</data>
+      <data key="e_confidence">1</data>
+      <data key="e_lift">5.15358</data>
+    </edge>
+    <edge source="n1" target="n10">
+      <data key="e_support">0.0514845</data>
+      <data key="e_confidence">1</data>
+      <data key="e_lift">5.15358</data>
+    </edge>
+    <edge source="n0" target="n10">
+      <data key="e_support">0.0530413</data>
+      <data key="e_confidence">1</data>
+      <data key="e_lift">5.15358</data>
+    </edge>
+    <edge source="n2" target="n10">
+      <data key="e_support">0.0514845</data>
+      <data key="e_confidence">1</data>
+      <data key="e_lift">5.15358</data>
+    </edge>
+    <edge source="n3" target="n10">
+      <data key="e_support">0.0574892</data>
+      <data key="e_confidence">1</data>
+      <data key="e_lift">5.15358</data>
+    </edge>
+    <edge source="n11" target="n10">
+      <data key="e_support">0.0716113</data>
+      <data key="e_confidence">1</data>
+      <data key="e_lift">5.15358</data>
+    </edge>
+  </graph>
+</graphml>
