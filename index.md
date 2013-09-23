@@ -15,13 +15,15 @@ mode        : selfcontained # {standalone, draft}
 
 ## Machine Learning Techniques in R  
 
-### Why should you use them?  
+### A bit of context around ML and Statistics 
 
-### How can you interprest their results?  
+### How can you interpret their results?  
 
-### What are they good at?  
+### A few techniques to improve prediction / reduce over-fitting  
 
-### A brief tour of the packages in R  
+### 4 data sets and 6 techniques in 1 talk
+
+### A brief tour of some useful data handling / formatting tools  
 
 --- .class #id
 
@@ -32,8 +34,8 @@ mode        : selfcontained # {standalone, draft}
     * True/False refers to Correctness
 * ROC curves are a technique from signal detection theory that presents the balance between the hit rate and the false alarm rate of a classifier
   * What is the best threshold to distinguish between the absence of presence of a given signal
-  * Dependant on the i) the signal's strength, ii) noise variance, and iii) the false alarm rate or the desired hit rate
-* AUC or area under the curve, maps a ROC to a single scalar value. A classifier's AUC is equvivlent to the probability that it will rank a random positive instance higher than a random negative instance
+  * Dependent on the i) the signal's strength, ii) noise variance, and iii) the false alarm rate or the desired hit rate
+* AUC or area under the curve, maps a ROC to a single scalar value. A classifier's AUC is equivalent to the probability that it will rank a random positive instance higher than a random negative instance
 
 --- &twocol
 
@@ -62,7 +64,7 @@ mode        : selfcontained # {standalone, draft}
 
   - A point in this plot is better than another if it is to the northwest (TPR higher / FPR lower / or both)
   - ``Conservatives'' - on LHS and near the X-axis - only make positive classification with strong evidence and making few FP errors but low TP rates
-  - ``Liberals'' - on upper RHS - make positive classifications with weak evidence so nearly all postivies identified however high FP rates
+  - ``Liberals'' - on upper RHS - make positive classifications with weak evidence so nearly all positives identified however high FP rates
 
 --- &twocol
 
@@ -86,7 +88,7 @@ mode        : selfcontained # {standalone, draft}
 ## Model Selection
 
 * Validation process using optimization procedure or a simple grid search over set of values for models to examine different tuning parameters.  
-* Criteria for selection can be overall accuracy or to simplest within one standard error of accuracy of the best / within X% of the best model or to most important features where there are many predicator variables.  
+* Criteria for selection can be overall accuracy or to simplest within one standard error of accuracy of the best / within X% of the best model or to most important features where there are many predictor variables.  
 
 
 ## Model Assessment
@@ -96,7 +98,7 @@ mode        : selfcontained # {standalone, draft}
 
 --- .class #id
 
-## Nuts & Bolts - Datasets and Techniques
+## Nuts & Bolts - Data sets and Techniques
 ![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4.png) 
 
 
@@ -145,7 +147,7 @@ mode        : selfcontained # {standalone, draft}
 
 --- &twocol
 ## What are they good for ?
-### Car Insurance Policy Explosure Management - Part 1
+### Car Insurance Policy Exposure Management - Part 1
 
 *** left
 
@@ -160,7 +162,7 @@ mode        : selfcontained # {standalone, draft}
 
 
 --- &twocol
-### Car Insurance Policy Explosure Management - Part 2
+### Car Insurance Policy Exposure Management - Part 2
 
 *** left
 
@@ -168,7 +170,7 @@ mode        : selfcontained # {standalone, draft}
 
 
 *** right
-* Root node, splits the dataset on 'agecat'
+* Root node, splits the data set on 'agecat'
 * Younger drivers to the left (1-8) and older drivers (9-11) to right
 * N9 splits on basis of vehicle value
 * N10 <= $28.9k giving 15k records and 5.4% of claims
@@ -257,7 +259,7 @@ mode        : selfcontained # {standalone, draft}
 ### Predicting the Quality of Wine - Part 3 - Problems with Trees
 
 *** left
-* Deal with irrelvant inputs
+* Deal with irrelevant inputs
 * No data preprocessing required
 * Scalable computation (fast to build)
 * Tolerant with missing values (little loss of accuracy)
@@ -265,9 +267,9 @@ mode        : selfcontained # {standalone, draft}
 * Allows for human understandable graphic representation
 
 *** right
-* Data fragmentation for high-dimensional sparse dataset (overfitting)
-* Difficult to fit to a trened / piecewise constant model
-* Highly infleuenced by changes to the dataset and local optima (deep trees might be questionable as the errors propagte down)
+* Data fragmentation for high-dimensional sparse data set (over-fitting)
+* Difficult to fit to a trend / piece-wise constant model
+* Highly influenced by changes to the data set and local optima (deep trees might be questionable as the errors propagate down)
 
 
 --- .class #id
@@ -297,22 +299,22 @@ mode        : selfcontained # {standalone, draft}
 *** left
 *  K-nearest neighbors
   * Unsupervised learning / non-target based learning
-  * Distance matrix / cluster analaysis using Euclidean distances.
+  * Distance matrix / cluster analysis using Euclidean distances.
 * Neural Nets
-  * Looking at basic feedforward simple 3-layer network (input, 'processing', output)
+  * Looking at basic feed forward simple 3-layer network (input, 'processing', output)
   * Each node / neuron is a set of numerical parameters / weights tuned by the learning algorithm used
   
 *** right
 * Support Vector Machines
   * Supervised learning
   * non-probabilistic binary linear classifier / nonlinear classifiers by applying the kernel trick
-  * constructs a hyperplane/s in a high-dimensional space
+  * constructs a hyper-plane/s in a high-dimensional space
 
 
 
 --- .class #id
 
-## Aside - How does k nearest neighbours work ?
+## Aside - How does k nearest neighbors work ?
 ![plot of chunk unnamed-chunk-22](figure/unnamed-chunk-22.png) 
 
 

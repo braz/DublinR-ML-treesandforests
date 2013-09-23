@@ -44,13 +44,15 @@
     <h2>Machine Learning Techniques in R</h2>
   </hgroup>
   <article>
-    <h3>Why should you use them?</h3>
+    <h3>A bit of context around ML and Statistics</h3>
 
-<h3>How can you interprest their results?</h3>
+<h3>How can you interpret their results?</h3>
 
-<h3>What are they good at?</h3>
+<h3>A few techniques to improve prediction / reduce over-fitting</h3>
 
-<h3>A brief tour of the packages in R</h3>
+<h3>4 data sets and 6 techniques in 1 talk</h3>
+
+<h3>A brief tour of some useful data handling / formatting tools</h3>
 
   </article>
   <!-- Presenter Notes -->
@@ -73,9 +75,9 @@
 
 <ul>
 <li>What is the best threshold to distinguish between the absence of presence of a given signal</li>
-<li>Dependant on the i) the signal&#39;s strength, ii) noise variance, and iii) the false alarm rate or the desired hit rate</li>
+<li>Dependent on the i) the signal&#39;s strength, ii) noise variance, and iii) the false alarm rate or the desired hit rate</li>
 </ul></li>
-<li>AUC or area under the curve, maps a ROC to a single scalar value. A classifier&#39;s AUC is equvivlent to the probability that it will rank a random positive instance higher than a random negative instance</li>
+<li>AUC or area under the curve, maps a ROC to a single scalar value. A classifier&#39;s AUC is equivalent to the probability that it will rank a random positive instance higher than a random negative instance</li>
 </ul>
 
   </article>
@@ -120,7 +122,7 @@
      <ul>
 <li>A point in this plot is better than another if it is to the northwest (TPR higher / FPR lower / or both)</li>
 <li>``Conservatives&#39;&#39; - on LHS and near the X-axis - only make positive classification with strong evidence and making few FP errors but low TP rates</li>
-<li>``Liberals&#39;&#39; - on upper RHS - make positive classifications with weak evidence so nearly all postivies identified however high FP rates</li>
+<li>``Liberals&#39;&#39; - on upper RHS - make positive classifications with weak evidence so nearly all positives identified however high FP rates</li>
 </ul>
 
     </div>
@@ -164,7 +166,7 @@
   <article>
     <ul>
 <li>Validation process using optimization procedure or a simple grid search over set of values for models to examine different tuning parameters.<br></li>
-<li>Criteria for selection can be overall accuracy or to simplest within one standard error of accuracy of the best / within X% of the best model or to most important features where there are many predicator variables.<br></li>
+<li>Criteria for selection can be overall accuracy or to simplest within one standard error of accuracy of the best / within X% of the best model or to most important features where there are many predictor variables.<br></li>
 </ul>
 
 <h2>Model Assessment</h2>
@@ -179,7 +181,7 @@
 
       <slide class="class" id="id" style="background:;">
   <hgroup>
-    <h2>Nuts &amp; Bolts - Datasets and Techniques</h2>
+    <h2>Nuts &amp; Bolts - Data sets and Techniques</h2>
   </hgroup>
   <article>
     <p><img src="figure/unnamed-chunk-4.png" alt="plot of chunk unnamed-chunk-4"> </p>
@@ -262,7 +264,7 @@
   </hgroup>
   <article>
     <hr noshade size=4 color='red'>  
-    <h3>Car Insurance Policy Explosure Management - Part 1</h3>
+    <h3>Car Insurance Policy Exposure Management - Part 1</h3>
 
   
     <div class='left' style='float:left;width:48%'>
@@ -283,7 +285,7 @@
 </slide>
       <slide class="" id="slide-14">
   <hgroup>
-    <h3>Car Insurance Policy Explosure Management - Part 2</h3>
+    <h3>Car Insurance Policy Exposure Management - Part 2</h3>
   </hgroup>
   <article>
     <hr noshade size=4 color='red'>  
@@ -295,7 +297,7 @@
     </div>    
     <div class='right' style='float:right;width:48%'>
      <ul>
-<li>Root node, splits the dataset on &#39;agecat&#39;</li>
+<li>Root node, splits the data set on &#39;agecat&#39;</li>
 <li>Younger drivers to the left (1-8) and older drivers (9-11) to right</li>
 <li>N9 splits on basis of vehicle value</li>
 <li>N10 &lt;= $28.9k giving 15k records and 5.4% of claims</li>
@@ -432,7 +434,7 @@
       
     <div class='left' style='float:left;width:48%'>
      <ul>
-<li>Deal with irrelvant inputs</li>
+<li>Deal with irrelevant inputs</li>
 <li>No data preprocessing required</li>
 <li>Scalable computation (fast to build)</li>
 <li>Tolerant with missing values (little loss of accuracy)</li>
@@ -444,9 +446,9 @@
     </div>    
     <div class='right' style='float:right;width:48%'>
      <ul>
-<li>Data fragmentation for high-dimensional sparse dataset (overfitting)</li>
-<li>Difficult to fit to a trened / piecewise constant model</li>
-<li>Highly infleuenced by changes to the dataset and local optima (deep trees might be questionable as the errors propagte down)</li>
+<li>Data fragmentation for high-dimensional sparse data set (over-fitting)</li>
+<li>Difficult to fit to a trend / piece-wise constant model</li>
+<li>Highly influenced by changes to the data set and local optima (deep trees might be questionable as the errors propagate down)</li>
 </ul>
 
     </div>
@@ -494,12 +496,12 @@
 
 <ul>
 <li>Unsupervised learning / non-target based learning</li>
-<li>Distance matrix / cluster analaysis using Euclidean distances.</li>
+<li>Distance matrix / cluster analysis using Euclidean distances.</li>
 </ul></li>
 <li>Neural Nets
 
 <ul>
-<li>Looking at basic feedforward simple 3-layer network (input, &#39;processing&#39;, output)</li>
+<li>Looking at basic feed forward simple 3-layer network (input, &#39;processing&#39;, output)</li>
 <li>Each node / neuron is a set of numerical parameters / weights tuned by the learning algorithm used</li>
 </ul></li>
 </ul>
@@ -513,7 +515,7 @@
 <ul>
 <li>Supervised learning</li>
 <li>non-probabilistic binary linear classifier / nonlinear classifiers by applying the kernel trick</li>
-<li>constructs a hyperplane/s in a high-dimensional space</li>
+<li>constructs a hyper-plane/s in a high-dimensional space</li>
 </ul></li>
 </ul>
 
@@ -522,7 +524,7 @@
 </slide>
       <slide class="class" id="id" style="background:;">
   <hgroup>
-    <h2>Aside - How does k nearest neighbours work ?</h2>
+    <h2>Aside - How does k nearest neighbors work ?</h2>
   </hgroup>
   <article>
     <p><img src="figure/unnamed-chunk-22.png" alt="plot of chunk unnamed-chunk-22"> </p>
