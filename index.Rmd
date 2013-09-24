@@ -38,6 +38,18 @@ options(width=40)
   * Dependent on the i) the signal's strength, ii) noise variance, and iii) the false alarm rate or the desired hit rate
 * AUC or area under the curve, maps a ROC to a single scalar value. A classifier's AUC is equivalent to the probability that it will rank a random positive instance higher than a random negative instance
 
+--- .class #id
+
+## Model Selection and Model Assessment
+```{r fig.width=14, fig.height=7, echo=FALSE}
+library(png)
+library(grid)
+img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/figure/ModelAssessmentModelSelection.png")
+ grid.raster(img)
+```
+
+
+
 --- &twocol
 
 ## Interpreting A Confusion Matrix
@@ -96,17 +108,6 @@ img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-tre
   * Repeated cross validation
   * The '.632' bootstrap
 
---- .class #id
-
-## Model Selection
-
-* Validation process using optimization procedure or a simple grid search over set of values for models to examine different tuning parameters.  
-* Criteria for selection can be overall accuracy or to simplest within one standard error of accuracy of the best / within X% of the best model or to most important features where there are many predictor variables.  
-
-
-## Model Assessment
-
-* Given the tuning parameters/features the performance should be examined on the test set. In classification problems, it is useful to look beyond the accuracy measure for performance, particularly if the classes are unbalanced. Different models can be combined to create a better classifier using an ensemble of models.  
 
 
 --- .class #id
@@ -296,6 +297,26 @@ img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-tre
 * "Modeling wine preferences by data mining from physicochemical properties, P. Cortez, A. Cerdeira, F. Almeida, T. Matos and J. Reis, Decision Support Systems 2009, 47(4):547-553".
   * Good (quality score is >= 6)
   * Bad (quality score is < 6)
+  
+```{r fig.width=7, fig.height=7, echo=FALSE}
+# Replace the path here with the appropriate one for your machine
+myprojectpath = "/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/"
+
+# Set the working directory to the current location for the project files
+setwd(myprojectpath)
+
+# Replace the path here with the appropriate one for your machine
+scriptpath = paste(myprojectpath, "scripts/", sep="")
+datapath = paste(myprojectpath, "data/", sep="")
+graphpath = paste(myprojectpath, "graphs/", sep="")
+
+# Set the seed so comparisons can be later made between the method
+set.seed(2323)
+
+# Load wine dataset into a dataframe for processing
+load(file=(paste(datapath, "goodwine_testing.RData", sep="")))
+table(wine.df.test$good)
+```
 
 *** right
 
@@ -519,6 +540,78 @@ img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-tre
  grid.raster(img)
 ```
 
+
+--- &twocol
+## What are they not good for ?
+### Predicting the Extramarital Affairs
+
+*** left
+
+* Fair, R.C. et al (1978), models the possibility of affairs, 9 vars with 601 obs (Training = 481 & Test = 120).
+* "A Theory of Extramarital Affairs, Fair, R.C., Journal of Political Economy 1978, 86:45-61".
+  * Yes (affairs is >= 1 in last 6 months)
+  * No (affairs is < 1 in last 6 months)
+  
+```{r fig.width=7, fig.height=7, echo=FALSE}
+# For data manipulation and visualization
+library(AER)
+library(corrplot)
+library(corrgram)
+library(caret)
+library(randomForest)
+library(klaR)
+
+# Replace the path here with the appropriate one for your machine
+myprojectpath = "/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/"
+
+# Set the working directory to the current location for the project files
+setwd(myprojectpath)
+
+# Replace the path here with the appropriate one for your machine
+scriptpath = paste(myprojectpath, "scripts/", sep="")
+datapath = paste(myprojectpath, "data/", sep="")
+graphpath = paste(myprojectpath, "graphs/", sep="")
+
+load(file=(paste(datapath, "affairs_randomforest.RData", sep="")))
+load(file=(paste(datapath, "affairs_training.RData", sep="")))
+load(file=(paste(datapath, "affairs_testing.RData", sep="")))
+rfPred <- predict(results.rf, affairs.df.test[,-10])
+table(affairs.df.test$hadaffair)
+```
+
+
+*** right
+
+```{r fig.width=6, fig.height=6, echo=FALSE}
+library(png)
+library(grid)
+img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/figure/DangerMachineLearning.png")
+ grid.raster(img)
+```
+
+
+--- &twocol
+### Predicting the Extramarital Affairs - RF & NB
+
+*** left
+### Random Forest
+
+```{r fig.width=7, fig.height=7, echo=FALSE}
+confusionMatrix(rfPred, affairs.df.test$hadaffair, positive="Yes")$table
+confusionMatrix(rfPred, affairs.df.test$hadaffair, positive="Yes")$overall[1]
+```
+
+*** right
+### Naive Bayes
+
+```{r fig.width=7, fig.height=7, echo=FALSE}
+load(file=(paste(datapath, "affairs_naivebayes.RData", sep="")))
+nbPred <- predict(results.nb, affairs.df.test[,-10])
+```
+```{r fig.width=7, fig.height=7, echo=FALSE}
+confusionMatrix(nbPred, affairs.df.test$hadaffair, positive="Yes")$table
+confusionMatrix(rfPred, affairs.df.test$hadaffair, positive="Yes")$overall[1]
+```
 
 --- &twocol
 ## Other related tools: OpenRefine (formerly Google Refine) / Rattle

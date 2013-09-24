@@ -37,13 +37,21 @@ mode        : selfcontained # {standalone, draft}
   * Dependent on the i) the signal's strength, ii) noise variance, and iii) the false alarm rate or the desired hit rate
 * AUC or area under the curve, maps a ROC to a single scalar value. A classifier's AUC is equivalent to the probability that it will rank a random positive instance higher than a random negative instance
 
+--- .class #id
+
+## Model Selection and Model Assessment
+![plot of chunk unnamed-chunk-1](figure/unnamed-chunk-1.png) 
+
+
+
+
 --- &twocol
 
 ## Interpreting A Confusion Matrix
 
 *** left
 
-![plot of chunk unnamed-chunk-1](figure/unnamed-chunk-1.png) 
+![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2.png) 
 
 
 *** right
@@ -57,7 +65,7 @@ mode        : selfcontained # {standalone, draft}
 
 *** left
 
-![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2.png) 
+![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3.png) 
 
 
 *** right
@@ -72,7 +80,7 @@ mode        : selfcontained # {standalone, draft}
 
 *** left
 
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3.png) 
+![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4.png) 
 
 
 *** right
@@ -83,23 +91,12 @@ mode        : selfcontained # {standalone, draft}
   * Repeated cross validation
   * The '.632' bootstrap
 
---- .class #id
-
-## Model Selection
-
-* Validation process using optimization procedure or a simple grid search over set of values for models to examine different tuning parameters.  
-* Criteria for selection can be overall accuracy or to simplest within one standard error of accuracy of the best / within X% of the best model or to most important features where there are many predictor variables.  
-
-
-## Model Assessment
-
-* Given the tuning parameters/features the performance should be examined on the test set. In classification problems, it is useful to look beyond the accuracy measure for performance, particularly if the classes are unbalanced. Different models can be combined to create a better classifier using an ensemble of models.  
 
 
 --- .class #id
 
 ## Nuts & Bolts - Data sets and Techniques
-![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4.png) 
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5.png) 
 
 
 
@@ -120,7 +117,7 @@ mode        : selfcontained # {standalone, draft}
 --- .class #id
 
 ## Aside - How does associative analysis work ?
-![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5.png) 
+![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6.png) 
 
 
 
@@ -128,20 +125,20 @@ mode        : selfcontained # {standalone, draft}
 ## What are they good for ?
 ### Marketing Survey Data - Part 1
 
-![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6.png) 
+![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7.png) 
 
 
 
 --- .class #id
 ### Marketing Survey Data - Part 2
 
-![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7.png) 
+![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8.png) 
 
 
 --- .class #id
 
 ## Aside - How do decision trees work ?
-![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8.png) 
+![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9.png) 
 
 
 
@@ -151,7 +148,7 @@ mode        : selfcontained # {standalone, draft}
 
 *** left
 
-![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9.png) 
+![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10.png) 
 
 
 *** right
@@ -166,7 +163,7 @@ mode        : selfcontained # {standalone, draft}
 
 *** left
 
-![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10.png) 
+![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11.png) 
 
 
 *** right
@@ -184,7 +181,7 @@ mode        : selfcontained # {standalone, draft}
 
 *** left
 
-![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11.png) 
+![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12.png) 
 
 
 *** right
@@ -202,12 +199,12 @@ mode        : selfcontained # {standalone, draft}
 
 *** left
 #### "prp(rpartTune$finalModel)"
-![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12.png) 
+![plot of chunk unnamed-chunk-13](figure/unnamed-chunk-13.png) 
 
 
 *** right
 #### "fancyRpartPlot(rpartTune$finalModel)"
-![plot of chunk unnamed-chunk-13](figure/unnamed-chunk-13.png) 
+![plot of chunk unnamed-chunk-14](figure/unnamed-chunk-14.png) 
 
 
 
@@ -216,12 +213,12 @@ mode        : selfcontained # {standalone, draft}
 
 *** left
 
-![plot of chunk unnamed-chunk-14](figure/unnamed-chunk-14.png) 
+![plot of chunk unnamed-chunk-15](figure/unnamed-chunk-15.png) 
 
 
 *** right
 
-![plot of chunk unnamed-chunk-15](figure/unnamed-chunk-15.png) 
+![plot of chunk unnamed-chunk-16](figure/unnamed-chunk-16.png) 
 
 
 
@@ -235,10 +232,18 @@ mode        : selfcontained # {standalone, draft}
 * "Modeling wine preferences by data mining from physicochemical properties, P. Cortez, A. Cerdeira, F. Almeida, T. Matos and J. Reis, Decision Support Systems 2009, 47(4):547-553".
   * Good (quality score is >= 6)
   * Bad (quality score is < 6)
+  
+
+```
+## 
+##  Bad Good 
+##  476  822
+```
+
 
 *** right
 
-![plot of chunk unnamed-chunk-16](figure/unnamed-chunk-16.png) 
+![plot of chunk unnamed-chunk-18](figure/unnamed-chunk-18.png) 
 
 
 
@@ -247,12 +252,12 @@ mode        : selfcontained # {standalone, draft}
 
 *** left
 
-![plot of chunk unnamed-chunk-17](figure/unnamed-chunk-17.png) 
+![plot of chunk unnamed-chunk-19](figure/unnamed-chunk-19.png) 
 
 
 *** right
 
-![plot of chunk unnamed-chunk-18](figure/unnamed-chunk-18.png) 
+![plot of chunk unnamed-chunk-20](figure/unnamed-chunk-20.png) 
 
 
 --- &twocol
@@ -275,7 +280,7 @@ mode        : selfcontained # {standalone, draft}
 --- .class #id
 
 ## Aside - How does a random forest work ?
-![plot of chunk unnamed-chunk-19](figure/unnamed-chunk-19.png) 
+![plot of chunk unnamed-chunk-21](figure/unnamed-chunk-21.png) 
 
 
 
@@ -284,13 +289,13 @@ mode        : selfcontained # {standalone, draft}
 
 *** left
 
-![plot of chunk unnamed-chunk-20](figure/unnamed-chunk-20.png) 
+![plot of chunk unnamed-chunk-22](figure/unnamed-chunk-22.png) 
 
 
 
 *** right
 
-![plot of chunk unnamed-chunk-21](figure/unnamed-chunk-21.png) 
+![plot of chunk unnamed-chunk-23](figure/unnamed-chunk-23.png) 
 
 
 --- &twocol
@@ -315,7 +320,7 @@ mode        : selfcontained # {standalone, draft}
 --- .class #id
 
 ## Aside - How does k nearest neighbors work ?
-![plot of chunk unnamed-chunk-22](figure/unnamed-chunk-22.png) 
+![plot of chunk unnamed-chunk-24](figure/unnamed-chunk-24.png) 
 
 
 
@@ -324,19 +329,19 @@ mode        : selfcontained # {standalone, draft}
 
 *** left
 
-![plot of chunk unnamed-chunk-23](figure/unnamed-chunk-23.png) 
+![plot of chunk unnamed-chunk-25](figure/unnamed-chunk-25.png) 
 
 
 
 *** right
 
-![plot of chunk unnamed-chunk-24](figure/unnamed-chunk-24.png) 
+![plot of chunk unnamed-chunk-26](figure/unnamed-chunk-26.png) 
 
 
 --- .class #id
 
 ## Aside - How do neural networks work ?
-![plot of chunk unnamed-chunk-25](figure/unnamed-chunk-25.png) 
+![plot of chunk unnamed-chunk-27](figure/unnamed-chunk-27.png) 
 
 
 
@@ -345,39 +350,25 @@ mode        : selfcontained # {standalone, draft}
 
 *** left
 
-![plot of chunk unnamed-chunk-26](figure/unnamed-chunk-26.png) 
+![plot of chunk unnamed-chunk-28](figure/unnamed-chunk-28.png) 
 
 
 
 *** right
 
-![plot of chunk unnamed-chunk-27](figure/unnamed-chunk-27.png) 
+![plot of chunk unnamed-chunk-29](figure/unnamed-chunk-29.png) 
 
 
 
 --- .class #id
 
 ## Aside - How do support vector machines work ?
-![plot of chunk unnamed-chunk-28](figure/unnamed-chunk-28.png) 
+![plot of chunk unnamed-chunk-30](figure/unnamed-chunk-30.png) 
 
 
 
 --- &twocol
 ### Predicting the Quality of Wine - Part 8 - SVN
-
-*** left
-
-![plot of chunk unnamed-chunk-29](figure/unnamed-chunk-29.png) 
-
-
-
-*** right
-
-![plot of chunk unnamed-chunk-30](figure/unnamed-chunk-30.png) 
-
-
---- &twocol
-### Predicting the Quality of Wine - Part 9 - All Results
 
 *** left
 
@@ -390,10 +381,8 @@ mode        : selfcontained # {standalone, draft}
 ![plot of chunk unnamed-chunk-32](figure/unnamed-chunk-32.png) 
 
 
-
 --- &twocol
-## Other related tools: OpenRefine (formerly Google Refine) / Rattle
-
+### Predicting the Quality of Wine - Part 9 - All Results
 
 *** left
 
@@ -404,6 +393,87 @@ mode        : selfcontained # {standalone, draft}
 *** right
 
 ![plot of chunk unnamed-chunk-34](figure/unnamed-chunk-34.png) 
+
+
+
+--- &twocol
+## What are they not good for ?
+### Predicting the Extramarital Affairs
+
+*** left
+
+* Fair, R.C. et al (1978), models the possibility of affairs, 9 vars with 601 obs (Training = 481 & Test = 120).
+* "A Theory of Extramarital Affairs, Fair, R.C., Journal of Political Economy 1978, 86:45-61".
+  * Yes (affairs is >= 1 in last 6 months)
+  * No (affairs is < 1 in last 6 months)
+  
+
+```
+## 
+##  No Yes 
+##  90  30
+```
+
+
+
+*** right
+
+![plot of chunk unnamed-chunk-36](figure/unnamed-chunk-36.png) 
+
+
+
+--- &twocol
+### Predicting the Extramarital Affairs - RF & NB
+
+*** left
+### Random Forest
+
+
+```
+##           Reference
+## Prediction No Yes
+##        No  90  30
+##        Yes  0   0
+```
+
+```
+## Accuracy 
+##     0.75
+```
+
+
+*** right
+### Naive Bayes
+
+
+
+
+```
+##           Reference
+## Prediction No Yes
+##        No  88  29
+##        Yes  2   1
+```
+
+```
+## Accuracy 
+##     0.75
+```
+
+
+--- &twocol
+## Other related tools: OpenRefine (formerly Google Refine) / Rattle
+
+
+*** left
+
+![plot of chunk unnamed-chunk-40](figure/unnamed-chunk-40.png) 
+
+
+
+*** right
+
+![plot of chunk unnamed-chunk-41](figure/unnamed-chunk-41.png) 
 
 
 

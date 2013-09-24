@@ -81,7 +81,7 @@ featurePlot(wine.df.trainplot.2, wine.df.train$good, "box")
 cv.opts = trainControl(method="cv", number=10, classProbs = TRUE)
 rf.opts = data.frame(.mtry=c(2:6))
 results.rf = train(good~., data=wine.df.train, method="rf", preProcess='range',trControl=cv.opts, tuneGrid=rf.opts, n.tree=1000)
-results_rf
+results.rf
 
 # Plot the
 plot(results.rf, scales = list(x = list(log = 10)))
