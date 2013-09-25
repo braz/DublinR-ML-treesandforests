@@ -16,7 +16,7 @@ options(width=40)
 
 ## Machine Learning Techniques in R  
 
-### A bit of context around ML and Statistics 
+### A bit of context around ML 
 
 ### How can you interpret their results?  
 
@@ -26,17 +26,16 @@ options(width=40)
 
 ### A brief tour of some useful data handling / formatting tools  
 
+
 --- .class #id
 
-## How can you interpret their results?
-* Confusion Matrices or contingency tables are used present the positive / negative classification results and are the basis for a ROC curve
-   * true positive (TP - a hit), true negative (TN - a correct rejection), false positive (FP - negative but classified as positive, a false alarm, Type I error) and false negative (FN - positive but classified as negative, a miss, Type II error)
-    * Positive/Negative refers to Prediction
-    * True/False refers to Correctness
-* ROC curves are a technique from signal detection theory that presents the balance between the hit rate and the false alarm rate of a classifier
-  * What is the best threshold to distinguish between the absence of presence of a given signal
-  * Dependent on the i) the signal's strength, ii) noise variance, and iii) the false alarm rate or the desired hit rate
-* AUC or area under the curve, maps a ROC to a single scalar value. A classifier's AUC is equivalent to the probability that it will rank a random positive instance higher than a random negative instance
+## A bit of context around ML
+```{r fig.width=14, fig.height=7, echo=FALSE}
+library(png)
+library(grid)
+img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/figure/101ContextForML.png")
+ grid.raster(img)
+```
 
 --- .class #id
 
@@ -47,7 +46,6 @@ library(grid)
 img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/figure/ModelAssessmentModelSelection.png")
  grid.raster(img)
 ```
-
 
 
 --- &twocol
@@ -108,6 +106,16 @@ img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-tre
   * Repeated cross validation
   * The '.632' bootstrap
 
+
+--- .class #id
+
+## Addressing Feature Selection
+```{r fig.width=14, fig.height=7, echo=FALSE}
+library(png)
+library(grid)
+img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/figure/CARET-Train-FeatureSelection.png")
+ grid.raster(img)
+```
 
 
 --- .class #id

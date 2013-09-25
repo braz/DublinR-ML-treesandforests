@@ -15,7 +15,7 @@ mode        : selfcontained # {standalone, draft}
 
 ## Machine Learning Techniques in R  
 
-### A bit of context around ML and Statistics 
+### A bit of context around ML 
 
 ### How can you interpret their results?  
 
@@ -25,23 +25,17 @@ mode        : selfcontained # {standalone, draft}
 
 ### A brief tour of some useful data handling / formatting tools  
 
+
 --- .class #id
 
-## How can you interpret their results?
-* Confusion Matrices or contingency tables are used present the positive / negative classification results and are the basis for a ROC curve
-   * true positive (TP - a hit), true negative (TN - a correct rejection), false positive (FP - negative but classified as positive, a false alarm, Type I error) and false negative (FN - positive but classified as negative, a miss, Type II error)
-    * Positive/Negative refers to Prediction
-    * True/False refers to Correctness
-* ROC curves are a technique from signal detection theory that presents the balance between the hit rate and the false alarm rate of a classifier
-  * What is the best threshold to distinguish between the absence of presence of a given signal
-  * Dependent on the i) the signal's strength, ii) noise variance, and iii) the false alarm rate or the desired hit rate
-* AUC or area under the curve, maps a ROC to a single scalar value. A classifier's AUC is equivalent to the probability that it will rank a random positive instance higher than a random negative instance
+## A bit of context around ML
+![plot of chunk unnamed-chunk-1](figure/unnamed-chunk-1.png) 
+
 
 --- .class #id
 
 ## Model Selection and Model Assessment
-![plot of chunk unnamed-chunk-1](figure/unnamed-chunk-1.png) 
-
+![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2.png) 
 
 
 
@@ -51,7 +45,7 @@ mode        : selfcontained # {standalone, draft}
 
 *** left
 
-![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2.png) 
+![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3.png) 
 
 
 *** right
@@ -65,7 +59,7 @@ mode        : selfcontained # {standalone, draft}
 
 *** left
 
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3.png) 
+![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4.png) 
 
 
 *** right
@@ -80,7 +74,7 @@ mode        : selfcontained # {standalone, draft}
 
 *** left
 
-![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4.png) 
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5.png) 
 
 
 *** right
@@ -92,11 +86,17 @@ mode        : selfcontained # {standalone, draft}
   * The '.632' bootstrap
 
 
+--- .class #id
+
+## Addressing Feature Selection
+![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6.png) 
+
+
 
 --- .class #id
 
 ## Nuts & Bolts - Data sets and Techniques
-![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5.png) 
+![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7.png) 
 
 
 
@@ -117,7 +117,7 @@ mode        : selfcontained # {standalone, draft}
 --- .class #id
 
 ## Aside - How does associative analysis work ?
-![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6.png) 
+![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8.png) 
 
 
 
@@ -125,20 +125,20 @@ mode        : selfcontained # {standalone, draft}
 ## What are they good for ?
 ### Marketing Survey Data - Part 1
 
-![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7.png) 
+![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9.png) 
 
 
 
 --- .class #id
 ### Marketing Survey Data - Part 2
 
-![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8.png) 
+![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10.png) 
 
 
 --- .class #id
 
 ## Aside - How do decision trees work ?
-![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9.png) 
+![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11.png) 
 
 
 
@@ -148,7 +148,7 @@ mode        : selfcontained # {standalone, draft}
 
 *** left
 
-![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10.png) 
+![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12.png) 
 
 
 *** right
@@ -163,7 +163,7 @@ mode        : selfcontained # {standalone, draft}
 
 *** left
 
-![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11.png) 
+![plot of chunk unnamed-chunk-13](figure/unnamed-chunk-13.png) 
 
 
 *** right
@@ -181,7 +181,7 @@ mode        : selfcontained # {standalone, draft}
 
 *** left
 
-![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12.png) 
+![plot of chunk unnamed-chunk-14](figure/unnamed-chunk-14.png) 
 
 
 *** right
@@ -199,12 +199,12 @@ mode        : selfcontained # {standalone, draft}
 
 *** left
 #### "prp(rpartTune$finalModel)"
-![plot of chunk unnamed-chunk-13](figure/unnamed-chunk-13.png) 
+![plot of chunk unnamed-chunk-15](figure/unnamed-chunk-15.png) 
 
 
 *** right
 #### "fancyRpartPlot(rpartTune$finalModel)"
-![plot of chunk unnamed-chunk-14](figure/unnamed-chunk-14.png) 
+![plot of chunk unnamed-chunk-16](figure/unnamed-chunk-16.png) 
 
 
 
@@ -213,12 +213,12 @@ mode        : selfcontained # {standalone, draft}
 
 *** left
 
-![plot of chunk unnamed-chunk-15](figure/unnamed-chunk-15.png) 
+![plot of chunk unnamed-chunk-17](figure/unnamed-chunk-17.png) 
 
 
 *** right
 
-![plot of chunk unnamed-chunk-16](figure/unnamed-chunk-16.png) 
+![plot of chunk unnamed-chunk-18](figure/unnamed-chunk-18.png) 
 
 
 
@@ -243,7 +243,7 @@ mode        : selfcontained # {standalone, draft}
 
 *** right
 
-![plot of chunk unnamed-chunk-18](figure/unnamed-chunk-18.png) 
+![plot of chunk unnamed-chunk-20](figure/unnamed-chunk-20.png) 
 
 
 
@@ -252,12 +252,12 @@ mode        : selfcontained # {standalone, draft}
 
 *** left
 
-![plot of chunk unnamed-chunk-19](figure/unnamed-chunk-19.png) 
+![plot of chunk unnamed-chunk-21](figure/unnamed-chunk-21.png) 
 
 
 *** right
 
-![plot of chunk unnamed-chunk-20](figure/unnamed-chunk-20.png) 
+![plot of chunk unnamed-chunk-22](figure/unnamed-chunk-22.png) 
 
 
 --- &twocol
@@ -280,7 +280,7 @@ mode        : selfcontained # {standalone, draft}
 --- .class #id
 
 ## Aside - How does a random forest work ?
-![plot of chunk unnamed-chunk-21](figure/unnamed-chunk-21.png) 
+![plot of chunk unnamed-chunk-23](figure/unnamed-chunk-23.png) 
 
 
 
@@ -289,13 +289,13 @@ mode        : selfcontained # {standalone, draft}
 
 *** left
 
-![plot of chunk unnamed-chunk-22](figure/unnamed-chunk-22.png) 
+![plot of chunk unnamed-chunk-24](figure/unnamed-chunk-24.png) 
 
 
 
 *** right
 
-![plot of chunk unnamed-chunk-23](figure/unnamed-chunk-23.png) 
+![plot of chunk unnamed-chunk-25](figure/unnamed-chunk-25.png) 
 
 
 --- &twocol
@@ -320,7 +320,7 @@ mode        : selfcontained # {standalone, draft}
 --- .class #id
 
 ## Aside - How does k nearest neighbors work ?
-![plot of chunk unnamed-chunk-24](figure/unnamed-chunk-24.png) 
+![plot of chunk unnamed-chunk-26](figure/unnamed-chunk-26.png) 
 
 
 
@@ -329,19 +329,19 @@ mode        : selfcontained # {standalone, draft}
 
 *** left
 
-![plot of chunk unnamed-chunk-25](figure/unnamed-chunk-25.png) 
+![plot of chunk unnamed-chunk-27](figure/unnamed-chunk-27.png) 
 
 
 
 *** right
 
-![plot of chunk unnamed-chunk-26](figure/unnamed-chunk-26.png) 
+![plot of chunk unnamed-chunk-28](figure/unnamed-chunk-28.png) 
 
 
 --- .class #id
 
 ## Aside - How do neural networks work ?
-![plot of chunk unnamed-chunk-27](figure/unnamed-chunk-27.png) 
+![plot of chunk unnamed-chunk-29](figure/unnamed-chunk-29.png) 
 
 
 
@@ -350,39 +350,25 @@ mode        : selfcontained # {standalone, draft}
 
 *** left
 
-![plot of chunk unnamed-chunk-28](figure/unnamed-chunk-28.png) 
+![plot of chunk unnamed-chunk-30](figure/unnamed-chunk-30.png) 
 
 
 
 *** right
 
-![plot of chunk unnamed-chunk-29](figure/unnamed-chunk-29.png) 
+![plot of chunk unnamed-chunk-31](figure/unnamed-chunk-31.png) 
 
 
 
 --- .class #id
 
 ## Aside - How do support vector machines work ?
-![plot of chunk unnamed-chunk-30](figure/unnamed-chunk-30.png) 
+![plot of chunk unnamed-chunk-32](figure/unnamed-chunk-32.png) 
 
 
 
 --- &twocol
 ### Predicting the Quality of Wine - Part 8 - SVN
-
-*** left
-
-![plot of chunk unnamed-chunk-31](figure/unnamed-chunk-31.png) 
-
-
-
-*** right
-
-![plot of chunk unnamed-chunk-32](figure/unnamed-chunk-32.png) 
-
-
---- &twocol
-### Predicting the Quality of Wine - Part 9 - All Results
 
 *** left
 
@@ -393,6 +379,20 @@ mode        : selfcontained # {standalone, draft}
 *** right
 
 ![plot of chunk unnamed-chunk-34](figure/unnamed-chunk-34.png) 
+
+
+--- &twocol
+### Predicting the Quality of Wine - Part 9 - All Results
+
+*** left
+
+![plot of chunk unnamed-chunk-35](figure/unnamed-chunk-35.png) 
+
+
+
+*** right
+
+![plot of chunk unnamed-chunk-36](figure/unnamed-chunk-36.png) 
 
 
 
@@ -418,7 +418,7 @@ mode        : selfcontained # {standalone, draft}
 
 *** right
 
-![plot of chunk unnamed-chunk-36](figure/unnamed-chunk-36.png) 
+![plot of chunk unnamed-chunk-38](figure/unnamed-chunk-38.png) 
 
 
 
@@ -467,13 +467,13 @@ mode        : selfcontained # {standalone, draft}
 
 *** left
 
-![plot of chunk unnamed-chunk-40](figure/unnamed-chunk-40.png) 
+![plot of chunk unnamed-chunk-42](figure/unnamed-chunk-42.png) 
 
 
 
 *** right
 
-![plot of chunk unnamed-chunk-41](figure/unnamed-chunk-41.png) 
+![plot of chunk unnamed-chunk-43](figure/unnamed-chunk-43.png) 
 
 
 
