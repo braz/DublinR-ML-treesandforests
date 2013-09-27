@@ -21,7 +21,9 @@ mode        : selfcontained # {standalone, draft}
 
 ### A few techniques to improve prediction / reduce over-fitting  
 
-### 4 data sets and 6 techniques in 1 talk
+### Kaggle & similar competitions - using ML for fun & profit
+
+### Nuts & Bolts - 4 data sets and 6 techniques
 
 ### A brief tour of some useful data handling / formatting tools  
 
@@ -93,10 +95,18 @@ mode        : selfcontained # {standalone, draft}
 
 
 
+
+--- .class #id
+
+## Kaggle - using ML for fun & profit
+![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7.png) 
+
+
+
 --- .class #id
 
 ## Nuts & Bolts - Data sets and Techniques
-![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7.png) 
+![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8.png) 
 
 
 
@@ -117,7 +127,7 @@ mode        : selfcontained # {standalone, draft}
 --- .class #id
 
 ## Aside - How does associative analysis work ?
-![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8.png) 
+![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9.png) 
 
 
 
@@ -125,20 +135,20 @@ mode        : selfcontained # {standalone, draft}
 ## What are they good for ?
 ### Marketing Survey Data - Part 1
 
-![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9.png) 
+![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10.png) 
 
 
 
 --- .class #id
 ### Marketing Survey Data - Part 2
 
-![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10.png) 
+![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11.png) 
 
 
 --- .class #id
 
 ## Aside - How do decision trees work ?
-![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11.png) 
+![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12.png) 
 
 
 
@@ -148,7 +158,7 @@ mode        : selfcontained # {standalone, draft}
 
 *** left
 
-![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12.png) 
+![plot of chunk unnamed-chunk-13](figure/unnamed-chunk-13.png) 
 
 
 *** right
@@ -163,7 +173,7 @@ mode        : selfcontained # {standalone, draft}
 
 *** left
 
-![plot of chunk unnamed-chunk-13](figure/unnamed-chunk-13.png) 
+![plot of chunk unnamed-chunk-14](figure/unnamed-chunk-14.png) 
 
 
 *** right
@@ -181,7 +191,7 @@ mode        : selfcontained # {standalone, draft}
 
 *** left
 
-![plot of chunk unnamed-chunk-14](figure/unnamed-chunk-14.png) 
+![plot of chunk unnamed-chunk-15](figure/unnamed-chunk-15.png) 
 
 
 *** right
@@ -199,12 +209,12 @@ mode        : selfcontained # {standalone, draft}
 
 *** left
 #### "prp(rpartTune$finalModel)"
-![plot of chunk unnamed-chunk-15](figure/unnamed-chunk-15.png) 
+![plot of chunk unnamed-chunk-16](figure/unnamed-chunk-16.png) 
 
 
 *** right
 #### "fancyRpartPlot(rpartTune$finalModel)"
-![plot of chunk unnamed-chunk-16](figure/unnamed-chunk-16.png) 
+![plot of chunk unnamed-chunk-17](figure/unnamed-chunk-17.png) 
 
 
 
@@ -213,12 +223,12 @@ mode        : selfcontained # {standalone, draft}
 
 *** left
 
-![plot of chunk unnamed-chunk-17](figure/unnamed-chunk-17.png) 
+![plot of chunk unnamed-chunk-18](figure/unnamed-chunk-18.png) 
 
 
 *** right
 
-![plot of chunk unnamed-chunk-18](figure/unnamed-chunk-18.png) 
+![plot of chunk unnamed-chunk-19](figure/unnamed-chunk-19.png) 
 
 
 
@@ -243,25 +253,30 @@ mode        : selfcontained # {standalone, draft}
 
 *** right
 
-![plot of chunk unnamed-chunk-20](figure/unnamed-chunk-20.png) 
-
-
-
---- &twocol
-### Predicting the Quality of Wine - Part 2
-
-*** left
-
 ![plot of chunk unnamed-chunk-21](figure/unnamed-chunk-21.png) 
 
 
-*** right
+--- .class #id
 
+## Predicting the Quality of Wine - Part 2
 ![plot of chunk unnamed-chunk-22](figure/unnamed-chunk-22.png) 
 
 
 --- &twocol
-### Predicting the Quality of Wine - Part 3 - Problems with Trees
+### Predicting the Quality of Wine - Part 3
+
+*** left
+
+![plot of chunk unnamed-chunk-23](figure/unnamed-chunk-23.png) 
+
+
+*** right
+
+![plot of chunk unnamed-chunk-24](figure/unnamed-chunk-24.png) 
+
+
+--- &twocol
+### Predicting the Quality of Wine - Part 4 - Problems with Trees
 
 *** left
 * Deal with irrelevant inputs
@@ -280,26 +295,26 @@ mode        : selfcontained # {standalone, draft}
 --- .class #id
 
 ## Aside - How does a random forest work ?
-![plot of chunk unnamed-chunk-23](figure/unnamed-chunk-23.png) 
+![plot of chunk unnamed-chunk-25](figure/unnamed-chunk-25.png) 
 
 
 
 --- &twocol
-### Predicting the Quality of Wine - Part 4 - Random Forest
+### Predicting the Quality of Wine - Part 5 - Random Forest
 
 *** left
 
-![plot of chunk unnamed-chunk-24](figure/unnamed-chunk-24.png) 
+![plot of chunk unnamed-chunk-26](figure/unnamed-chunk-26.png) 
 
 
 
 *** right
 
-![plot of chunk unnamed-chunk-25](figure/unnamed-chunk-25.png) 
+![plot of chunk unnamed-chunk-27](figure/unnamed-chunk-27.png) 
 
 
 --- &twocol
-### Predicting the Quality of Wine - Part 5 - Other ML methods
+### Predicting the Quality of Wine - Part 6 - Other ML methods
 
 *** left
 *  K-nearest neighbors
@@ -320,69 +335,55 @@ mode        : selfcontained # {standalone, draft}
 --- .class #id
 
 ## Aside - How does k nearest neighbors work ?
-![plot of chunk unnamed-chunk-26](figure/unnamed-chunk-26.png) 
+![plot of chunk unnamed-chunk-28](figure/unnamed-chunk-28.png) 
 
 
 
 --- &twocol
-### Predicting the Quality of Wine - Part 6 - kNN
+### Predicting the Quality of Wine - Part 7 - kNN
 
 *** left
 
-![plot of chunk unnamed-chunk-27](figure/unnamed-chunk-27.png) 
+![plot of chunk unnamed-chunk-29](figure/unnamed-chunk-29.png) 
 
 
 
 *** right
 
-![plot of chunk unnamed-chunk-28](figure/unnamed-chunk-28.png) 
+![plot of chunk unnamed-chunk-30](figure/unnamed-chunk-30.png) 
 
 
 --- .class #id
 
 ## Aside - How do neural networks work ?
-![plot of chunk unnamed-chunk-29](figure/unnamed-chunk-29.png) 
+![plot of chunk unnamed-chunk-31](figure/unnamed-chunk-31.png) 
 
 
 
 --- &twocol
-### Predicting the Quality of Wine - Part 7 - NNET
+### Predicting the Quality of Wine - Part 8 - NNET
 
 *** left
 
-![plot of chunk unnamed-chunk-30](figure/unnamed-chunk-30.png) 
+![plot of chunk unnamed-chunk-32](figure/unnamed-chunk-32.png) 
 
 
 
 *** right
 
-![plot of chunk unnamed-chunk-31](figure/unnamed-chunk-31.png) 
+![plot of chunk unnamed-chunk-33](figure/unnamed-chunk-33.png) 
 
 
 
 --- .class #id
 
 ## Aside - How do support vector machines work ?
-![plot of chunk unnamed-chunk-32](figure/unnamed-chunk-32.png) 
-
-
-
---- &twocol
-### Predicting the Quality of Wine - Part 8 - SVN
-
-*** left
-
-![plot of chunk unnamed-chunk-33](figure/unnamed-chunk-33.png) 
-
-
-
-*** right
-
 ![plot of chunk unnamed-chunk-34](figure/unnamed-chunk-34.png) 
 
 
+
 --- &twocol
-### Predicting the Quality of Wine - Part 9 - All Results
+### Predicting the Quality of Wine - Part 9 - SVN
 
 *** left
 
@@ -393,6 +394,20 @@ mode        : selfcontained # {standalone, draft}
 *** right
 
 ![plot of chunk unnamed-chunk-36](figure/unnamed-chunk-36.png) 
+
+
+--- &twocol
+### Predicting the Quality of Wine - Part 10 - All Results
+
+*** left
+
+![plot of chunk unnamed-chunk-37](figure/unnamed-chunk-37.png) 
+
+
+
+*** right
+
+![plot of chunk unnamed-chunk-38](figure/unnamed-chunk-38.png) 
 
 
 
@@ -418,7 +433,7 @@ mode        : selfcontained # {standalone, draft}
 
 *** right
 
-![plot of chunk unnamed-chunk-38](figure/unnamed-chunk-38.png) 
+![plot of chunk unnamed-chunk-40](figure/unnamed-chunk-40.png) 
 
 
 
@@ -467,13 +482,13 @@ mode        : selfcontained # {standalone, draft}
 
 *** left
 
-![plot of chunk unnamed-chunk-42](figure/unnamed-chunk-42.png) 
+![plot of chunk unnamed-chunk-44](figure/unnamed-chunk-44.png) 
 
 
 
 *** right
 
-![plot of chunk unnamed-chunk-43](figure/unnamed-chunk-43.png) 
+![plot of chunk unnamed-chunk-45](figure/unnamed-chunk-45.png) 
 
 
 

@@ -22,7 +22,9 @@ options(width=40)
 
 ### A few techniques to improve prediction / reduce over-fitting  
 
-### 4 data sets and 6 techniques in 1 talk
+### Kaggle & similar competitions - using ML for fun & profit
+
+### Nuts & Bolts - 4 data sets and 6 techniques
 
 ### A brief tour of some useful data handling / formatting tools  
 
@@ -114,6 +116,18 @@ img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-tre
 library(png)
 library(grid)
 img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/figure/CARET-Train-FeatureSelection.png")
+ grid.raster(img)
+```
+
+
+
+--- .class #id
+
+## Kaggle - using ML for fun & profit
+```{r fig.width=14, fig.height=7, echo=FALSE}
+library(png)
+library(grid)
+img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/figure/KaggleCompetitions.png")
  grid.raster(img)
 ```
 
@@ -335,9 +349,18 @@ img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-tre
  grid.raster(img)
 ```
 
+--- .class #id
+
+## Predicting the Quality of Wine - Part 2
+```{r fig.width=15, fig.height=7, echo=FALSE}
+library(png)
+library(grid)
+img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/figure/wineDatasetOverview.png")
+ grid.raster(img)
+```
 
 --- &twocol
-### Predicting the Quality of Wine - Part 2
+### Predicting the Quality of Wine - Part 3
 
 *** left
 
@@ -358,7 +381,7 @@ img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-tre
 ```
 
 --- &twocol
-### Predicting the Quality of Wine - Part 3 - Problems with Trees
+### Predicting the Quality of Wine - Part 4 - Problems with Trees
 
 *** left
 * Deal with irrelevant inputs
@@ -386,7 +409,7 @@ img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-tre
 
 
 --- &twocol
-### Predicting the Quality of Wine - Part 4 - Random Forest
+### Predicting the Quality of Wine - Part 5 - Random Forest
 
 *** left
 
@@ -408,7 +431,7 @@ img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-tre
 ```
 
 --- &twocol
-### Predicting the Quality of Wine - Part 5 - Other ML methods
+### Predicting the Quality of Wine - Part 6 - Other ML methods
 
 *** left
 *  K-nearest neighbors
@@ -438,7 +461,7 @@ img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-tre
 
 
 --- &twocol
-### Predicting the Quality of Wine - Part 6 - kNN
+### Predicting the Quality of Wine - Part 7 - kNN
 
 *** left
 
@@ -471,7 +494,7 @@ img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-tre
 
 
 --- &twocol
-### Predicting the Quality of Wine - Part 7 - NNET
+### Predicting the Quality of Wine - Part 8 - NNET
 
 *** left
 
@@ -505,7 +528,7 @@ img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-tre
 
 
 --- &twocol
-### Predicting the Quality of Wine - Part 8 - SVN
+### Predicting the Quality of Wine - Part 9 - SVN
 
 *** left
 
@@ -527,7 +550,7 @@ img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-tre
 ```
 
 --- &twocol
-### Predicting the Quality of Wine - Part 9 - All Results
+### Predicting the Quality of Wine - Part 10 - All Results
 
 *** left
 
