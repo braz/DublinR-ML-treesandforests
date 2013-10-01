@@ -49,6 +49,15 @@ img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-tre
  grid.raster(img)
 ```
 
+--- .class #id
+
+## Model Choice - Move from Adaptability to Simplicity
+```{r fig.width=14, fig.height=7, echo=FALSE}
+library(png)
+library(grid)
+img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/figure/ComplexToSimpleModelChoice.png")
+ grid.raster(img)
+```
 
 --- &twocol
 
