@@ -52,6 +52,17 @@ img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-tre
 
 --- .class #id
 
+## Model Building Process
+```{r fig.width=14, fig.height=7, echo=FALSE}
+library(png)
+library(grid)
+img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/figure/ModelBuilding101.png")
+ grid.raster(img)
+```
+
+
+--- .class #id
+
 ## Model Selection and Model Assessment
 ```{r fig.width=14, fig.height=7, echo=FALSE}
 library(png)
