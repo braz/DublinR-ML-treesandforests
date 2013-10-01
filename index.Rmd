@@ -39,6 +39,17 @@ img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-tre
  grid.raster(img)
 ```
 
+
+--- .class #id
+
+```{r fig.width=14, fig.height=7, echo=FALSE}
+library(png)
+library(grid)
+img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/figure/DataTransformations.png")
+ grid.raster(img)
+```
+
+
 --- .class #id
 
 ## Model Selection and Model Assessment
@@ -600,6 +611,8 @@ library(corrgram)
 library(caret)
 library(randomForest)
 library(klaR)
+library(zoo)
+library(class)
 
 # Replace the path here with the appropriate one for your machine
 myprojectpath = "/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/"
