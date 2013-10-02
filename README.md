@@ -1,4 +1,5 @@
 # DublinR-ML-treesandforests
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/braz/dublinr-ml-treesandforests/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 A short talk with scripts, data and notes on using machine learning with R.
 Presented to the Dublin R Usergroup on Oct 8th.
