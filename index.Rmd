@@ -295,9 +295,19 @@ img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-tre
     * d, Poorly-Segmented (PS)
     * e, PS (e.g. partial match/es)
 
+--- .class #id
+
+## Cancer Research Screening Dataset - Part 2
+```{r fig.width=14, fig.height=7, echo=FALSE}
+library(png)
+library(grid)
+img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/figure/imageSegmentationDatasetOverview.png")
+ grid.raster(img)
+```
+
 
 --- &twocol
-### Cancer Research Screening - Part 2
+### Cancer Research Screening - Part 3
 
 *** left
 #### "prp(rpartTune$finalModel)"
@@ -319,7 +329,7 @@ img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-tre
 
 
 --- &twocol
-### Cancer Research Screening - Part 3
+### Cancer Research Screening - Part 4
 
 *** left
 

@@ -222,18 +222,10 @@ mode        : selfcontained # {standalone, draft}
     * d, Poorly-Segmented (PS)
     * e, PS (e.g. partial match/es)
 
+--- .class #id
 
---- &twocol
-### Cancer Research Screening - Part 2
-
-*** left
-#### "prp(rpartTune$finalModel)"
+## Cancer Research Screening Dataset - Part 2
 ![plot of chunk unnamed-chunk-19](figure/unnamed-chunk-19.png) 
-
-
-*** right
-#### "fancyRpartPlot(rpartTune$finalModel)"
-![plot of chunk unnamed-chunk-20](figure/unnamed-chunk-20.png) 
 
 
 
@@ -241,13 +233,27 @@ mode        : selfcontained # {standalone, draft}
 ### Cancer Research Screening - Part 3
 
 *** left
+#### "prp(rpartTune$finalModel)"
+![plot of chunk unnamed-chunk-20](figure/unnamed-chunk-20.png) 
 
+
+*** right
+#### "fancyRpartPlot(rpartTune$finalModel)"
 ![plot of chunk unnamed-chunk-21](figure/unnamed-chunk-21.png) 
+
+
+
+--- &twocol
+### Cancer Research Screening - Part 4
+
+*** left
+
+![plot of chunk unnamed-chunk-22](figure/unnamed-chunk-22.png) 
 
 
 *** right
 
-![plot of chunk unnamed-chunk-22](figure/unnamed-chunk-22.png) 
+![plot of chunk unnamed-chunk-23](figure/unnamed-chunk-23.png) 
 
 
 
@@ -272,13 +278,13 @@ mode        : selfcontained # {standalone, draft}
 
 *** right
 
-![plot of chunk unnamed-chunk-24](figure/unnamed-chunk-24.png) 
+![plot of chunk unnamed-chunk-25](figure/unnamed-chunk-25.png) 
 
 
 --- .class #id
 
 ## Predicting the Quality of Wine - Part 2
-![plot of chunk unnamed-chunk-25](figure/unnamed-chunk-25.png) 
+![plot of chunk unnamed-chunk-26](figure/unnamed-chunk-26.png) 
 
 
 --- &twocol
@@ -286,12 +292,12 @@ mode        : selfcontained # {standalone, draft}
 
 *** left
 
-![plot of chunk unnamed-chunk-26](figure/unnamed-chunk-26.png) 
+![plot of chunk unnamed-chunk-27](figure/unnamed-chunk-27.png) 
 
 
 *** right
 
-![plot of chunk unnamed-chunk-27](figure/unnamed-chunk-27.png) 
+![plot of chunk unnamed-chunk-28](figure/unnamed-chunk-28.png) 
 
 
 --- &twocol
@@ -314,7 +320,7 @@ mode        : selfcontained # {standalone, draft}
 --- .class #id
 
 ## Aside - How does a random forest work ?
-![plot of chunk unnamed-chunk-28](figure/unnamed-chunk-28.png) 
+![plot of chunk unnamed-chunk-29](figure/unnamed-chunk-29.png) 
 
 
 
@@ -323,13 +329,13 @@ mode        : selfcontained # {standalone, draft}
 
 *** left
 
-![plot of chunk unnamed-chunk-29](figure/unnamed-chunk-29.png) 
+![plot of chunk unnamed-chunk-30](figure/unnamed-chunk-30.png) 
 
 
 
 *** right
 
-![plot of chunk unnamed-chunk-30](figure/unnamed-chunk-30.png) 
+![plot of chunk unnamed-chunk-31](figure/unnamed-chunk-31.png) 
 
 
 --- &twocol
@@ -354,7 +360,7 @@ mode        : selfcontained # {standalone, draft}
 --- .class #id
 
 ## Aside - How does k nearest neighbors work ?
-![plot of chunk unnamed-chunk-31](figure/unnamed-chunk-31.png) 
+![plot of chunk unnamed-chunk-32](figure/unnamed-chunk-32.png) 
 
 
 
@@ -363,19 +369,19 @@ mode        : selfcontained # {standalone, draft}
 
 *** left
 
-![plot of chunk unnamed-chunk-32](figure/unnamed-chunk-32.png) 
+![plot of chunk unnamed-chunk-33](figure/unnamed-chunk-33.png) 
 
 
 
 *** right
 
-![plot of chunk unnamed-chunk-33](figure/unnamed-chunk-33.png) 
+![plot of chunk unnamed-chunk-34](figure/unnamed-chunk-34.png) 
 
 
 --- .class #id
 
 ## Aside - How do neural networks work ?
-![plot of chunk unnamed-chunk-34](figure/unnamed-chunk-34.png) 
+![plot of chunk unnamed-chunk-35](figure/unnamed-chunk-35.png) 
 
 
 
@@ -384,20 +390,20 @@ mode        : selfcontained # {standalone, draft}
 
 *** left
 
-![plot of chunk unnamed-chunk-35](figure/unnamed-chunk-35.png) 
+![plot of chunk unnamed-chunk-36](figure/unnamed-chunk-36.png) 
 
 
 
 *** right
 
-![plot of chunk unnamed-chunk-36](figure/unnamed-chunk-36.png) 
+![plot of chunk unnamed-chunk-37](figure/unnamed-chunk-37.png) 
 
 
 
 --- .class #id
 
 ## Aside - How do support vector machines work ?
-![plot of chunk unnamed-chunk-37](figure/unnamed-chunk-37.png) 
+![plot of chunk unnamed-chunk-38](figure/unnamed-chunk-38.png) 
 
 
 
@@ -406,13 +412,13 @@ mode        : selfcontained # {standalone, draft}
 
 *** left
 
-![plot of chunk unnamed-chunk-38](figure/unnamed-chunk-38.png) 
+![plot of chunk unnamed-chunk-39](figure/unnamed-chunk-39.png) 
 
 
 
 *** right
 
-![plot of chunk unnamed-chunk-39](figure/unnamed-chunk-39.png) 
+![plot of chunk unnamed-chunk-40](figure/unnamed-chunk-40.png) 
 
 
 --- &twocol
@@ -420,13 +426,13 @@ mode        : selfcontained # {standalone, draft}
 
 *** left
 
-![plot of chunk unnamed-chunk-40](figure/unnamed-chunk-40.png) 
+![plot of chunk unnamed-chunk-41](figure/unnamed-chunk-41.png) 
 
 
 
 *** right
 
-![plot of chunk unnamed-chunk-41](figure/unnamed-chunk-41.png) 
+![plot of chunk unnamed-chunk-42](figure/unnamed-chunk-42.png) 
 
 
 
@@ -452,7 +458,7 @@ mode        : selfcontained # {standalone, draft}
 
 *** right
 
-![plot of chunk unnamed-chunk-43](figure/unnamed-chunk-43.png) 
+![plot of chunk unnamed-chunk-44](figure/unnamed-chunk-44.png) 
 
 
 
@@ -501,13 +507,13 @@ mode        : selfcontained # {standalone, draft}
 
 *** left
 
-![plot of chunk unnamed-chunk-47](figure/unnamed-chunk-47.png) 
+![plot of chunk unnamed-chunk-48](figure/unnamed-chunk-48.png) 
 
 
 
 *** right
 
-![plot of chunk unnamed-chunk-48](figure/unnamed-chunk-48.png) 
+![plot of chunk unnamed-chunk-49](figure/unnamed-chunk-49.png) 
 
 
 

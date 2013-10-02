@@ -30,310 +30,114 @@ length(kyphosis)
 require(devtools)
 install_github("slidify", "ramnathv")
 For data manipulation and visualization#
-library(arules)#
-library(arulesViz)#
-library(ElemStatLearn)#
-library(car)#
-library(Rgraphviz)#
-#
-# Replace the path here with the appropriate one for your machine#
-myprojectpath = "/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/"#
-#
-# Set the working directory to the current location for the project files#
-setwd(myprojectpath)#
-#
-# Replace the path here with the appropriate one for your machine#
-scriptpath = paste(myprojectpath, "scripts/", sep="")#
-datapath = paste(myprojectpath, "data/", sep="")#
-graphpath = paste(myprojectpath, "graphs/", sep="")#
-#
-# Load and take a look at the data#
-data(marketing)#
-head(marketing)#
-summary(marketing)#
-#
-# Change the data to ensure it can be used as only categorical#
-marketing.income <- recode(marketing$Income,"1='<$10,000'; 2='$10,000 to $14,999'; 3='$15,000 to $19,999'; 4='$20,000 to $24,999'; 5='$25,000 to $29,999'; 6='$30,000 to $39,999'; 7='$40,000 to $49,999'; 8='$50,000 to $74,999'; 9='$75,000+'")
-marketing.sex <- recode(marketing$Sex,"1='Male'; 2='Female'")#
-marketing.martial <- recode(marketing$Martial, "1='Married'; 2='Living together, not married'; 3='Divorced or separated'; 4='Windowed'; 5='Single, never married'; else='Unknown'")#
-marketing.age <- recode(marketing$Age, "1='14-17'; 2='18-24'; 3='25-34'; 4='35-44'; 5='45-54'; 6='55-64'; 7='65+' ")#
-marketing.edu <- recode(marketing$Edu, "1='Grade 8 or less'; 2='Grades 9 to 11'; 3='Graduated high school'; 4='1 to 3 years of college'; 5='College graduate'; 6='Postgraduate study'; else='Unknown'")#
-marketing.occupation <- recode(marketing$Occupation, "1='Professional/Managerial'; 2='Sales Worker'; 3='Factory Worker/Laborer/Driver'; 4='Clerical/Service Worker'; 5='Homemaker'; 6='Student, HS or College'; 7='Military'; 8='Retired'; 9='Unemployed'; else='Unknown'")#
-marketing.lived <- recode(marketing$Lived, "1='Less than a year'; 2='One to three years'; 3='Four to six years'; 4='Seven to ten years'; 5='More than ten year'; else='Unknown'")#
-marketing.dualincome <- recode(marketing$Dual_Income, "1='Not married'; 2='Yes'; 3='No'")#
-marketing.householdsize <- recode(marketing$Household, "1='1'; 2='2'; 3='3'; 4='4'; 5='5'; 6='6'; 7='7'; 8='8'; 9='9'; else='Unknown'")#
-marketing.householdsizeunder18years <- recode(marketing$Householdu18, "1='1'; 2='2'; 3='3'; 4='4'; 5='5'; 6='6'; 7='7'; 8='8'; 9='9'; else='Unknown'")#
-marketing.status <- recode(marketing$Status, "1='Own'; 2='Rent'; 3='Live with Parents/Family'; else='Unknown'")#
-marketing.hometype <- recode(marketing$Home_Type, "1='House'; 2='Condominium'; 3='Apartment'; 4='Mobile Home'; 5='Other'; else='Unknown'")#
-marketing.ethnic <- recode(marketing$Ethnic, "1='American Indian'; 2='Asian'; 3='Black'; 4='East Indian'; 5='Hispanic'; 6='Pacific Islander'; 7='White'; 8='Other'; else='Unknown'")#
-marketing.language <- recode(marketing$Language, "1='English'; 2='Spanish'; 3='Other'; else='Unknown'")#
-#
-# Create a new dataframe and removed the earlier variables to clean up space#
-marketing.df <- data.frame(marketing.income, marketing.sex, marketing.martial, marketing.age, marketing.edu, marketing.occupation, marketing.lived, marketing.dualincome, marketing.householdsize, marketing.householdsizeunder18years, marketing.status, marketing.hometype, marketing.ethnic, marketing.language)#
-rm(marketing.income, marketing.sex, marketing.martial, marketing.age, marketing.edu, marketing.occupation, marketing.lived, marketing.dualincome, marketing.householdsize, marketing.householdsizeunder18years, marketing.status, marketing.hometype, marketing.ethnic, marketing.language)#
-#
-# Transform the data frame to a transactions object#
-marketing.transactions <- as(marketing.df, "transactions")
-head(marketing.transactions)
-marketing.transactions
-print(marketing.transactions)
-inspect(marketing.transactions)
-head(inspect(marketing.transactions))
-Run the apriori algorithm on the data#
-marketing.rules <- apriori(marketing.transactions, parameter = list(support=0.05, confidence=0.95))#
-summary(marketing.rules)
-interestMeasure(marketing.subrules, "chiSquare", transactions=marketing.transactions, reuse=FALSE)
-Investigate the rules with the highest life#
-subset(marketing.rules, subset=lift>2.5)#
-inspect(subset(marketing.rules, subset=lift>2.5)[1:5])#
-write(marketing.subrules)#
-interestMeasure(marketing.subrules, "chiSquare", transactions=marketing.transactions, reuse=FALSE)
-anscombe
-g1data=with(anscombe,data.frame(xVal=c(x1),yVal=c(y1)))
-mydata=with(anscombe,data.frame(xVal=c(x1,x2,x3,x4), yVal=c(y1,y2,y3,y4), group=gl(4,nrow(anscombe))))#
-aggregate(.~mygroup,data=mydata,mean)#
-aggregate(.~mygroup,data=mydata,sd)#
-library(ggplot2)#
-ggplot(mydata,aes(x=xVal, y=yVal)) + geom_point() + facet_wrap(~mygroup)
-mydata=with(anscombe,data.frame(xVal=c(x1,x2,x3,x4), yVal=c(y1,y2,y3,y4), group=gl(4,nrow(anscombe))))#
-aggregate(.~mygroup,data=mydata,mean)#
-aggregate(.~mygroup,data=mydata,sd)#
-library(ggplot2)#
-ggplot(mydata,aes(x=xVal, y=yVal)) + geom_point() + facet_wrap(~mygroup)
-mydata=with(anscombe,data.frame(xVal=c(x1,x2,x3,x4), yVal=c(y1,y2,y3,y4), mygroup=gl(4,nrow(anscombe))))
-mydata=with(anscombe,data.frame(xVal=c(x1,x2,x3,x4), yVal=c(y1,y2,y3,y4), group=gl(4,nrow(anscombe))))#
-aggregate(.~mygroup,data=mydata,mean)#
-aggregate(.~mygroup,data=mydata,sd)#
-library(ggplot2)#
-ggplot(mydata,aes(x=xVal, y=yVal)) + geom_point() + facet_wrap(~mygroup)
-mydata=with(anscombe,data.frame(xVal=c(x1,x2,x3,x4), yVal=c(y1,y2,y3,y4), group=gl(4,nrow(anscombe))))#
-aggregate(.~mygroup,data=mydata,mean)#
-aggregate(.~mygroup,data=mydata,sd)#
-library(ggplot2)#
-ggplot(mydata,aes(x=xVal, y=yVal)) + geom_point() + facet_wrap(~mygroup)
-mydata=with(anscombe,data.frame(xVal=c(x1,x2,x3,x4), yVal=c(y1,y2,y3,y4), group=gl(4,nrow(anscombe))))#
-aggregate(.~mygroup,data=mydata,mean)#
-aggregate(.~mygroup,data=mydata,sd)#
-library(ggplot2)#
-ggplot(mydata,aes(x=xVal, y=yVal)) + geom_point()
-mydata=with(anscombe,data.frame(xVal=c(x1,x2,x3,x4), yVal=c(y1,y2,y3,y4), group=gl(4,nrow(anscombe))))#
-aggregate(.~mygroup,data=mydata,mean)#
-aggregate(.~mygroup,data=mydata,sd)#
-library(ggplot2)#
-ggplot(mydata,aes(x=xVal, y=yVal)) + geom_point() + facet_wrap(~mydata)
-mydata=with(anscombe,data.frame(xVal=c(x1,x2,x3,x4), yVal=c(y1,y2,y3,y4), group=gl(4,nrow(anscombe))))#
-aggregate(.~mygroup,data=mydata,mean)#
-aggregate(.~mygroup,data=mydata,sd)#
-library(ggplot2)#
-ggplot(mydata,aes(x=xVal, y=yVal)) + geom_point() + facet_wrap(~mygroup)
-mydata=with(anscombe,data.frame(xVal=c(x1,x2,x3,x4), yVal=c(y1,y2,y3,y4), group=gl(4,nrow(anscombe))))#
-aggregate(.~mygroup,data=mydata,mean)#
-aggregate(.~mygroup,data=mydata,sd)#
-library(ggplot2)#
-ggplot(mydata,aes(x=xVal, y=yVal)) + geom_point() + facet_wrap(.~mygroup)
-mydata=with(anscombe,data.frame(xVal=c(x1,x2,x3,x4), yVal=c(y1,y2,y3,y4), group=gl(4,nrow(anscombe))))#
-aggregate(.~mygroup,data=mydata,mean)#
-aggregate(.~mygroup,data=mydata,sd)#
-library(ggplot2)#
-ggplot(mydata,aes(x=xVal, y=yVal)) + geom_point() + facet_wrap(.~mygroup)
-mydata=with(anscombe,data.frame(xVal=c(x1,x2,x3,x4), yVal=c(y1,y2,y3,y4), group=gl(4,nrow(anscombe))))#
-aggregate(.~mygroup,data=mydata,mean)#
-aggregate(.~mygroup,data=mydata,sd)#
-library(ggplot2)#
-ggplot(mydata,aes(x=xVal, y=yVal)) + geom_point() + facet_wrap(.~mygroup, data=mydata)
-mydata=with(anscombe,data.frame(xVal=c(x1,x2,x3,x4), yVal=c(y1,y2,y3,y4), group=gl(4,nrow(anscombe))))#
-aggregate(.~mygroup,data=mydata,mean)#
-aggregate(.~mygroup,data=mydata,sd)#
-library(ggplot2)#
-ggplot(mydata,aes(x=xVal, y=yVal)) + geom_point() + facet_wrap(~mygroup)
-mydata
-head(mydata)
-mydata=with(anscombe,data.frame(xVal=c(x1,x2,x3,x4), yVal=c(y1,y2,y3,y4), group=gl(4,nrow(anscombe))))#
-aggregate(.~mygroup,data=mydata,mean)#
-aggregate(.~mygroup,data=mydata,sd)#
-library(ggplot2)#
-ggplot(mydata,aes(x=xVal, y=yVal)) + geom_point() + facet_wrap(~group)
-summary(mydata)
-g1data
-aggregate(.~group,data=mydata,mean)
-aggregate(.~group,data=mydata,sd)
-aggregate(.~group,data=mydata,cor)
-aggregate(.~group,data=mydata,corr)
-aggregate(.~group,data=mydata,)
-library(AER)#
-library(corrplot)#
-library(corrgram)#
-library(caret)#
-library(randomForest)#
-library(klaR)#
-library(pROC)#
-#
-# Replace the path here with the appropriate one for your machine#
-myprojectpath = "/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/"#
-#
-# Set the working directory to the current location for the project files#
-setwd(myprojectpath)#
-#
-# Replace the path here with the appropriate one for your machine#
-scriptpath = paste(myprojectpath, "scripts/", sep="")#
-datapath = paste(myprojectpath, "data/", sep="")#
-graphpath = paste(myprojectpath, "graphs/", sep="")#
-# Set the seed so comparisons can be later made between the methods#
-set.seed(2323)
+library(party)#
 library(rpart)#
-cvCtrl <- trainControl(method = "repeatedcv", repeats = 3, summaryFunction = twoClassSummary, classProbs = TRUE)#
-rpartTune <- train(hadaffair ~ ., data = affairs.df.train, method = "rpart", tuneLength = 30, metric = "ROC", trControl = cvCtrl)
-data(Affairs)#
+library(caret)#
+#
+# Replace the path here with the appropriate one for your machine#
+myprojectpath = "/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/"#
+#
+# Set the working directory to the current location for the project files#
+setwd(myprojectpath)#
+#
+# Replace the path here with the appropriate one for your machine#
+scriptpath = paste(myprojectpath, "scripts/", sep="")#
+datapath = paste(myprojectpath, "data/", sep="")#
+graphpath = paste(myprojectpath, "graphs/", sep="")#
+#
+# Load the Car dataset into a dataframe for processing#
+car.df = read.csv(paste(datapath, "car.csv", sep=""))#
 #
 # Explore the first ten records of the dataset to take a peek#
-head(Affairs)#
+head(car.df)#
 #
 # Look to get a summary of the dataset for each variable in the dataframe#
-summary(Affairs)#
+summary(car.df)#
 #
-# Add some additional fields to data to for the correlation analysis#
-Affairs$male <- mapvalues(Affairs$gender, from = c("female", "male"), to = c(0, 1))#
-Affairs$male <- as.integer(Affairs$male)#
-Affairs$male <- sapply(Affairs$male, function(x) x-1)#
-Affairs$kids <- mapvalues(Affairs$children, from = c("no", "yes"), to = c(0, 1))#
-Affairs$kids <- as.integer(Affairs$kids)#
-Affairs$kids <- sapply(Affairs$kids, function(x) x-1)#
+# The key variable we are interested in deteriming is claim or 'clm' with 0 = no claim and 1 = a claim#
+# Determine what the other variables are from the carDataSetDescription.txt file to see which are potential predictors#
+predictors.to.clm.var = clm ~ veh_value + veh_body + veh_age + gender + area + agecat#
 #
-# Add a field to indicate if there was any affairs#
-Affairs$hadaffair[Affairs$affairs< 1] <- 'No'#
-Affairs$hadaffair[Affairs$affairs>=1] <- 'Yes'#
-Affairs$hadaffair <- as.factor(Affairs$hadaffair)#
-table(Affairs$hadaffair)
-library(rpart)#
-cvCtrl <- trainControl(method = "repeatedcv", repeats = 3, summaryFunction = twoClassSummary, classProbs = TRUE)#
-rpartTune <- train(hadaffair ~ ., data = affairs.df.train, method = "rpart", tuneLength = 30, metric = "ROC", trControl = cvCtrl)
-trainIndices = createDataPartition(Affairs$hadaffair, p = 0.8, list = F)#
+# A quick single tree using the full dataset to see what are the potential splits#
+SingleTree = ctree(predictors.to.clm.var, data = car.df)#
+plot(SingleTree, type="simple")
+inTrainIndexes <- createDataPartition(y = car.df$clm, p=.8, list = FALSE)#
+car.df.train = car.df[inTrainIndexes,]#
+car.df.test = car.df[-inTrainIndexes,]#
 #
-unwanted = colnames(Affairs) %in% c("yearsmarried", "affairs")#
-affairs.df.train = Affairs[trainIndices, !unwanted] #remove affairs and yearsmarried#
-affairs.df.test = Affairs[!1:nrow(Affairs) %in% trainIndices, !unwanted]#
-table(affairs.df.test$hadaffair)
-library(rpart)#
-cvCtrl <- trainControl(method = "repeatedcv", repeats = 3, summaryFunction = twoClassSummary, classProbs = TRUE)#
-rpartTune <- train(hadaffair ~ ., data = affairs.df.train, method = "rpart", tuneLength = 30, metric = "ROC", trControl = cvCtrl)
-rpartTune
-library(rpart)#
-cvCtrl <- trainControl(method = "repeatedcv", repeats = 3, summaryFunction = twoClassSummary, classProbs = TRUE)#
-rpartTune <- train(hadaffair ~ ., data = affairs.df.train, method = "rpart", tuneLength = 10, metric = "ROC", trControl = cvCtrl)
-rpartTune
-For data manipulation and visualization#
-library(corrplot)#
+ClaimModel.ctree <- ctree(predictors.to.clm.var, data=car.df.train)#
+plot(ClaimModel.ctree, type="simple")#
+summary(ClaimModel.ctree)
+ClaimModel.ctree
+car.df.train$clm
+confusionMatrix(claimPred <- predict(ClaimModel.ctree, car.df.test)#
+confusionMatrix(claimPred, car.df.test$clm, positive=1), testing$Class, positive='WS')
+claimPred <- predict(ClaimModel.ctree, car.df.test)#
+confusionMatrix(claimPred, car.df.test$clm, positive=1)
+claimPred <- predict(ClaimModel.ctree, car.df.test)#
+confusionMatrix(claimPred, car.df.test$clm, positive='1')
+claimPred <- predict(ClaimModel.ctree, car.df.test)#
+claimPred
+confusionMatrix(claimPred, car.df.test$clm)
+library(ROCR)
+confusionMatrix(claimPred, car.df.test$clm)
+car.df.test$clm
+factors(car.df.test$clm)
+factor(car.df.test$clm)
+factor(car.df.train$clm)
+claimPred <- predict(ClaimModel.ctree, newdata=car.df.test)
+confusionMatrix(claimPred, car.df.test$clm)
+claimProbs <- treeresponse(ClaimModel.ctree, newdata=car.df.test)
+claimPred <- do.call(rbind, claimPred)
+claimPred <- predict(ClaimModel.ctree, newdata=car.df.test)
+claimPred <- do.call(rbind, claimPred)
+roc_pred <- prediction(claimPred[,1], car.df.test$clm)#
+plot(performance(roc_pred, measure="tpr", x.measure="fpr"), colorize=TRUE)
+plot(performance(roc_pred, measure="lift", x.measure="rpp"), colorize=TRUE)
+claims.pred <- prediction(claimPred[,1], car.df.test$clm)#
+plot(performance(claims.pred, measure="tpr", x.measure="fpr"), colorize=TRUE)#
+plot(performance(claims.pred, measure="lift", x.measure="rpp"), colorize=TRUE)#
+plot(performance(claims.pred, measure="sens", x.measure="spec"), colorize=TRUE)
+confusionMatrix(claimPred[,1], car.df.test$clm)
+confusionMatrix(claims.pred, car.df.test$clm)
+claims.pred
+confusionMatrix(claims.pred$predictions, car.df.test$clm)
+confusionMatrix(claims.pred$predictions, car.df.test$clm)
+unique(claims.pred$predictions)
+unique(claims.pred[,1]
+)
+length(claims.pred[,1])
+as.vector(claims.pred[,1])
+claimPred <- predict(ClaimModel.ctree, newdata=car.df.test)
+claimPred
+length(claimPred)
+levels(claimPred)
+level(claimProbs)
+levels(claimProbs)
+unique(claimProbs)
+claimProbs
+claimProbs#
+confusionMatrix(claimProbs, car.df.test$clm)
+confusionMatrix(claimProbs, car.df.test$clm)
+ClaimModel.ctree <- ctree(predictors.to.clm.var, data=car.df.train)#
+plot(ClaimModel.ctree, type="simple")#
+summary(ClaimModel.ctree)
+table(predict(ClaimModel.ctree), iris$Species)table(claimPred, car.df.test$clm)
+table(claimPred, car.df.test$clm)
+irisct <- ctree(Species ~ .,data = iris)#
+    irisct#
+    plot(irisct)#
+    table(predict(irisct), iris$Species)
+irisct
+table(predict(ClaimModel.ctree, newdata=car.df.test), car.df.test$clm)
+plot(performance(claimPred, measure="tpr", x.measure="fpr"), colorize=TRUE)
+library(AppliedPredictiveModeling)#
 library(caret)#
-library(randomForest)#
+library(doMC)#
+library(pROC)#
 library(rpart.plot)	# Fancy tree plot#
 library(rattle) # Nice tree plot from rattle - fancyRpartPlot#
-library(RColorBrewer)#
-library(pROC)#
-library(corrgram)#
-#
-# Replace the path here with the appropriate one for your machine#
-myprojectpath = "/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/"#
-#
-# Set the working directory to the current location for the project files#
-setwd(myprojectpath)#
-#
-# Replace the path here with the appropriate one for your machine#
-scriptpath = paste(myprojectpath, "scripts/", sep="")#
-datapath = paste(myprojectpath, "data/", sep="")#
-graphpath = paste(myprojectpath, "graphs/", sep="")#
-#
-# Set the seed so comparisons can be later made between the method#
-set.seed(2323)#
-#
-# Load wine dataset into a dataframe for processing#
-wine.df = read.csv(paste(datapath, "goodwine.csv", sep=""))#
-#
-# Explore the first ten records of the dataset to take a peek#
-head(wine.df)#
-#
-# Look to get a summary of the dataset for each variable in the dataframe#
-summary(wine.df)
-head(wine.df)
-wine.corr <- cor(wine.df[, -c(13, 15)])#
-wine.variables.corr <- findCorrelation(wine.corr, 0.65)#
-wine.variables.corr.names <- colnames(wine.corr[,wine.variables.corr])
-wine.corr
-wine.variables.corr
-wine.corr
-wine.df.trainplot = predict(preProcess(wine.df.train[,-10], method="range"), wine.df.train[,-10])
-The dataset requires defined training and test subsets so let's remove some of the variables that don't see to add to the value and create these#
-# in processing unwanted we also include the variables quality and color (13,15) as we want to remove these as well#
-trainIndices = createDataPartition(wine.df$good, p = 0.8, list = F)#
-unwanted = colnames(wine.df) %in% c("free.sulfur.dioxide", "density", "quality",#
-"color", "white")#
-wine.df.train = wine.df[trainIndices, !unwanted] #remove quality and color, as well as density and others#
-wine.df.test = wine.df[!1:nrow(wine.df) %in% trainIndices, !unwanted]#
-#
-# The preProcess function helps determine values for predicator transforms on the training set and can be applied to this and future sets.#
-# This is important as nnets and svms can require scaled and/or centered data which this function supports#
-wine.df.trainplot = predict(preProcess(wine.df.train[,-10], method="range"), wine.df.train[,-10])
-wine.df.trainplot
-table(wine.df$good)
-table(wine.df.test$good)
-load(file=(paste(datapath, "goodwine_randomforest.RData", sep="")))#
-load(file=(paste(datapath, "goodwine_training.RData", sep="")))#
-load(file=(paste(datapath, "goodwine_testing.RData", sep="")))
-results.rf
-head(wine.df.test)
-makeTab(wine.df.test$residual.sugar,wine.df.test$good)
-crosstab(wine.df.test$residual.sugar,wine.df.test$good)
-library(Crosstab)
-library(vcd)
-crosstab(wine.df.test$residual.sugar,wine.df.test$good)
-xtab(wine.df.test$residual.sugar,wine.df.test$good)
-xtabs(wine.df.test$residual.sugar,wine.df.test$good)
-xtabs(~residual.sugar+good,data=wine.df.test)
-xtabs(~total.sulfur.dioxide+good,data=wine.df.test)
-xtabs(good~total.sulfur.dioxide+pH,data=wine.df.test)
-xtabs(good ~ total.sulfur.dioxide + pH,data=wine.df.test)
-xtabs(~ total.sulfur.dioxide + pH + good,data=wine.df.test)
-head(wine.df.test)
-xtabs(~ pH + alcohol + good,data=wine.df.test)
-unique(wine.df.train$pH)
-h <- hist(wine.df.train$pH, plot=FALSE, breaks = c(2.5,2.75,3,3.25,3.5,3.75,4,4.25,4.5,4.75,5))
-h
-plot(h)
-max(wine.df.train$pH)
-min(wine.df.train$pH)
-h <- hist(wine.df.train$pH, plot=FALSE, breaks = c(2.5,2.75,3,3.25,3.5,3.75,4,4.25))
-plot(h)
-min(wine.df.train$alcohol)
-max(wine.df.train$alcohol)
-round(wine.df.train$alcohol,1)
-max(wine.df.train$alcohol)
-min(wine.df.train$alcohol)
-h2 <- hist(wine.df.train$alcohol, plot=FALSE, breaks = c(8,8.5,9,9.5,10,10.5,11,11.5,12,12.5,13,13.5,14,14.5))
-plot(h2)
-h2
-plot(h2~good)
-plot(h2~wine.df.train$good)
-dim(wine.df.train)
-head(wine.df)
-levels(wine.df)
-levels(wine.df$quality)
-factors(wine.df$quality)
-(wine.df$quality)
-factors(wine.df$quality)
-as.factors(wine.df$quality)
-as.factor(wine.df$quality)
-as.levels(wine.df$quality)
-wine.quality <- as.factors(wine.df$quality)
-wine.quality <- as.factor(wine.df$quality)
-wine.quality
-levels(wine.quality)
-dim(wine.quality)
-summary(wine.quality)
-plot(wine.quality)
-quantile(wine.df$quality)
-pairs(wine.df)
-str(wine.df)
-str(wine.df)
-Load Image Segmentation data#
+library(RColorBrewer)
 data(segmentationData)#
 #
 # Remove the Cell identification data#
@@ -345,66 +149,21 @@ testing <- subset(segmentationData, Case == "Test")#
 # Remove the Case identification data#
 training$Case <- NULL#
 testing$Case <- NULL#
-str(training[,1:6])
-Load Image Segmentation data#
-data(segmentationData)#
+str(training[,1:6])#
 #
-# Remove the Cell identification data#
-segmentationData$Cell <- NULL#
+# Use three repeats of 10–fold cross–validation to train the tree#
+# 10-fold CV can be noisy/over-fitted for small to moderate sample sizes but we'll risk it for higher performances#
+# The CART algorithm uses overall accuracy and the one standard–error rule to prune the tree, however we can also choose the tree complexity based on the largest absolute area under the ROC curve.#
+cvCtrl <- trainControl(method = "repeatedcv", repeats = 3, summaryFunction = twoClassSummary, classProbs = TRUE)#
+rpartTune <- train(Class ~ ., data = training, method = "rpart", tuneLength = 30, metric = "ROC", trControl = cvCtrl)#
 #
-# The dataset already has defined training and test subsets, no need to subset#
-training <- subset(segmentationData, Case == "Train")#
-testing <- subset(segmentationData, Case == "Test")#
-# Remove the Case identification data#
-training$Case <- NULL#
-testing$Case <- NULL#
-str(training[,1:8])
-Load Image Segmentation data#
-data(segmentationData)#
-#
-# Remove the Cell identification data#
-segmentationData$Cell <- NULL#
-#
-# The dataset already has defined training and test subsets, no need to subset#
-training <- subset(segmentationData, Case == "Train")#
-testing <- subset(segmentationData, Case == "Test")#
-# Remove the Case identification data#
-training$Case <- NULL#
-testing$Case <- NULL#
-str(training)
-head(segmentationData)
-head(segmentationData,1)
-head(segmentationData,2)
-install.packages("/Users/eoinbrazil/Downloads/mkuhn-parallelrandomforest-804d353ec2f7")
-install.packages("/Users/eoinbrazil/Downloads/mkuhn-parallelrandomforest-804d353ec2f7", repos=NULL, type="source")
-library(devtools)
-instalL_bitbucket("parallelrandomforest", "mkuhn")
-install_bitbucket("parallelrandomforest", "mkuhn")
-install_bitbucket("parallelrandomforest", "mkuhn")
-install_bitbucket("parallelrandomforest", "mkuhn",ref="default")
-library(parallelRandomForest)
-rfNews()
-head(Affairs.df)
-head(Affairs)
-trainIndices = createDataPartition(Affairs$hadaffair, p = 0.8, list = F)#
-#
-unwanted = colnames(Affairs) %in% c("yearsmarried", "affairs")#
-affairs.df.train = Affairs[trainIndices, !unwanted] #remove affairs and yearsmarried#
-affairs.df.test = Affairs[!1:nrow(Affairs) %in% trainIndices, !unwanted]#
-table(affairs.df.test$hadaffair)#
-#
-# Parallel Random Forest#
-prf <- parallelRandomForest(affairs.df.train[,-10],as.factor(affairs.df.train$hadaffair, nthreads=12)
-)
-trainIndices = createDataPartition(Affairs$hadaffair, p = 0.8, list = F)#
-#
-unwanted = colnames(Affairs) %in% c("yearsmarried", "affairs")#
-affairs.df.train = Affairs[trainIndices, !unwanted] #remove affairs and yearsmarried#
-affairs.df.test = Affairs[!1:nrow(Affairs) %in% trainIndices, !unwanted]#
-table(affairs.df.test$hadaffair)#
-#
-# Parallel Random Forest#
-prf <- parallelRandomForest(affairs.df.train[,-10],as.factor(affairs.df.train$hadaffair), nthreads=12)
-prf <- randomForest(affairs.df.train[,-10],as.factor(affairs.df.train$hadaffair, nthreads=12)
-)
-prf <- randomForest(affairs.df.train[,-10],as.factor(affairs.df.train$hadaffair), nthreads=12)
+# Plot the#
+plot(rpartTune, scales = list(x = list(log = 10)))
+head(training)
+head(training[,1:2])
+head(training[,1])
+head(training[1:2,])
+table(training$class)
+table(training.class)
+table(training[,1])
+table(testing[,1])

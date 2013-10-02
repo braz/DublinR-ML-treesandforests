@@ -20,6 +20,7 @@
 library(party)
 library(rpart)
 library(caret)
+library(ROCR)
 
 # Replace the path here with the appropriate one for your machine
 myprojectpath = "/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/"
@@ -57,3 +58,14 @@ car.df.test = car.df[-inTrainIndexes,]
 ClaimModel.ctree <- ctree(predictors.to.clm.var, data=car.df.train)
 plot(ClaimModel.ctree, type="simple")
 summary(ClaimModel.ctree)
+
+# Look at the results of the tree based on the testing dataset for predicting new samples
+claimPred <- predict(ClaimModel.ctree, newdata=car.df.test)
+claims.pred <- prediction(claimPred[,1], car.df.test$clm)
+table(predict(ClaimModel.ctree, newdata=car.df.test), car.df.test$clm)
+
+claimProbs <- treeresponse(ClaimModel.ctree, newdata=car.df.test)
+
+plot(performance(claims.pred, measure="tpr", x.measure="fpr"), colorize=TRUE)
+plot(performance(claims.pred, measure="lift", x.measure="rpp"), colorize=TRUE)
+plot(performance(claims.pred, measure="sens", x.measure="spec"), colorize=TRUE)
