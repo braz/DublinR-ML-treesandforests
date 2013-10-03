@@ -56,7 +56,7 @@ car.df.train = car.df[inTrainIndexes,]
 car.df.test = car.df[-inTrainIndexes,]
 
 ClaimModel.ctree <- ctree(predictors.to.clm.var, data=car.df.train)
-plot(ClaimModel.ctree, type="simple")
+plot(ClaimModel.ctree), type="simple")
 summary(ClaimModel.ctree)
 
 # Look at the results of the tree based on the testing dataset for predicting new samples
@@ -66,6 +66,10 @@ table(predict(ClaimModel.ctree, newdata=car.df.test), car.df.test$clm)
 
 claimProbs <- treeresponse(ClaimModel.ctree, newdata=car.df.test)
 
+par(mfrow=c(1,3))
+
 plot(performance(claims.pred, measure="tpr", x.measure="fpr"), colorize=TRUE)
 plot(performance(claims.pred, measure="lift", x.measure="rpp"), colorize=TRUE)
 plot(performance(claims.pred, measure="sens", x.measure="spec"), colorize=TRUE)
+
+
