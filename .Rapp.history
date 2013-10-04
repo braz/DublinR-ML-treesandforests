@@ -29,10 +29,13 @@ summary(kyphosis)
 length(kyphosis)
 require(devtools)
 install_github("slidify", "ramnathv")
-For data manipulation and visualization#
-library(party)#
-library(rpart)#
+library(AER)#
+library(corrplot)#
+library(corrgram)#
 library(caret)#
+library(randomForest)#
+library(klaR)#
+library(pROC)#
 #
 # Replace the path here with the appropriate one for your machine#
 myprojectpath = "/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/"#
@@ -44,126 +47,69 @@ setwd(myprojectpath)#
 scriptpath = paste(myprojectpath, "scripts/", sep="")#
 datapath = paste(myprojectpath, "data/", sep="")#
 graphpath = paste(myprojectpath, "graphs/", sep="")#
+# Set the seed so comparisons can be later made between the methods#
+set.seed(2323)#
 #
-# Load the Car dataset into a dataframe for processing#
-car.df = read.csv(paste(datapath, "car.csv", sep=""))#
+# Load Affairs data#
+data(Affairs)#
 #
 # Explore the first ten records of the dataset to take a peek#
-head(car.df)#
+head(Affairs)#
 #
 # Look to get a summary of the dataset for each variable in the dataframe#
-summary(car.df)#
+summary(Affairs)#
 #
-# The key variable we are interested in deteriming is claim or 'clm' with 0 = no claim and 1 = a claim#
-# Determine what the other variables are from the carDataSetDescription.txt file to see which are potential predictors#
-predictors.to.clm.var = clm ~ veh_value + veh_body + veh_age + gender + area + agecat#
+# Add some additional fields to data to for the correlation analysis#
+Affairs$male <- mapvalues(Affairs$gender, from = c("female", "male"), to = c(0, 1))#
+Affairs$male <- as.integer(Affairs$male)#
+Affairs$male <- sapply(Affairs$male, function(x) x-1)#
+Affairs$kids <- mapvalues(Affairs$children, from = c("no", "yes"), to = c(0, 1))#
+Affairs$kids <- as.integer(Affairs$kids)#
+Affairs$kids <- sapply(Affairs$kids, function(x) x-1)#
 #
-# A quick single tree using the full dataset to see what are the potential splits#
-SingleTree = ctree(predictors.to.clm.var, data = car.df)#
-plot(SingleTree, type="simple")
-inTrainIndexes <- createDataPartition(y = car.df$clm, p=.8, list = FALSE)#
-car.df.train = car.df[inTrainIndexes,]#
-car.df.test = car.df[-inTrainIndexes,]#
+# Add a field to indicate if there was any affairs#
+Affairs$hadaffair[Affairs$affairs< 1] <- 'No'#
+Affairs$hadaffair[Affairs$affairs>=1] <- 'Yes'#
+Affairs$hadaffair <- as.factor(Affairs$hadaffair)#
+table(Affairs$hadaffair)#
 #
-ClaimModel.ctree <- ctree(predictors.to.clm.var, data=car.df.train)#
-plot(ClaimModel.ctree, type="simple")#
-summary(ClaimModel.ctree)
-ClaimModel.ctree
-car.df.train$clm
-confusionMatrix(claimPred <- predict(ClaimModel.ctree, car.df.test)#
-confusionMatrix(claimPred, car.df.test$clm, positive=1), testing$Class, positive='WS')
-claimPred <- predict(ClaimModel.ctree, car.df.test)#
-confusionMatrix(claimPred, car.df.test$clm, positive=1)
-claimPred <- predict(ClaimModel.ctree, car.df.test)#
-confusionMatrix(claimPred, car.df.test$clm, positive='1')
-claimPred <- predict(ClaimModel.ctree, car.df.test)#
-claimPred
-confusionMatrix(claimPred, car.df.test$clm)
-library(ROCR)
-confusionMatrix(claimPred, car.df.test$clm)
-car.df.test$clm
-factors(car.df.test$clm)
-factor(car.df.test$clm)
-factor(car.df.train$clm)
-claimPred <- predict(ClaimModel.ctree, newdata=car.df.test)
-confusionMatrix(claimPred, car.df.test$clm)
-claimProbs <- treeresponse(ClaimModel.ctree, newdata=car.df.test)
-claimPred <- do.call(rbind, claimPred)
-claimPred <- predict(ClaimModel.ctree, newdata=car.df.test)
-claimPred <- do.call(rbind, claimPred)
-roc_pred <- prediction(claimPred[,1], car.df.test$clm)#
-plot(performance(roc_pred, measure="tpr", x.measure="fpr"), colorize=TRUE)
-plot(performance(roc_pred, measure="lift", x.measure="rpp"), colorize=TRUE)
-claims.pred <- prediction(claimPred[,1], car.df.test$clm)#
-plot(performance(claims.pred, measure="tpr", x.measure="fpr"), colorize=TRUE)#
-plot(performance(claims.pred, measure="lift", x.measure="rpp"), colorize=TRUE)#
-plot(performance(claims.pred, measure="sens", x.measure="spec"), colorize=TRUE)
-confusionMatrix(claimPred[,1], car.df.test$clm)
-confusionMatrix(claims.pred, car.df.test$clm)
-claims.pred
-confusionMatrix(claims.pred$predictions, car.df.test$clm)
-confusionMatrix(claims.pred$predictions, car.df.test$clm)
-unique(claims.pred$predictions)
-unique(claims.pred[,1]
-)
-length(claims.pred[,1])
-as.vector(claims.pred[,1])
-claimPred <- predict(ClaimModel.ctree, newdata=car.df.test)
-claimPred
-length(claimPred)
-levels(claimPred)
-level(claimProbs)
-levels(claimProbs)
-unique(claimProbs)
-claimProbs
-claimProbs#
-confusionMatrix(claimProbs, car.df.test$clm)
-confusionMatrix(claimProbs, car.df.test$clm)
-ClaimModel.ctree <- ctree(predictors.to.clm.var, data=car.df.train)#
-plot(ClaimModel.ctree, type="simple")#
-summary(ClaimModel.ctree)
-table(predict(ClaimModel.ctree), iris$Species)table(claimPred, car.df.test$clm)
-table(claimPred, car.df.test$clm)
-irisct <- ctree(Species ~ .,data = iris)#
-    irisct#
-    plot(irisct)#
-    table(predict(irisct), iris$Species)
-irisct
-table(predict(ClaimModel.ctree, newdata=car.df.test), car.df.test$clm)
-plot(performance(claimPred, measure="tpr", x.measure="fpr"), colorize=TRUE)
-library(AppliedPredictiveModeling)#
-library(caret)#
-library(doMC)#
-library(pROC)#
-library(rpart.plot)	# Fancy tree plot#
-library(rattle) # Nice tree plot from rattle - fancyRpartPlot#
-library(RColorBrewer)
-data(segmentationData)#
+# Check that the fields are only numerical in the data frame#
+sapply(Affairs[, -c(2,5,12)], is.numeric)#
 #
-# Remove the Cell identification data#
-segmentationData$Cell <- NULL#
+# Explore the data set to identify and then we'll remove any moderately correlated variables (could change the correlation value from 0.65 to .9)#
+affairs.corr <- cor(Affairs[, -c(2,5,12])#
+corrplot(affairs.corr, method = "number", tl.cex = 0.6)#
+affairs.variables.corr <- findCorrelation(affairs.corr, 0.65)#
+affairs.variables.corr.names <- colnames(affairs.corr[,affairs.variables.corr])#
 #
-# The dataset already has defined training and test subsets, no need to subset#
-training <- subset(segmentationData, Case == "Train")#
-testing <- subset(segmentationData, Case == "Test")#
-# Remove the Case identification data#
-training$Case <- NULL#
-testing$Case <- NULL#
-str(training[,1:6])#
+# The dataset requires defined training and test subsets so let's remove some of the variables that don't see to add to the value and create these#
+# in processing unwanted we also include the variables quality and color (13,15) as we want to remove these as well#
+trainIndices = createDataPartition(Affairs$hadaffair, p = 0.8, list = F)#
 #
-# Use three repeats of 10–fold cross–validation to train the tree#
-# 10-fold CV can be noisy/over-fitted for small to moderate sample sizes but we'll risk it for higher performances#
-# The CART algorithm uses overall accuracy and the one standard–error rule to prune the tree, however we can also choose the tree complexity based on the largest absolute area under the ROC curve.#
-cvCtrl <- trainControl(method = "repeatedcv", repeats = 3, summaryFunction = twoClassSummary, classProbs = TRUE)#
-rpartTune <- train(Class ~ ., data = training, method = "rpart", tuneLength = 30, metric = "ROC", trControl = cvCtrl)#
-#
-# Plot the#
-plot(rpartTune, scales = list(x = list(log = 10)))
-head(training)
-head(training[,1:2])
-head(training[,1])
-head(training[1:2,])
-table(training$class)
-table(training.class)
-table(training[,1])
-table(testing[,1])
+unwanted = colnames(Affairs) %in% c("yearsmarried", "affairs")#
+affairs.df.train = Affairs[trainIndices, !unwanted] #remove affairs and yearsmarried#
+affairs.df.test = Affairs[!1:nrow(Affairs) %in% trainIndices, !unwanted]#
+table(affairs.df.test$hadaffair)
+str(Affairs)
+head(Affairs)
+affairs.corr
+affairs.corr <- cor(Affairs[, -c(2,5,12])
+affairs.corr <- cor(Affairs[, -c(2,5,12]))
+affairs.corr <- cor(Affairs[, -c(2,5,12)])
+affairs.corr
+corrplot(affairs.corr, method = "number", tl.cex = 0.6)#
+affairs.variables.corr <- findCorrelation(affairs.corr, 0.65)#
+affairs.variables.corr.names <- colnames(affairs.corr[,affairs.variables.corr])
+affairs.variables.corr
+affairs.variables.corr.names
+colnames(affairs.corr[,affairs.variables.corr])
+affairs.corr
+findCorrelation(affairs.corr, 0.65)
+affairs.corr[,2]
+affairs.corr[2,]
+affairs.corr
+affairs.corrcolnames(affairs.corr
+colnames(affairs.corr)
+colnames(affairs.corr)
+colnames(affairs.corr)[2]
+round(affairs.corr,2)

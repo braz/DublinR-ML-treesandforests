@@ -67,7 +67,7 @@ table(Affairs$hadaffair)
 sapply(Affairs[, -c(2,5,12)], is.numeric)
 
 # Explore the data set to identify and then we'll remove any moderately correlated variables (could change the correlation value from 0.65 to .9)
-affairs.corr <- cor(Affairs[, -c(2,5,12])
+affairs.corr <- cor(Affairs[, -c(2,5,12)])
 corrplot(affairs.corr, method = "number", tl.cex = 0.6)
 affairs.variables.corr <- findCorrelation(affairs.corr, 0.65)
 affairs.variables.corr.names <- colnames(affairs.corr[,affairs.variables.corr])
@@ -80,6 +80,13 @@ unwanted = colnames(Affairs) %in% c("yearsmarried", "affairs")
 affairs.df.train = Affairs[trainIndices, !unwanted] #remove affairs and yearsmarried
 affairs.df.test = Affairs[!1:nrow(Affairs) %in% trainIndices, !unwanted]
 table(affairs.df.test$hadaffair)
+
+# The preProcess function helps determine values for predicator transforms on the training set and can be applied to this and future sets.
+# This is important as nnets and svms can require scaled and/or centered data which this function supports
+affairs.df.trainplot = predict(preProcess(affairs.df.train[,-c(1,3,10)], method="range"), affairs.df.train[,-c(1,3,10)])
+# The featurePlot highlight 3 variable (alcohol content, volatile acidity and chlorides) that provide separation with regard to the 'good' classification
+featurePlot(affairs.df.trainplot, affairs.df.train$good, "box")
+
 
 cv.opts = trainControl(method="cv", number=10, classProbs = TRUE)
 rf.opts = data.frame(.mtry=c(2:6))

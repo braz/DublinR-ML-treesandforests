@@ -31,6 +31,16 @@ options(width=40)
 
 --- .class #id
 
+## Types of Learning
+```{r fig.width=14, fig.height=7, echo=FALSE}
+library(png)
+library(grid)
+img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/figure/MachineLearningOverview.png")
+ grid.raster(img)
+```
+
+--- .class #id
+
 ## A bit of context around ML
 ```{r fig.width=14, fig.height=7, echo=FALSE}
 library(png)
@@ -176,17 +186,12 @@ img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-tre
 
 --- .class #id
 
-## Associative rule learning
-* Discovery of interesting relations between variables in large databases. It is intended to identify strong rules discovered in databases using different measures of interestingness
-
-* Apriori algorithm, which supports pruning of candidate rules to systematically control the exponential growth that occurs with this approach
-
-* The algorithm finds subsets which are common with at least a minimum number of X of the itemsets and checks the frequent subsets and extends them one item at a time to find candidate rules which are then tested against the data
-
-* Uses of association analysis
-  * Sales patterns (Promotions vs. Sales, Direct Marketing / Geographical, Seasonal Differences)
-  * Cross-selling
-  * Extend it with time aspects to do longitudinal / sequential pattern analysis
+```{r fig.width=16, fig.height=8, echo=FALSE}
+library(png)
+library(grid)
+img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/figure/AssociativeRuleAprioriAlgo.png")
+ grid.raster(img)
+```
 
 --- .class #id
 
@@ -660,6 +665,17 @@ table(affairs.df.test$hadaffair)
 library(png)
 library(grid)
 img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/figure/DangerMachineLearning.png")
+ grid.raster(img)
+```
+
+
+--- .class #id
+
+## Extramarital Dataset
+```{r fig.width=14, fig.height=7, echo=FALSE}
+library(png)
+library(grid)
+img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/figure/affairsDatasetOverview.png")
  grid.raster(img)
 ```
 
