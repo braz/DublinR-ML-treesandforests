@@ -91,24 +91,41 @@ img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-tre
  grid.raster(img)
 ```
 
---- &twocol
+--- .class #id
 
 ## Interpreting A Confusion Matrix
 
-*** left
-
-```{r fig.width=7, fig.height=7, echo=FALSE}
+```{r confusionmatrixintp, fig.width=14, fig.height=7, echo=FALSE}
 library(png)
 library(grid)
-img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/figure/ConfusionMatrix101Explanation.png")
+img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/figure/ConfusionMatrix101ExplanationSimple.png")
  grid.raster(img)
 ```
 
-*** right
+--- .class #id
 
-  * TPR or True Positive Rate = TP / Pos = TP/TP+FN
-  * FPR or False Positive Rate = FP / Neg = FP/FP+TN
-  * ACC or Accuracy = Pos * TPR + Neg * (1-FPR), This is the weighted average of true positive and true negative rates
+## Interpreting A Confusion Matrix Example
+
+```{r confusionmatrixexample, fig.width=14, fig.height=7, echo=FALSE}
+library(png)
+library(grid)
+img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/figure/ConfusionMatrix101ExplanationSimpleExample.png")
+ grid.raster(img)
+```
+
+
+--- .class #id
+
+## Confusion Matrix - Calculations
+
+```{r confusionmatrix102, fig.width=14, fig.height=7, echo=FALSE}
+library(png)
+library(grid)
+img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/figure/ConfusionMatrix102.png")
+ grid.raster(img)
+```
+
+
 
 --- &twocol
 ## Interpreting A ROC Plot
@@ -127,6 +144,19 @@ img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-tre
   - A point in this plot is better than another if it is to the northwest (TPR higher / FPR lower / or both)
   - ``Conservatives'' - on LHS and near the X-axis - only make positive classification with strong evidence and making few FP errors but low TP rates
   - ``Liberals'' - on upper RHS - make positive classifications with weak evidence so nearly all positives identified however high FP rates
+
+
+--- .class #id
+
+## ROC Dangers
+
+```{r rocdangers, fig.width=14, fig.height=7, echo=FALSE}
+library(png)
+library(grid)
+img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/figure/BewareOfROCAlone.png")
+ grid.raster(img)
+```
+
 
 --- &twocol
 

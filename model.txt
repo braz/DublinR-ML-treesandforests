@@ -1,0 +1,12 @@
+model
+{
+            for (i in 1:8) {
+            Y[i] ~ dnorm(mu[i],prec)
+            mu[i] <- alpha + beta*Treat[i]
+            }
+	    alpha ~ dnorm(mean.alpha,prec.alpha)
+   beta ~ dnorm(mean.beta,prec.beta)
+            Sd ~ dunif(prec.1, prec.2)
+            prec <- 1/pow(Sd,2)
+            Sigma <- 1/prec
+    }
