@@ -72,7 +72,17 @@ rpartProbs <- predict(rpartTune, testing, type = "prob")
 rpartROC <- roc(testing$Class, rpartProbs[, "PS"], levels = rev(testing$Class))
 plot(rpartROC, type = "S", print.thres = .5)
 
+rpartPrediction <- prediction(testing$Class, rpartProbs[, "PS"]);
+
+
 # A single tree can be influenced heavily by minor changes in the data, however ensemble methods can be used to fit and predict several trees then aggregate these results back across the trees. The three types of ensemble methods are bagging, boosting and random forests.
 
 prp(rpartTune$finalModel)				# Will plot the tree
 fancyRpartPlot(rpartTune$finalModel)
+
+# A simple lift graph 
+testResults <- c()
+testResults$rpartProbs <- rpartProbs[,"PS"]
+testResults$rpartClass <- predict(rpartTune, testing)
+labelforResults <- c(rpartProbs = "Tuned Tree")
+xyplot(lift(rpartClass ~ rpartProbs, data=testResults, labels=labelforResults))

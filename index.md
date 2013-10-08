@@ -271,6 +271,13 @@ mode        : selfcontained # {standalone, draft}
 ![plot of chunk unnamed-chunk-24](figure/unnamed-chunk-24.png) 
 
 
+--- .class #id
+
+## Cancer Research Screening Dataset - Part 5
+![plot of chunk liftchartcancer](figure/liftchartcancer.png) 
+
+
+
 
 --- &twocol
 ## What are they good for ?

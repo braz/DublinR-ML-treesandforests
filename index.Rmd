@@ -384,6 +384,17 @@ img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-tre
  grid.raster(img)
 ```
 
+--- .class #id
+
+## Cancer Research Screening Dataset - Part 5
+```{r liftchartcancer, fig.width=14, fig.height=7, echo=FALSE}
+library(png)
+library(grid)
+img <- readPNG("/Users/eoinbrazil/Desktop/DublinR/TreesAndForests/DublinR-ML-treesandforests/figure/LiftChartImageDataset.png")
+ grid.raster(img)
+```
+
+
 
 --- &twocol
 ## What are they good for ?
